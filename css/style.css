@@ -388,17 +388,6 @@ body {
   border-color: var(--gold-light);
 }
 
-.project-card-empty {
-  opacity: 0.6;
-  cursor: default;
-}
-
-.project-card-empty:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: var(--blush-light);
-}
-
 .project-card h3 {
   font-family: 'Noto Serif SC', serif;
   font-size: 20px;
@@ -758,6 +747,64 @@ body {
     height: 36px;
     font-size: 20px;
   }
+}
+
+/* ===== Back to Top ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 99;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-light);
+  background: rgba(255, 250, 245, 0.9);
+  color: var(--gold-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--gold);
+  color: #fff;
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+/* ===== Nav Active State ===== */
+.nav-links a.active {
+  color: var(--gold-dark);
+  font-weight: 500;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ===== Avatar Pulse ===== */
+@keyframes avatarGlow {
+  0%, 100% { box-shadow: 0 4px 24px rgba(60, 47, 47, 0.08); }
+  50% { box-shadow: 0 4px 32px rgba(201, 169, 110, 0.25); }
+}
+
+.avatar-placeholder {
+  animation: avatarGlow 4s ease-in-out infinite;
 }
 
 /* ===== Fade-in Animation ===== */
