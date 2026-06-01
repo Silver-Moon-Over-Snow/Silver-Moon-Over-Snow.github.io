@@ -21,7 +21,7 @@ const observer = new IntersectionObserver(
   { threshold: 0.15 }
 );
 
-document.querySelectorAll('.skill-card, .project-card, .about-content, .contact-card').forEach((el) => {
+document.querySelectorAll('.skill-card, .project-card, .about-content, .contact-card, .timeline-card').forEach((el) => {
   el.classList.add('fade-in');
   observer.observe(el);
 });
