@@ -39,7 +39,7 @@ tags: [高等代数, 张量, 线性泛函, 双线性型, Obsidian]
 
 线性代数考虑的自变量不局限在数集中，可以是一般的线性空间，这时，如果映射是线性的，就得到一个线性泛函。
 
-**定义9.1.** (V ; F)为线性空间，称f : V $\to$ F为线性泛函(linear functional)，1若
+**定义9.1.** (V ; F)为线性空间，称$f : V \to \mathbb{F}$为线性泛函(linear functional)，1若
 
 $$
 f(\lambda a + \mu b) = \lambda f(a) + \mu f(b),\forall a, b \in V, \lambda, \mu \in F.
@@ -53,7 +53,7 @@ $$
 f(a) = a^1 \times 1 + a^2 \times 2 + a^3 \times 3 = (a, b)
 $$
 
-构成了一个线性泛函，这里a = (a<sup>1</sup>, a<sup>2</sup>, a<sup>3</sup>)$^\mathsf{T}$ ∈$\mathbb{R}^3$.
+构成了一个线性泛函，这里a = (a<sup>1</sup>, a<sup>2</sup>, a<sup>3</sup>)$^\mathsf{T} \in \mathbb{R}^3$.
 
 本章有些指标用上标表示，例如这里a的坐标，原因和规则后面解释。一般而言，对于内积中的两个变量，前一个向量的坐标用上标，后一个用下标。3
 
@@ -81,7 +81,7 @@ V 上所有线性泛函构成集合L(V ; F).在L(V ; F)上定义
 
 在V = $\mathbb{R}^n$中由于线性性的要求，线性泛函必表示为(b<sub>1</sub>, · · ·, b<sub>n</sub> $\in \mathbb{R}$):
 
-f(a) = b<sub>1</sub>a<sup>1</sup> + · · · + b<sub>n</sub>a<sup>n</sup>,∀a = (a<sup>1</sup>, · · ·, a<sup>n</sup>)$^\mathsf{T}$ ∈$\mathbb{R}^n$.
+f(a) = b<sub>1</sub>a<sup>1</sup> + · · · + b<sub>n</sub>a<sup>n</sup>,∀a = (a<sup>1</sup>, · · ·, a<sup>n</sup>)$^\mathsf{T} \in \mathbb{R}^n$.
 
 注意到$\mathbb{R}^n$中有自然定义的内积（构成欧氏空间E<sup>n</sup>）结构，视b = (b<sub>1</sub>, · · ·, b<sub>n</sub>)$^\mathsf{T}$为一个向量，上述泛函可表示为内积或向量相乘：
 
@@ -93,9 +93,9 @@ $$
 
 从定义出发，有以下一些结论：
 
-1. ∀b ∈$\mathbb{R}^n$,则f(a) = (a, b)定义了一个线性泛函；
+1. ∀b $\in \mathbb{R}^n$,则f(a) = (a, b)定义了一个线性泛函；
 
-2. ∀f ∈$(\mathbb{R}^n)^{*}$, ∃b ∈$\mathbb{R}^n$,使得f(a) = (a, b);
+2. ∀f $\in (\mathbb{R}^n)^{*}$, ∃b $\in \mathbb{R}^n$,使得f(a) = (a, b);
 
 3. 上述从$(\mathbb{R}^n)^{*}$到$\mathbb{R}^n$的对应是1-1的；
 
@@ -156,7 +156,7 @@ $$
 h = \sigma _\lambda b+\mu c,
 $$
 
-则∀a ∈$\mathbb{R}^n$,
+则∀a $\in \mathbb{R}^n$,
 
 $$
 h(a)= (a, \lambda b + \mu c)
@@ -172,7 +172,7 @@ $$
 
 即σ保线性。
 
-上述结论归纳起来，就是通过内积给出了同构$(\mathbb{R}^n)^{*}$∼= $\mathbb{R}^n$.
+上述结论归纳起来，就是通过内积给出了同构$(\mathbb{R}^n)^{*} \sim$= $\mathbb{R}^n$.
 
 在内积空间，结论类似。由于n维实内积空间V 与Rn同构，前者内积为(·, ·),而后者内积标记为(·, ·)<sub>R</sub>.于是坐标向量的内积就是
 
@@ -211,7 +211,7 @@ $$
 (a, b) = (x, y)_R.
 $$
 
-定理9.1 (里兹(Riesz)表示定理). V 为实内积空间，∀f ∈$V^{*}$, ∃唯一b ∈V,成立
+定理9.1 (里兹(Riesz)表示定理). V 为实内积空间，∀f $\in V^{*}$, ∃唯一b ∈V,成立
 
 $$
 f(a) = (a, b),\forall a \in V.
@@ -251,15 +251,15 @@ $$
 
 从而b −c = 0.故定理中的b唯一。■
 
-与$\mathbb{R}^n$一样，内积空间中b \mapstof的映射也是1-1的且保线性，这就是说$V^{*}$∼= V.其实
+与$\mathbb{R}^n$一样，内积空间中b \mapstof的映射也是1-1的且保线性，这就是说$V^{*} \sim$= V.其实
 
 $$
 V \cong \mathbb{R}^n \cong (\mathbb{R}^n)^{*}\cong V^{*}.
 $$
 
-容易知道：∀f ∈$V^{*}$成立f(a) = 0的充要条件是a = 0<sub>V</sub> ;若∀a ∈V 成立f(a) = 0,则称f为零泛函，就是0<sub>V ∗</sub>.
+容易知道：∀f $\in V^{*}$成立f(a) = 0的充要条件是a = 0<sub>V</sub> ;若∀a ∈V 成立f(a) = 0,则称f为零泛函，就是0<sub>V ∗</sub>.
 
-尽管V ∗与V 同构，一般而言它们之间是有区别的，这在V 作为内积空间上看不出来，因为内积的一个性质就是对称性，实内积空间V ∼= $V^{*}$.以下自然地给出b ∈$V^{*}$的另一组基，就可以很方便地看出区别。<sup>6</sup>
+尽管V ∗与V 同构，一般而言它们之间是有区别的，这在V 作为内积空间上看不出来，因为内积的一个性质就是对称性，实内积空间V ∼= $V^{*}$.以下自然地给出b $\in V^{*}$的另一组基，就可以很方便地看出区别。<sup>6</sup>
 
 里兹表示定理中用到了标准正交基下的度量阵为单位阵。对于一般的基向量，如果取
 
@@ -618,7 +618,7 @@ $$
 
 称{ε<sup>1</sup>, · · ·, ε<sup>n</sup>}为{ε<sub>1</sub>, · · ·, ε<sub>n</sub>}的一组对偶基(dual basis).
 
-对偶基的性质ε<sup>i</sup>(ε<sub>j</sub>) = δ<sup>i</sup> <sub>j</sub>表明，用V 中的基可以探明$V^{*}$中的泛函：∀f ∈ $V^{*}$,
+对偶基的性质ε<sup>i</sup>(ε<sub>j</sub>) = δ<sup>i</sup> <sub>j</sub>表明，用V 中的基可以探明$V^{*}$中的泛函：∀f $\in V^{*}$,
 
 $$
 f = f(\varepsilon _1)\varepsilon ^1 + \cdots + f(\varepsilon _n)\varepsilon ^n;
@@ -630,7 +630,7 @@ $$
 a = \varepsilon ^1(a)\varepsilon _1 + \cdots + \varepsilon ^n(a)\varepsilon _n.
 $$
 
-后者也称为广义傅里叶分解。而其基础在于：由上述表达式看出a = 0<sub>V</sub> 的充要条件是∀f ∈$V^{*}$成立f(a) = 0;而根据定义f = 0<sub>V ∗</sub>的充要条件是∀a ∈ V 成立f(a) = 0.
+后者也称为广义傅里叶分解。而其基础在于：由上述表达式看出a = 0<sub>V</sub> 的充要条件是∀f $\in V^{*}$成立f(a) = 0;而根据定义f = 0<sub>V ∗</sub>的充要条件是∀a ∈ V 成立f(a) = 0.
 
 向量与线性泛函分别在基和对偶基下分解后，若记坐标向量为x = (x<sup>1</sup>, · · ·, x<sup>n</sup>)$^\mathsf{T}$, y = (y<sub>1</sub>, · · ·, y<sub>n</sub>)$^\mathsf{T}$,则取值为
 
@@ -863,13 +863,13 @@ $$
 \tau : V \to V^{*}∗,
 $$
 
-对于给定的a ∈V,a<sup>∗∗</sup>= τ<sub>a</sub> ∈V<sup>∗∗</sup>定义为:∀f ∈$V^{*}$,
+对于给定的a ∈V,a<sup>∗∗</sup>= τ<sub>a</sub> ∈V<sup>∗∗</sup>定义为:∀f $\in V^{*}$,
 
 $$
 a^{*}∗(f) = f(a).
 $$
 
-首先，τ是单射。这是因为∀a ≠  ˜a,即a −˜a ≠  0,那么∃f ∈$V^{*}$, 使得
+首先，τ是单射。这是因为∀a ≠  ˜a,即a −˜a ≠  0,那么∃f $\in V^{*}$, 使得
 
 $$
 f(a -\tilde a) \neq 0,
@@ -930,7 +930,7 @@ $$
  = a^{*}∗(f).
 $$
 
-此外，τ保线性，从上面已经看到∀λ, µ $\in \mathbb{R}$, a, ˜a ∈V, f ∈$V^{*}$,
+此外，τ保线性，从上面已经看到∀λ, µ $\in \mathbb{R}$, a, ˜a ∈V, f $\in V^{*}$,
 
 $$
 \tau _\lambda a+\mu \tilde a(f)= f(\lambda a + \mu \tilde a)
@@ -950,7 +950,7 @@ $$
 
 线性泛函对于每个向量给出一个数值，双线性型则对（在同一个空间里）每两个向量给出一个数值。
 
-**定义9.2.** V 为F上的n维线性空间，若f : V × V $\to$ F关于两个元都线性，即
+**定义9.2.** V 为F上的n维线性空间，若$f : V \times V \to \mathbb{F}$关于两个元都线性，即
 
 $$
 f(\lambda a + \mu \tilde a, b)= \lambda f(a, b) + \mu f(\tilde a, b),
@@ -961,9 +961,9 @@ $$
 
 **例9.6.** 内积空间V 上的内积f(a, b) = (a, b)为双线性型。
 
-**例9.7.** 若g, h ∈$V^{*}$,定义f(a, b) = g(a)h(b)为双线性型。<sup>10</sup>
+**例9.7.** 若g, h $\in V^{*}$,定义f(a, b) = g(a)h(b)为双线性型。<sup>10</sup>
 
-**例9.8.** A为n阶方阵，∀a, b ∈$\mathbb{R}^n$,定义f(a, b) = a$^\mathsf{T}$Ab给出了一个双线性型。
+**例9.8.** A为n阶方阵，∀a, b $\in \mathbb{R}^n$,定义f(a, b) = a$^\mathsf{T}$Ab给出了一个双线性型。
 
 > 注10：这就是下一节中的 g ⊗ h.
 
@@ -1036,7 +1036,7 @@ $$
 \psi ^pq = \varepsilon ^p ⊗\varepsilon ^q,
 $$
 
-而用这些双线性型张成的线性空间（即上面所有的f）自然地就记为$V^{*}$⊗ $V^{*}$,这样
+而用这些双线性型张成的线性空间（即上面所有的f）自然地就记为$V^{*}$$\otimes V^{*}$,这样
 
 $$
 L(V \times V, \mathbb{R}) = V^{*}⊗V^{*}.
@@ -1329,7 +1329,7 @@ $$
 
 **例9.10.** p = 1时，线性泛函是张量的特例；p = 2且V<sub>1</sub> = V<sub>2</sub>时，双线性型是张量的特例。
 
-**例9.11.** V<sub>1</sub>, · · ·, V<sub>p</sub>为实线性空间，f<sub></sub><sup>1</sup> ∈$V^{*}$<sub>1</sub>, · · ·, f<sup>p</sup> ∈$V^{*}$<sub>p</sub>,按以下方式定义张量积f = f<sub></sub><sup>1</sup> ⊗· · · ⊗f<sub></sub><sup>p</sup>:
+**例9.11.** V<sub>1</sub>, · · ·, V<sub>p</sub>为实线性空间，f<sub></sub><sup>1</sup> $\in V^{*}$<sub>1</sub>, · · ·, f<sup>p</sup> $\in V^{*}$<sub>p</sub>,按以下方式定义张量积f = f<sub></sub><sup>1</sup> ⊗· · · ⊗f<sub></sub><sup>p</sup>:
 
 f(v<sub>1</sub>, · · ·, v<sub>p</sub>) = f<sub></sub><sup>1</sup>(v<sub>1</sub>) · · · f<sub></sub><sup>p</sup>(v<sub>p</sub>),∀v<sub>1</sub> ∈V<sub>1</sub>, · · ·, v<sub>p</sub> ∈V<sub>p</sub>.
 
@@ -1349,7 +1349,7 @@ $$
 e^j1_1 ⊗\cdots ⊗ejp_p, 1 ≤j_k ≤n_k, 1 ≤k ≤p,
 $$
 
-⃝ ⃝构成$V^{*}$<sub>1</sub> ⊗· · · ⊗$V^{*}$<sub>p</sub> 的一组基。
+⃝ ⃝构成$V^{*}$<sub>1</sub> ⊗· · · $\otimes V^{*}$<sub>p</sub> 的一组基。
 
 从表象上说，对于这里的每一个张量，如果给它的牌子是V<sub>1</sub>, · · ·, V<sub>p</sub>中依次各选一个基向量，共有n<sub>1</sub> · · · n<sub>p</sub> 种取法。当且仅当这套牌子恰好是e<sup>⃝</sup><sub>j1</sub>, · · ·, e<sup>⃝</sup>1 <sub>jp</sub>时取值为1，否则一定得0.由此可见，这些牌子是相互“独立”p的，也就是线性无关的。
 
@@ -1601,7 +1601,7 @@ $$
 \tilde \eta ^1(u) = u^1,\tilde \zeta ^1(v) = v^1.
 $$
 
-于是，$U^{*}$⊗$V^{*}$就由这样的6个张量积表示出来的基张出来。
+于是，$U^{*}$$\otimes V^{*}$就由这样的6个张量积表示出来的基张出来。
 
 回到一般的情形。如果给定一组线性空间V<sub>1</sub>, · · ·, V<sub>p</sub>,它们各自的对偶空间$V^{*}$<sub>1</sub>, · · ·, $V^{*}$<sub>p</sub> 也是线性空间，且不改变维数；那么从这些对偶空间出发，
 
@@ -1625,7 +1625,7 @@ $$
 
 构成V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>的一组基。
 
-值得注意的是，从上面的定义和例子可以看出，V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>并不只包含形如v<sub>1</sub> ⊗· · · ⊗v<sub>p</sub> 的元素（容易验证v<sub>1</sub> ⊗· · · ⊗v<sub>p</sub> ∈V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>,即为($V^{*}$<sub>1</sub>, · · ·, $V^{*}$<sub>p</sub> )上的张量）。例如$\mathbb{R}^2$ ⊗$\mathbb{R}^2$ 包含所有二阶方阵，而v<sub>1</sub> ⊗v<sub>2</sub> 仅能表示秩1的二阶方阵和零方阵。
+值得注意的是，从上面的定义和例子可以看出，V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>并不只包含形如v<sub>1</sub> ⊗· · · ⊗v<sub>p</sub> 的元素（容易验证v<sub>1</sub> ⊗· · · ⊗v<sub>p</sub> ∈V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>,即为($V^{*}$<sub>1</sub>, · · ·, $V^{*}$<sub>p</sub> )上的张量）。例如$\mathbb{R}^2 \otimes \mathbb{R}^2$ 包含所有二阶方阵，而v<sub>1</sub> ⊗v<sub>2</sub> 仅能表示秩1的二阶方阵和零方阵。
 
 然而下述二者却是可以等同的。以上面的二阶例子来说：dim U = 2, dim V = 3.这里
 
@@ -1688,7 +1688,7 @@ $$
 
 一般情形下的定理及证明如下。
 
-**定理9.4.** ∀f ∈$V^{*}$<sub>1</sub> ⊗· · · ⊗$V^{*}$<sub>p</sub>, ∃唯一张量T ∈(V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>)<sup>∗</sup>,成立
+**定理9.4.** ∀f $\in V^{*}$<sub>1</sub> ⊗· · · $\otimes V^{*}$<sub>p</sub>, ∃唯一张量T ∈(V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>)<sup>∗</sup>,成立
 
 $$
 f(v_1, \cdots, v_p) = T (v_1 ⊗\cdots ⊗v_p), \forall v_i \in V_i, 1 ≤i ≤p.
@@ -1750,7 +1750,7 @@ $$
 
 更一般地，可考虑张量f的变量分别在V<sub>1</sub>, · · ·, V<sub>r</sub>, $V^{*}$ <sub>r+1</sub>, · · ·, $V^{*}$<sub>p</sub> 中，即p张牌子中前r个是向量，后p −r 个是泛函。
 
-**定义9.6.** f ∈$V^{*}$<sub>1</sub> ⊗· · · $V^{*}$<sub>r</sub> ⊗V<sub>r+1</sub> ⊗· · · ⊗V<sub>p</sub>称为关于V<sub>1</sub>, · · ·, V<sub>r</sub>协变、关于V<sub>r+1</sub>, · · ·, V<sub>p</sub> 逆变的(r, p−r)型张量。特别的，f ∈$V^{*}$ <sub>1</sub> ⊗· · ·⊗$V^{*}$<sub>p</sub> 为p 阶协变（covariant）张量；f ∈V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>为p阶逆变（contravariant）张量。
+**定义9.6.** f $\in V^{*}$<sub>1</sub> ⊗· · · $V^{*}$<sub>r</sub> ⊗V<sub>r+1</sub> ⊗· · · ⊗V<sub>p</sub>称为关于V<sub>1</sub>, · · ·, V<sub>r</sub>协变、关于V<sub>r+1</sub>, · · ·, V<sub>p</sub> 逆变的(r, p−r)型张量。特别的，f $\in V^{*}$ <sub>1</sub> ⊗· · ·$\otimes V^{*}$<sub>p</sub> 为p 阶协变（covariant）张量；f ∈V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>为p阶逆变（contravariant）张量。
 
 逆变和协变的叫法可以通过坐标如何跟着基变化来解释。以一阶张量为例，如果取V 的基{e<sub>1</sub>, · · ·, e<sub>n</sub>}时f(在对偶基{e<sup>1</sup>, · · ·, e<sup>n</sup>} 下)的坐标表示为
 
@@ -1795,9 +1795,9 @@ $$
 
 在数学上，协变、逆变也有直接的应用。
 
-**定理9.5.** $U^{*}$⊗V ∼= L(U, V ).
+**定理9.5.** $U^{*} \otimes$V ∼= L(U, V ).
 
-仍以前面的dim U = 2, dim V = 3为例解释。若f ∈$U^{*}$⊗V 为关于(U, V )的(1,1)张量。∀u = u<sup>1</sup>η<sub>1</sub>+u<sup>2</sup>η<sub>2</sub> ∈U, g = g<sub>1</sub>ζ<sup>1</sup>+g<sub>2</sub>ζ<sup>2</sup>+g<sub>3</sub>ζ<sup>3</sup> ∈$V^{*}$,由于f为线性泛函，一定可表示为
+仍以前面的dim U = 2, dim V = 3为例解释。若f $\in U^{*} \otimes$V 为关于(U, V )的(1,1)张量。∀u = u<sup>1</sup>η<sub>1</sub>+u<sup>2</sup>η<sub>2</sub> ∈U, g = g<sub>1</sub>ζ<sup>1</sup>+g<sub>2</sub>ζ<sup>2</sup>+g<sub>3</sub>ζ<sup>3</sup> $\in V^{*}$,由于f为线性泛函，一定可表示为
 
 $$
 f(u, g) = t^1_1u^1g_1 + t^2_1u^1g_2 + t^3_1u^1g_3 + t^1_2u^2g_1 + t^2_2u^2g_2 + t^3_2u^2g_3,
@@ -1843,9 +1843,9 @@ g<sub>1</sub>(t<sup>1</sup><sub>1</sub>u<sup>1</sup> + t<sup>1</sup><sub>2</sub>
 
 T 和f均由6个系数t<sup>1</sup> <sub>1</sub>, t<sup>2</sup><sub>1</sub>, t<sup>3</sup><sub>1</sub>, t<sup>1</sup><sub>2</sub>, t<sup>2</sup><sub>2</sub>, t<sup>3</sup><sub>2</sub>唯一确定，于是相互之间可以构造1- 1映射；该映射保持线性，故为同构。
 
-上述结论可以进一步推广为：(p, 1)阶张量f ∈$V^{*}$    <sub>1</sub> ⊗· · · ⊗$V^{*}$<sub>p</sub> ⊗V 唯一决定一个V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub> $\to$ V 的线性映射。
+上述结论可以进一步推广为：(p, 1)阶张量f $\in V^{*}$    <sub>1</sub> ⊗· · · $\otimes V^{*}$<sub>p</sub> ⊗V 唯一决定一个V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub> $\to$ V 的线性映射。
 
-**定理9.6.** $V^{*}$<sub>1</sub> ⊗· · · ⊗$V^{*}$<sub>p</sub> ⊗V ∼= L(V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>, V ).
+**定理9.6.** $V^{*}$<sub>1</sub> ⊗· · · $\otimes V^{*}$<sub>p</sub> ⊗V ∼= L(V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>, V ).
 
 这里的线性映射不再表示为一个矩阵，而是用下标的方式记为(t<sup>j</sup>    <sub>j1···jp</sub>),而
 
@@ -2009,7 +2009,7 @@ $$
 
 采用这样的记号系统，讨论基变换后张量的坐标如何改变。
 
-考虑一个(2, 1)型张量f ∈$U^{*}$⊗$V^{*}$⊗W,若U, V, W基依次取为
+考虑一个(2, 1)型张量f $\in U^{*}$$\otimes V^{*}$W,若U, V, W基依次取为
 
 {ξ<sub>1</sub>, · · ·, ξ<sub>p</sub>}; {η<sub>1</sub>, · · ·, η<sub>q</sub>}; {ζ<sub>1</sub>, · · ·, ζ<sub>r</sub>},
 
@@ -2077,7 +2077,7 @@ $$
 
 即张量f本身是不变的。
 
-特别地，从一个公共的线性空间V 出发，V 的一组基取为{e<sub>1</sub>, · · ·, e<sub>n</sub>},对偶基{e<sup>1</sup>, · · ·, e<sup>n</sup>}.考虑(2, 1)-型张量f ∈$V^{*}$⊗$V^{*}$⊗V. 对于u = x<sup>i</sup>e<sub>i</sub>, v = y<sup>j</sup>e<sub>j</sub> ∈V, g = z<sub>k</sub>e<sup>k</sup> ∈$V^{*}$,有
+特别地，从一个公共的线性空间V 出发，V 的一组基取为{e<sub>1</sub>, · · ·, e<sub>n</sub>},对偶基{e<sup>1</sup>, · · ·, e<sup>n</sup>}.考虑(2, 1)-型张量f $\in V^{*}$$\otimes V^{*}$V. 对于u = x<sup>i</sup>e<sub>i</sub>, v = y<sup>j</sup>e<sub>j</sub> ∈V, g = z<sub>k</sub>e<sup>k</sup> $\in V^{*}$,有
 
 $$
 f(u, v, g) = f^{\mathsf{T}}k_ijx^iy^jz_k,
@@ -2236,9 +2236,9 @@ $$
 G(a, b) = g_ija^ib^j,
 $$
 
-从而G ∈$V^{*}$⊗$V^{*}$.类似地，G<sup>−1</sup> = (g<sup>ij</sup>) ∈V ⊗V.因此，也称度量阵为度量张量。
+从而G $\in V^{*}$$\otimes V^{*}$.类似地，G<sup>−1</sup> = (g<sup>ij</sup>) ∈V ⊗V.因此，也称度量阵为度量张量。
 
-张量的加法和数乘前面已定义，而且，如$V^{*}$⊗$V^{*}$⊗V 在这样的加法和数乘下本身构成了一个线性空间。
+张量的加法和数乘前面已定义，而且，如$V^{*}$$\otimes V^{*}$V 在这样的加法和数乘下本身构成了一个线性空间。
 
 对于两个张量，譬如
 
@@ -2260,9 +2260,9 @@ $$
 
 > 注15：以下变量之间用分号隔开V 中向量和V ∗中的泛函。
 
-其中∀u, v, w ∈V, x, y, z ∈$V^{*}$.
+其中∀u, v, w ∈V, x, y, z $\in V^{*}$.
 
-容易看出，f ⊗g 仍然保持多线性性质，这使它成为张量，而且是在张量空间$V^{*}$⊗$V^{*}$⊗$V^{*}$⊗V ⊗V ⊗V 中。<sup>16</sup>
+容易看出，f ⊗g 仍然保持多线性性质，这使它成为张量，而且是在张量空间$V^{*}$$\otimes V^{*}$$\otimes V^{*}$V ⊗V ⊗V 中。<sup>16</sup>
 
 进一步有
 
@@ -2274,7 +2274,7 @@ $$
 (f ⊗g)^kqr_ijp = f^ k_ijg^qr_p.
 $$
 
-对于f ∈$V^{*}$⊗$V^{*}$⊗$V^{*}$⊗V ⊗V,选定两个数字如2和1,在f的自变量中，固定其中相应序号为2的向量为e<sub>j</sub>,以及序号为1的泛函为ej 并求和，得到的张量称为f 按逆变2-指标和协变1-指标的卷积，记为
+对于f $\in V^{*}$$\otimes V^{*}$$\otimes V^{*}$V ⊗V,选定两个数字如2和1,在f的自变量中，固定其中相应序号为2的向量为e<sub>j</sub>,以及序号为1的泛函为ej 并求和，得到的张量称为f 按逆变2-指标和协变1-指标的卷积，记为
 
 $$
 tr^1_2(f) \in V^{*}⊗V^{*}⊗V,
@@ -2304,7 +2304,7 @@ $$
 tr^1_1A = A^ℓ_ℓ.
 $$
 
-张量如f ∈$V^{*}$⊗$V^{*}$⊗V, g ∈$V^{*}$⊗V ⊗V 的点积定义为
+张量如f $\in V^{*}$$\otimes V^{*}$V, g $\in V^{*} \otimes$V ⊗V 的点积定义为
 
 $$
 f \cdot g=tr^1_3(f ⊗g)
@@ -2324,7 +2324,7 @@ $$
 
 > 注16：这个张量空间包含所有形如f ⊗g这样的张量，以及它们的线性组合。
 
-以下讨论3阶协变张量f ∈$V^{*}$⊗$V^{*}$⊗$V^{*}$.如上所述，f的定义为
+以下讨论3阶协变张量f $\in V^{*}$$\otimes V^{*}$$\otimes V^{*}$.如上所述，f的定义为
 
 $$
 f(u, v, w) = f_ijku^iv^jw^k,
@@ -2380,7 +2380,7 @@ $$
 
 按照τ<sub>π</sub> = ±1可把所有排列分成两个子集，它们之间相差一个对换。
 
-称Asym(f) ≡ (1/3!) ∑ τ<sub>π</sub> f ◦ π 为f ∈ $V^{*}$⊗$V^{*}$⊗$V^{*}$ 的交错化张量，其中π取遍所有排列。
+称Asym(f) ≡ (1/3!) ∑ τ<sub>π</sub> f ◦ π 为f $\in V^{*}$$\otimes V^{*}$$\otimes V^{*}$ 的交错化张量，其中π取遍所有排列。
 
 容易验证，交错化张量反对称。
 
