@@ -123,7 +123,7 @@ function buildSection(id, heading, content){
 }
 
 // Main fetch & render
-fetch('../notes/tensor-ch9.md')
+fetch('tensor-ch9-content.md')
   .then(function(r){ if(!r.ok) throw Error('not found'); return r.text(); })
   .then(function(md){
     // strip frontmatter
