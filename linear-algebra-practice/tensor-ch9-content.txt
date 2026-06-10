@@ -39,7 +39,7 @@ tags: [高等代数, 张量, 线性泛函, 双线性型, Obsidian]
 
 线性代数考虑的自变量不局限在数集中，可以是一般的线性空间，这时，如果映射是线性的，就得到一个线性泛函。
 
-**定义9.1.** (V ; F)为线性空间，称$f : V \to \mathbb{F}$为线性泛函(linear functional)，1若
+**定义9.1.** $(V ; F)$为线性空间，称$f : V \to \mathbb{F}$为线性泛函(linear functional)，1若
 
 $$
 f(\lambda a + \mu b) = \lambda f(a) + \mu f(b),\forall a, b \in V, \lambda, \mu \in F.
@@ -47,13 +47,13 @@ $$
 
 跟之前类似，本章仅讨论实线性泛函($\mathbb{F} = \mathbb{R}$).
 
-**例9.1.** 在V = $\mathbb{R}^3$中，任取一个向量，如b = (1, 2, 3)$^\mathsf{T}$,<sup>2</sup>定义函数
+**例9.1.** 在V = $\mathbb{R}^3$中，任取一个向量，如$b = (1, 2, 3)^\mathsf{T}$,<sup>2</sup>定义函数
 
 $$
 f(a) = a^1 \times 1 + a^2 \times 2 + a^3 \times 3 = (a, b)
 $$
 
-构成了一个线性泛函，这里a = (a<sup>1</sup>, a<sup>2</sup>, a<sup>3</sup>)$^\mathsf{T} \in \mathbb{R}^3$.
+构成了一个线性泛函，这里$a = (a^{1}, a^{2}, a^{3})^\mathsf{T} \in \mathbb{R}^3$.
 
 本章有些指标用上标表示，例如这里a的坐标，原因和规则后面解释。一般而言，对于内积中的两个变量，前一个向量的坐标用上标，后一个用下标。3
 
@@ -69,11 +69,11 @@ $$
 
 与迹不同，虽然行列式的值也是数，但det(A)涉及矩阵里元素的乘法，一般而言det(A + B) $\ne$  det(A) + det(B),不是线性泛函。
 
-V 上所有线性泛函构成集合L(V; \mathbb{F}).在L(V; \mathbb{F})上定义
+V 上所有线性泛函构成集合$L(V; \mathbb{F})$.在$L(V; \mathbb{F})$上定义
 
 λf + µg : (λf + µg)(a) = λf(a) + µg(a),$\forall f, g \in L(V; \mathbb{F}), \forall a \in V,$
 
-则L(V; \mathbb{F}) 构成线性空间。特别地，若dim V 有限，称L(V; \mathbb{F}) = $V^{*}$为V 的对偶空间。5
+则$L(V; \mathbb{F})$ 构成线性空间。特别地，若dim V 有限，称$L(V; \mathbb{F})$ = $V^{*}$为V 的对偶空间。5
 
 线性泛函最简单的例子是过原点的直线y = kx,而$V^{*}$就是除了y-轴以外所有这样的直线构成的空间，也就对应着k $\in \mathbb{R}$.
 
@@ -83,7 +83,7 @@ V 上所有线性泛函构成集合L(V; \mathbb{F}).在L(V; \mathbb{F})上定义
 
 f(a) = b<sub>1</sub>a<sup>1</sup> + · · · + b<sub>n</sub>a<sup>n</sup>,$\forall a = (a^{1}, \cdots, a^{n}) ^\mathsf{T} \in \mathbb{R}^n$.
 
-注意到$\mathbb{R}^n$中有自然定义的内积（构成欧氏空间E<sup>n</sup>）结构，视b = (b<sub>1</sub>, · · ·, b<sub>n</sub>)$^\mathsf{T}$为一个向量，上述泛函可表示为内积或向量相乘：
+注意到$\mathbb{R}^n$中有自然定义的内积（构成欧氏空间E<sup>n</sup>）结构，视$b = (b_{1}, · · ·, b_{n})^\mathsf{T}$为一个向量，上述泛函可表示为内积或向量相乘：
 
 $$
 f(a) = (a, b) = a^Tb = b^Ta.
@@ -113,7 +113,7 @@ $$
 
 > 注5：无穷维赋范线性空间中，对偶空间定义为所有有界线性泛函构成的空间：而有限维空间上的线性泛函总是有界的。
 
-这里{e<sub>1</sub>, · · ·, e<sub>n</sub>}为自然基。再令b = (b<sub>1</sub>, · · ·, b<sub>n</sub>)$^\mathsf{T}$,由f的线性性
+这里{e<sub>1</sub>, · · ·, e<sub>n</sub>}为自然基。再令$b = (b_{1}, · · ·, b_{n})^\mathsf{T}$,由f的线性性
 
 $$
 f(a)= f(a^1e_1 + \cdots + a^ne_n)
@@ -257,7 +257,7 @@ $$
 V \cong \mathbb{R}^n \cong (\mathbb{R}^n)^{*}\cong V^{*}.
 $$
 
-容易知道：$\forall f \in V^{*}$成立f(a) = 0的充要条件是a = 0<sub>V</sub> ;若$\forall$a $\in$V 成立f(a) = 0,则称f为零泛函，就是0<sub>V $\ast$</sub>.
+容易知道：$\forall f \in V^{*}$成立f(a) = 0的充要条件是a = 0<sub>V</sub> ;若$\forall$a $\in$V 成立f(a) = 0,则称f为零泛函，就是$0_{V^\ast}$.
 
 尽管V $\ast$与V 同构，一般而言它们之间是有区别的，这在V 作为内积空间上看不出来，因为内积的一个性质就是对称性，实内积空间V $\sim$= $V^{*}$.以下自然地给出b $\in V^{*}$的另一组基，就可以很方便地看出区别。<sup>6</sup>
 
@@ -391,7 +391,7 @@ $$
 
 **例9.4.** $\mathbb{R}^3$中取自然基{e<sub>1</sub>, e<sub>2</sub>, e<sub>3</sub>}.
 
-1. 计算对偶基；若向量a在自然基下坐标为x = (1, 2, 3)$^\mathsf{T}$，对偶基下某线性泛函f的坐标向量为y = (2, 3, 4)$^\mathsf{T}$, 求f(a).
+1. 计算对偶基；若向量a在自然基下坐标为$x = (1, 2, 3)^\mathsf{T}$，对偶基下某线性泛函f的坐标向量为$y = (2, 3, 4)^\mathsf{T}$, 求f(a).
 
 2. 若另选一组基
 
@@ -630,9 +630,9 @@ $$
 a = \varepsilon ^1(a)\varepsilon _1 + \cdots + \varepsilon ^n(a)\varepsilon _n.
 $$
 
-后者也称为广义傅里叶分解。而其基础在于：由上述表达式看出a = 0<sub>V</sub> 的充要条件是$\forall f \in V^{*}$成立f(a) = 0;而根据定义f = 0<sub>V $\ast$</sub>的充要条件是$\forall$a $\in$ V 成立f(a) = 0.
+后者也称为广义傅里叶分解。而其基础在于：由上述表达式看出a = 0<sub>V</sub> 的充要条件是$\forall f \in V^{*}$成立f(a) = 0;而根据定义f = $0_{V^\ast}$的充要条件是$\forall$a $\in$ V 成立f(a) = 0.
 
-向量与线性泛函分别在基和对偶基下分解后，若记坐标向量为x = (x<sup>1</sup>, · · ·, x<sup>n</sup>)$^\mathsf{T}$, y = (y<sub>1</sub>, · · ·, y<sub>n</sub>)$^\mathsf{T}$,则取值为
+向量与线性泛函分别在基和对偶基下分解后，若记坐标向量为$x = (x^{1}, · · ·, x^{n})^\mathsf{T}$, $y = (y_{1}, · · ·, y_{n})^\mathsf{T}$,则取值为
 
 $$
 f(a) = (x, y)_R = x^iy_i,
@@ -971,7 +971,7 @@ $$
 
 **例9.9.** 对a, b $\in$V = $\mathbb{R}^2$,定义f(a, b) = det (a|b),构成了一个双线性型。
 
-跟之前一样，考虑所有V 上的双线性型构成的集合L(V $\times$ V, R).在V 上取定一组基{e<sub>1</sub>, · · ·, e<sub>n</sub>}, 对于任一双线性型f,由于$\forall a, b \in V,$可用坐标表示为a = x<sup>1</sup>e<sub>1</sub> + · · · + x<sup>n</sup>e<sub>n</sub>,b = y<sup>1</sup>e<sub>1</sub> + · · · + y<sup>n</sup>e<sub>n</sub>.
+跟之前一样，考虑所有V 上的双线性型构成的集合$L(V \times V, \mathbb{R})$.在V 上取定一组基{e<sub>1</sub>, · · ·, e<sub>n</sub>}, 对于任一双线性型f,由于$\forall a, b \in V,$可用坐标表示为a = x<sup>1</sup>e<sub>1</sub> + · · · + x<sup>n</sup>e<sub>n</sub>,b = y<sup>1</sup>e<sub>1</sub> + · · · + y<sup>n</sup>e<sub>n</sub>.
 
 再记矩阵（按照行标在上、列标在下的记号）
 
@@ -1016,7 +1016,7 @@ $$
 f = a_pq\psi ^pq;
 $$
 
-另一方面，容易知道这些双线性型线性无关。于是，{$\psi$<sup>pq</sup>|p, q = 1, · · ·, n}构成L(V $\times$ V, R)的一组基。
+另一方面，容易知道这些双线性型线性无关。于是，{$\psi$<sup>pq</sup>|p, q = 1, · · ·, n}构成$L(V \times V, \mathbb{R})$的一组基。
 
 此外，利用对偶基的概念，上面的定义就是
 
@@ -1063,7 +1063,7 @@ $$
 A = T^{\mathsf{T}}AT.\tilde
 $$
 
-因此基变换前后的度量阵相合。转置在这里表现为$\ell$的求和中，在t<sup>$\ell$</sup>    <sub>i</sub>, a<sup>$\ell$</sup><sub>m</sub>中都是上标，而f($\varepsilon$<sub>i</sub>, $\varepsilon$<sub>j</sub>)作为度量阵为$\tilde{a}$<sup>i</sup> <sub>j</sub>, 其中i为上标，与上述求和之后i落在下标，上下反了。若考虑($\Theta$) = T<sub></sub>$^\mathsf{T}$,其$\theta$<sup>i</sup> <sub>$\ell$</sub>= t<sup>$\ell$</sup><sub>i</sub>,有
+因此基变换前后的度量阵相合。转置在这里表现为$\ell$的求和中，在t<sup>$\ell$</sup>    <sub>i</sub>, a<sup>$\ell$</sup><sub>m</sub>中都是上标，而f($\varepsilon$<sub>i</sub>, $\varepsilon$<sub>j</sub>)作为度量阵为$\tilde{a}$<sup>i</sup> <sub>j</sub>, 其中i为上标，与上述求和之后i落在下标，上下反了。若考虑($\Theta$) = T$^\mathsf{T}$,其$\theta$<sup>i</sup> <sub>$\ell$</sub>= t<sup>$\ell$</sup><sub>i</sub>,有
 
 $$
 \tilde a^i_j = \theta ^i_ℓt^m_j a^ℓ_m,
@@ -1129,7 +1129,7 @@ $$
 T AT^{\mathsf{T}} = diag(I_p, -I_m, O).
 $$
 
-取V 的基($\varepsilon$<sub>1</sub>, · · ·, $\varepsilon$<sub>n</sub>) = (e<sub>1</sub>, · · ·, e<sub>n</sub>)T<sub></sub>$^\mathsf{T}$,则在这组基下f的矩阵表示为
+取V 的基($\varepsilon$<sub>1</sub>, · · ·, $\varepsilon$<sub>n</sub>) = (e<sub>1</sub>, · · ·, e<sub>n</sub>)T$^\mathsf{T}$,则在这组基下f的矩阵表示为
 
 $$
 A = (T^{\mathsf{T}})^TAT^{\mathsf{T}} = diag(I_p, -I_m, O).\tilde
@@ -1329,9 +1329,9 @@ $$
 
 **例9.10.** p = 1时，线性泛函是张量的特例；p = 2且V<sub>1</sub> = V<sub>2</sub>时，双线性型是张量的特例。
 
-**例9.11.** V<sub>1</sub>, · · ·, V<sub>p</sub>为实线性空间，f<sub></sub><sup>1</sup> $\in V^{*}$<sub>1</sub>, · · ·, f<sup>p</sup> $\in V^{*}$<sub>p</sub>,按以下方式定义张量积f = f<sub></sub><sup>1</sup> $\otimes$· · · $\otimes$f<sub></sub><sup>p</sup>:
+**例9.11.** V<sub>1</sub>, · · ·, V<sub>p</sub>为实线性空间，f<sup>1</sup> $\in V^{*}$<sub>1</sub>, · · ·, f<sup>p</sup> $\in V^{*}$<sub>p</sub>,按以下方式定义张量积f = f<sup>1</sup> $\otimes$· · · $\otimes$f<sup>p</sup>:
 
-f(v<sub>1</sub>, · · ·, v<sub>p</sub>) = f<sub></sub><sup>1</sup>(v<sub>1</sub>) · · · f<sub></sub><sup>p</sup>(v<sub>p</sub>),$\forall v_{1} \in V_{1}, \cdots, v_{p} \in V_{p}.$
+f(v<sub>1</sub>, · · ·, v<sub>p</sub>) = f<sup>1</sup>(v<sub>1</sub>) · · · f<sup>p</sup>(v<sub>p</sub>),$\forall v_{1} \in V_{1}, \cdots, v_{p} \in V_{p}.$
 
 则f是V<sub>1</sub>, · · ·, V<sub>p</sub>上的多线性泛函。
 
@@ -1764,7 +1764,7 @@ $$
 f(e_i) = f_i.
 $$
 
-将V 的基伸长，譬如变为{2e<sub>1</sub>, e<sub>2</sub>, · · ·, e<sub>n</sub>},则新的对偶基{<sub></sub><sup>1</sup> <sub>2</sub>e<sup>1</sup>, · · ·, e<sup>n</sup>}下有
+将V 的基伸长，譬如变为{2e<sub>1</sub>, e<sub>2</sub>, · · ·, e<sub>n</sub>},则新的对偶基{<sup>1</sup> <sub>2</sub>e<sup>1</sup>, · · ·, e<sup>n</sup>}下有
 
 $$
 (1)
@@ -1795,7 +1795,7 @@ $$
 
 在数学上，协变、逆变也有直接的应用。
 
-**定理9.5.** $U^{*} \otimes$V $\sim$= L(U, V ).
+**定理9.5.** $U^{*} \otimes$V $\sim$= $L(U, V )$.
 
 仍以前面的dim U = 2, dim V = 3为例解释。若f $\in U^{*} \otimes$V 为关于(U, V )的(1,1)张量。$\forall u = u^{1}η_{1}+u^{2}η_{2} \in U, g = g_{1}ζ^{1}+g_{2}ζ^{2}+g_{3}ζ^{3} \in V^{*}$,由于f为线性泛函，一定可表示为
 
@@ -1845,7 +1845,7 @@ T 和f均由6个系数t<sup>1</sup> <sub>1</sub>, t<sup>2</sup><sub>1</sub>, t<s
 
 上述结论可以进一步推广为：(p, 1)阶张量f $\in V^{*}$    <sub>1</sub> $\otimes$· · · $\otimes V^{*}$<sub>p</sub> $\otimes$V 唯一决定一个V<sub>1</sub> $\otimes$· · · $\otimes$V<sub>p</sub> $\to$ V 的线性映射。
 
-**定理9.6.** $V^{*}$<sub>1</sub> $\otimes$· · · $\otimes V^{*}$<sub>p</sub> $\otimes$V $\sim$= L(V<sub>1</sub> $\otimes$· · · $\otimes$V<sub>p</sub>, V ).
+**定理9.6.** $V^{*}$<sub>1</sub> $\otimes$· · · $\otimes V^{*}$<sub>p</sub> $\otimes$V $\sim$= $L(V_{1} \otimes \cdots \otimes V_{p}, V)$.
 
 这里的线性映射不再表示为一个矩阵，而是用下标的方式记为(t<sup>j</sup>    <sub>j1···jp</sub>),而
 
@@ -1861,7 +1861,7 @@ $$
 
 2. 关于在表达式中上下标各出现一次的指标求和，其余指标不改变上下位置。
 
-依照这样的规则，线性变换T $\in$L(U, V )的矩阵表示记为(t<sup>i</sup>    <sub>j</sub>)是合适的，这时有向量的映射
+依照这样的规则，线性变换T $\in$$L(U, V )$的矩阵表示记为(t<sup>i</sup>    <sub>j</sub>)是合适的，这时有向量的映射
 
 $$
 v^i = t^i_ju^j.
@@ -1903,7 +1903,7 @@ T^{-1} = T = (\tau ^{\mathsf{T}}i
  _j)_3\times 3.
 $$
 
-这就是说，$\tau$<sub></sub><sup>i</sup><sub>$\ell$</sub>t<sup>$\ell$</sup><sub>j</sub> = t<sup>i</sup><sub>$\ell$</sub>$\tau$<sup>$\ell$</sup><sub>j</sub> = $\delta$<sup>i</sup><sub>j</sub>, TT = T T = I.
+这就是说，$\tau$<sup>i</sup><sub>$\ell$</sub>t<sup>$\ell$</sup><sub>j</sub> = t<sup>i</sup><sub>$\ell$</sub>$\tau$<sup>$\ell$</sup><sub>j</sub> = $\delta$<sup>i</sup><sub>j</sub>, TT = T T = I.
 
 根据向量不变，       $\tilde{x}$<sup>1</sup>    x<sup>1</sup>       
 
@@ -1932,7 +1932,7 @@ $$
 \tilde x^it^k_i = x^k, 列式即T \tilde x = x.
 $$
 
-两边作用$\tau$<sub></sub><sup>s</sup><sub>k</sub>得13
+两边作用$\tau$<sup>s</sup><sub>k</sub>得13
 
 $$
 \tilde x^k = x^k\tau ^{\mathsf{T}}s
@@ -1973,7 +1973,7 @@ $$
 = \tilde e^it^m_i, e^3 \tilde e^3
 $$
 
-再作用$\tau$<sub></sub><sup>k</sup><sub>m</sub>得   
+再作用$\tau$<sup>k</sup><sub>m</sub>得   
 
 $$
 e^m\tau ^{\mathsf{T}}k= \tilde e^it^m_i \tau ^ k \tilde e^1 e^1
@@ -1985,7 +1985,7 @@ $$
 
 > 注13：因为与式子中上标k相同，实际上是对每一个k作用，之后关于k求和。
 
-矩阵向量表示如果写成行，就是(e<sup>1</sup>, e<sup>2</sup>, e<sup>3</sup>) = ($\tilde{e}$<sup>1</sup>, $\tilde{e}$<sup>2</sup>, $\tilde{e}$<sup>3</sup>)T<sub></sub>$^\mathsf{T}$,($\tilde{e}$<sup>1</sup>, $\tilde{e}$<sup>2</sup>, $\tilde{e}$<sup>3</sup>) = (e<sup>1</sup>, e<sup>2</sup>, e<sup>3</sup>)T<sup>-T</sup>.
+矩阵向量表示如果写成行，就是(e<sup>1</sup>, e<sup>2</sup>, e<sup>3</sup>) = ($\tilde{e}$<sup>1</sup>, $\tilde{e}$<sup>2</sup>, $\tilde{e}$<sup>3</sup>)T$^\mathsf{T}$,($\tilde{e}$<sup>1</sup>, $\tilde{e}$<sup>2</sup>, $\tilde{e}$<sup>3</sup>) = (e<sup>1</sup>, e<sup>2</sup>, e<sup>3</sup>)T<sup>-T</sup>.
 
 有意思的是，在爱因斯坦约定下，只要知道了用的是逆矩阵T,上下标只能这么写才能正确地去留。利用这一点，由于泛函f 在对偶基下的变换跟对偶基的变换又差一个求逆，于是泛函的坐标变换表达式要通过T 的分量联系坐标$\tilde{y}$<sub>i</sub>与y<sub>j</sub>, 按照这样的规则只能是
 
@@ -2047,7 +2047,7 @@ $$
 
 <sub>k</sub>,
 
-而张量坐标为$\tilde{f}$<sub></sub>k<sub>$\tilde{i}$$\tilde{j}$</sub>a<sup>$\tilde{i}$</sup>$\tilde{k}$$\tilde{j}$<sub>j</sub>$\gamma$<sup>k</sup>
+而张量坐标为$\tilde{f}$k<sub>$\tilde{i}$$\tilde{j}$</sub>a<sup>$\tilde{i}$</sup>$\tilde{k}$$\tilde{j}$<sub>j</sub>$\gamma$<sup>k</sup>
 
 $$
 _ij = f_ib_\tilde k,
@@ -2266,7 +2266,7 @@ $$
 
 进一步有
 
-f $\otimes$g = f<sub></sub><sup>k</sup><sub>ij</sub>g<sup>qr</sup><sub>p</sub> e<sup>i</sup> $\otimes$e<sup>j</sup> $\otimes$e<sup>p</sup> $\otimes$e<sub>k</sub> $\otimes$e<sub>q</sub> $\otimes$e<sub>r</sub>,
+f $\otimes$g = f<sup>k</sup><sub>ij</sub>g<sup>qr</sup><sub>p</sub> e<sup>i</sup> $\otimes$e<sup>j</sup> $\otimes$e<sup>p</sup> $\otimes$e<sub>k</sub> $\otimes$e<sub>q</sub> $\otimes$e<sub>r</sub>,
 
 这就给出了张量积的坐标
 
@@ -2488,7 +2488,7 @@ $$
 \varepsilon _1 = (1, 0, 0)^T, \varepsilon _2 = (1, 1, 0)^T, \varepsilon _3 = (1, 1, 1)^T,
 $$
 
-向量a在这组基下坐标向量为x = (1, 2, 3)$^\mathsf{T}$;计算对偶基，若此对偶基下某线性泛函f的坐标向量为y = (2, 3, 4)$^\mathsf{T}$, 求f(a).另选一组基
+向量a在这组基下坐标向量为$x = (1, 2, 3)^\mathsf{T}$;计算对偶基，若此对偶基下某线性泛函f的坐标向量为$y = (2, 3, 4)^\mathsf{T}$, 求f(a).另选一组基
 
 $$
 \tilde \varepsilon _1 = (0, 0, 1)^T, \tilde \varepsilon _2 = (0, 1, 1)^T, \tilde \varepsilon _3 = (1, 0, 1)^T,
@@ -2524,4 +2524,4 @@ f([1, 0, 0]$^\mathsf{T}$, [1, 1, 1]$^\mathsf{T}$) = 3;f([1, 0, 0]$^\mathsf{T}$, 
 
 8. 在n维内积空间V 上，求证：双线性型f(a, b)为对称的，当且仅当V 有一组标准正交基，使f(a, b)的度量阵为对角阵。
 
-9. 求证n维内积空间V 上有同构L(V $\times$ V, R) = $\mathbb{R}^{n \times n}$.
+9. 求证n维内积空间V 上有同构$L(V \times V, \mathbb{R})$ = $\mathbb{R}^{n \times n}$.
