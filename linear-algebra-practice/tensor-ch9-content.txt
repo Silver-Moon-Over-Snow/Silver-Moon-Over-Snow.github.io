@@ -23,7 +23,7 @@ tags: [高等代数, 张量, 线性泛函, 双线性型, Obsidian]
 
 如果对于线性空间给定的任意两个向量定义一个数值，且关于这两个向量都有线性性，那么这就是一个双线性型。在空间取定一组基后，双线性型就对应于一个度量阵，且双线性型的对称性、正定性、奇异性与度量阵的这些性质一一对应；特别的，当约束两个向量变量相等，双线性型就退化为二次型。
 
-向量、双线性型、泛函是不变的，空间中的基变则向量坐标变、对偶基变、泛函在对偶基下的坐标变、表达双线性型的矩阵变、张量的各分量变。理解这段内容，一是回到如R3 这样的具体有直观的例子中；二是通过推到多项式函数空间中理解其一般性。
+向量、双线性型、泛函是不变的，空间中的基变则向量坐标变、对偶基变、泛函在对偶基下的坐标变、表达双线性型的矩阵变、张量的各分量变。理解这段内容，一是回到如$\mathbb{R}^{3}$ 这样的具体有直观的例子中；二是通过推到多项式函数空间中理解其一般性。
 
 张量的讨论离不开相应的记号。规定了空间中基、向量坐标、对偶基、泛函坐标，以及过渡阵和变换阵的上下标写法，并引入爱因斯坦约定（每一对相同的上下标为哑标，自动关于哑标在其取值范围内求和），张量的逆变、协变以及升降指标、张量积、点积等，就都很自然且简单了。张量作为多线性泛函可以形象地理解为一个翻牌子的函数，一个牌子（变量）若在向量空间中，张量关于它就相当于一个泛函的角色，是协变的；若一个
 
@@ -35,7 +35,7 @@ tags: [高等代数, 张量, 线性泛函, 双线性型, Obsidian]
 
 ## 9.1 线性泛函
 
-函数是数集到数集的映射；如果像集在实数集里，称为（实）函数，如果在复数集里就称为复（变）函数；如果自变量在Rn里，就称为n元函数；如果因变量在Rn里，就称为向量值函数（如函数的梯度）。
+函数是数集到数集的映射；如果像集在实数集里，称为（实）函数，如果在复数集里就称为复（变）函数；如果自变量在$\mathbb{R}^{n}$里，就称为n元函数；如果因变量在$\mathbb{R}^{n}$里，就称为向量值函数（如函数的梯度）。
 
 线性代数考虑的自变量不局限在数集中，可以是一般的线性空间，这时，如果映射是线性的，就得到一个线性泛函。
 
@@ -63,11 +63,11 @@ $$
 
 > 注3：由于内积有对称性，偶尔混用上下标时意义也是清楚的。
 
-**例9.2.** 在V = P<sub>3</sub>[x]中任一个多项式p([x]) = a<sup>3</sup>[x]<sup>3</sup> + a<sup>2</sup>[x]<sup>2</sup> + a<sup>1</sup>[x] + a<sup>0</sup>,定义 f(p([x])) = a<sup>3</sup> = (1/3!)·(d<sup>3</sup>p/d[x]<sup>3</sup>)(0) 为线性泛函。4
+**例9.2.** 在V = P<sub>3</sub>[x]中任一个多项式p([x]) = a<sup>3</sup>[x]<sup>3</sup> + a<sup>2</sup>[x]<sup>2</sup> + a<sup>1</sup>[x] + a<sup>0</sup>,定义 f(p([x])) = a<sup>3</sup> = (1/3!)$\cdot$(d<sup>3</sup>p/d[x]<sup>3</sup>)(0) 为线性泛函。4
 
-**例9.3.** 对A ∈V = $\mathbb{R}^{n \times n}$,定义f(A) = tr(A)，构成了一个线性泛函。
+**例9.3.** 对A $\in$V = $\mathbb{R}^{n \times n}$,定义f(A) = tr(A)，构成了一个线性泛函。
 
-与迹不同，虽然行列式的值也是数，但det(A)涉及矩阵里元素的乘法，一般而言det(A + B) ≠  det(A) + det(B),不是线性泛函。
+与迹不同，虽然行列式的值也是数，但det(A)涉及矩阵里元素的乘法，一般而言det(A + B) $\ne$  det(A) + det(B),不是线性泛函。
 
 V 上所有线性泛函构成集合L(V; \mathbb{F}).在L(V; \mathbb{F})上定义
 
@@ -129,15 +129,15 @@ $$
  b \mapsto \sigma _b.
 $$
 
-一方面，显然b给出f = σ<sub>b</sub>定义了确定的线性泛函
+一方面，显然b给出f = $\sigma$<sub>b</sub>定义了确定的线性泛函
 
 $$
 f(a) = (a, b),
 $$
 
-因此另一个线性泛函g ≠  f,必∃i<sup>∗</sup>, g(e<sup>∗</sup>) ≠  f(e<sup>∗</sup>) = b<sub>i∗</sub>,从而g ≠  σ<sub>b</sub>.
+因此另一个线性泛函g $\ne$  f,必$\exists$i<sup>$\ast$</sup>, g(e<sup>$\ast$</sup>) $\ne$  f(e<sup>$\ast$</sup>) = b<sub>i$\ast$</sub>,从而g $\ne$  $\sigma$<sub>b</sub>.
 
-另一方面，如果b ≠  c,则对于f = σ<sub>b</sub>, g = σ<sub>c</sub>，取a = b −c,
+另一方面，如果b $\ne$  c,则对于f = $\sigma$<sub>b</sub>, g = $\sigma$<sub>c</sub>，取a = b -c,
 
 $$
 f(a) -g(a) = (a, b) -(a, c)
@@ -146,11 +146,11 @@ f(a) -g(a) = (a, b) -(a, c)
  \neq 0.
 $$
 
-故f ≠  g.
+故f $\ne$  g.
 
-综上，映射σ是1-1的。
+综上，映射$\sigma$是1-1的。
 
-第4点：由上面的取法，$\forall λ, µ \in \mathbb{R}$, f = σ<sub>b</sub>, g = σ<sub>c</sub>为线性泛函，记
+第4点：由上面的取法，$\forall λ, µ \in \mathbb{R}$, f = $\sigma$<sub>b</sub>, g = $\sigma$<sub>c</sub>为线性泛函，记
 
 $$
 h = \sigma _\lambda b+\mu c,
@@ -170,17 +170,17 @@ $$
 \sigma _\lambda b+\mu c = \lambda \sigma _b + \mu \sigma _c,
 $$
 
-即σ保线性。
+即$\sigma$保线性。
 
-上述结论归纳起来，就是通过内积给出了同构$(\mathbb{R}^n)^{*}$∼= $\mathbb{R}^n$.
+上述结论归纳起来，就是通过内积给出了同构$(\mathbb{R}^n)^{*}$$\sim$= $\mathbb{R}^n$.
 
-在内积空间，结论类似。由于n维实内积空间V 与Rn同构，前者内积为(·, ·),而后者内积标记为(·, ·)<sub>R</sub>.于是坐标向量的内积就是
+在内积空间，结论类似。由于n维实内积空间V 与$\mathbb{R}^{n}$同构，前者内积为(·, ·),而后者内积标记为(·, ·)<sub>R</sub>.于是坐标向量的内积就是
 
 $$
 (x, y)_R = x^Ty.
 $$
 
-若a, b在基{ε<sub>1</sub>, · · ·, ε<sub>n</sub>}下的坐标分别是x, y,即
+若a, b在基{$\varepsilon$<sub>1</sub>, · · ·, $\varepsilon$<sub>n</sub>}下的坐标分别是x, y,即
 
 $$
 a = [\varepsilon _1, \cdots, \varepsilon _n]x,b = [\varepsilon _1, \cdots, \varepsilon _n]y,
@@ -211,13 +211,13 @@ $$
 (a, b) = (x, y)_R.
 $$
 
-定理9.1 (里兹(Riesz)表示定理). V 为实内积空间，$\forall f \in V^{*}$, ∃唯一b ∈V,成立
+定理9.1 (里兹(Riesz)表示定理). V 为实内积空间，$\forall f \in V^{*}$, $\exists$唯一b $\in$V,成立
 
 $$
 f(a) = (a, b),\forall a \in V.
 $$
 
-证明. 记dim V = n,取V 的一组标准正交基{ε<sub>1</sub>, · · ·, ε<sub>n</sub>}.
+证明. 记dim V = n,取V 的一组标准正交基{$\varepsilon$<sub>1</sub>, · · ·, $\varepsilon$<sub>n</sub>}.
 
 取
 
@@ -225,7 +225,7 @@ $$
 y_i = f(\varepsilon _i), (i = 1, \cdots, n),
 $$
 
-并定义b = y<sub>1</sub>ε<sub>1</sub> + · · · + y<sub>n</sub>ε<sub>n</sub>.
+并定义b = y<sub>1</sub>$\varepsilon$<sub>1</sub> + · · · + y<sub>n</sub>$\varepsilon$<sub>n</sub>.
 
 $\forall a \in V,$坐标为(x<sup>1</sup>, · · ·, x<sup>n</sup>)：
 
@@ -236,7 +236,7 @@ f(a)= f(x^1\varepsilon _1 + \cdots + x^n\varepsilon _n)
  = (a, b).
 $$
 
-另一方面，若另有c ∈V,也成立f(a) = (a, c).则
+另一方面，若另有c $\in$V,也成立f(a) = (a, c).则
 
 $$
 f(b -c)= (b -c, b)
@@ -249,17 +249,17 @@ $$
 (b -c, b -c) = \|b -c\|^2 = 0,
 $$
 
-从而b −c = 0.故定理中的b唯一。■
+从而b -c = 0.故定理中的b唯一。■
 
-与$\mathbb{R}^n$一样，内积空间中b \mapstof的映射也是1-1的且保线性，这就是说$V^{*}$∼= V.其实
+与$\mathbb{R}^n$一样，内积空间中b \mapstof的映射也是1-1的且保线性，这就是说$V^{*}$$\sim$= V.其实
 
 $$
 V \cong \mathbb{R}^n \cong (\mathbb{R}^n)^{*}\cong V^{*}.
 $$
 
-容易知道：$\forall f \in V^{*}$成立f(a) = 0的充要条件是a = 0<sub>V</sub> ;若∀a ∈V 成立f(a) = 0,则称f为零泛函，就是0<sub>V ∗</sub>.
+容易知道：$\forall f \in V^{*}$成立f(a) = 0的充要条件是a = 0<sub>V</sub> ;若$\forall$a $\in$V 成立f(a) = 0,则称f为零泛函，就是0<sub>V $\ast$</sub>.
 
-尽管V ∗与V 同构，一般而言它们之间是有区别的，这在V 作为内积空间上看不出来，因为内积的一个性质就是对称性，实内积空间V ∼= $V^{*}$.以下自然地给出b $\in V^{*}$的另一组基，就可以很方便地看出区别。<sup>6</sup>
+尽管V $\ast$与V 同构，一般而言它们之间是有区别的，这在V 作为内积空间上看不出来，因为内积的一个性质就是对称性，实内积空间V $\sim$= $V^{*}$.以下自然地给出b $\in V^{*}$的另一组基，就可以很方便地看出区别。<sup>6</sup>
 
 里兹表示定理中用到了标准正交基下的度量阵为单位阵。对于一般的基向量，如果取
 
@@ -280,7 +280,7 @@ $$
 [\varepsilon ^1, \cdots, \varepsilon ^n] = [\varepsilon _1, \cdots, \varepsilon _n]G^{-1}
 $$
 
-展开，其坐标仍为原来的基{ε<sub>1</sub>, · · ·, ε<sub>n</sub>}在给定泛函下的取值(y<sub>1</sub>, · · ·, y<sub>n</sub>)$^\mathsf{T}$.
+展开，其坐标仍为原来的基{$\varepsilon$<sub>1</sub>, · · ·, $\varepsilon$<sub>n</sub>}在给定泛函下的取值(y<sub>1</sub>, · · ·, y<sub>n</sub>)$^\mathsf{T}$.
 
 直接计算：
 
@@ -299,7 +299,7 @@ $$
 = G G^{-1} = I_n.
 $$
 
-> 注6：如果视(·, b)为一个泛函，它属于V ∗,简称为b ∈V ∗(此时约定内积中第二个向量即余向量);但实际上b当然也是V 中的向量。严格地说,b ∈V 而(·, b) ∈V ∗,但在内积空间中这样区分它们并没有太大意义，所以会说：把b视为向量就是V 中的，视为余向量就是V ∗中的。
+> 注6：如果视(·, b)为一个泛函，它属于V $\ast$,简称为b $\in$V $\ast$(此时约定内积中第二个向量即余向量);但实际上b当然也是V 中的向量。严格地说,b $\in$V 而(·, b) $\in$V $\ast$,但在内积空间中这样区分它们并没有太大意义，所以会说：把b视为向量就是V 中的，视为余向量就是V $\ast$中的。
 
 于是
 
@@ -309,7 +309,7 @@ $$
 
 按照分量形式重新证明里兹表示定理。记
 
-a = x<sup>1</sup>ε<sub>1</sub> + · · · + x<sup>n</sup>ε<sub>n</sub>,b = y<sub>1</sub>ε<sup>1</sup> + · · · + y<sub>n</sub>ε<sup>n</sup>,
+a = x<sup>1</sup>$\varepsilon$<sub>1</sub> + · · · + x<sup>n</sup>$\varepsilon$<sub>n</sub>,b = y<sub>1</sub>$\varepsilon$<sup>1</sup> + · · · + y<sub>n</sub>$\varepsilon$<sup>n</sup>,
 
 则
 
@@ -332,13 +332,13 @@ $$
 (\tilde \varepsilon _1, \cdots, \tilde \varepsilon _n) = (\varepsilon _1, \cdots, \varepsilon _n)T,
 $$
 
-这里T = (t<sup>i</sup><sub>j</sub>)<sub>n×n</sub>(行标在上，列标在下)。用爱因斯坦约定（一对上下标相同则作为哑标，在其取值范围内求和）就是
+这里T = (t<sup>i</sup><sub>j</sub>)<sub>n$\times$n</sub>(行标在上，列标在下)。用爱因斯坦约定（一对上下标相同则作为哑标，在其取值范围内求和）就是
 
 $$
 \tilde \varepsilon _j = t^i_j\varepsilon _i.
 $$
 
-如同线性空间一章讨论过的，若变换前后坐标分别为x, ˜x,则
+如同线性空间一章讨论过的，若变换前后坐标分别为x, $\tilde{x}$,则
 
 $$
 a= (\varepsilon _1, \cdots, \varepsilon _n)x
@@ -367,7 +367,7 @@ T^{\mathsf{T}}
 = T^{\mathsf{T}} S,
 $$
 
-因此，S = T<sup>−T</sup>,即对偶空间基变为
+因此，S = T<sup>-T</sup>,即对偶空间基变为
 
 $$
 (\tilde \varepsilon ^1, \cdots, \tilde \varepsilon ^n) = (\varepsilon ^1, \cdots, \varepsilon ^n)T^{-T},
@@ -399,7 +399,7 @@ $$
 \varepsilon _1 = (1, 0, 0)^T, \varepsilon _2 = (1, 1, 0)^T, \varepsilon _3 = (1, 1, 1)^T,
 $$
 
-求a在这组基下的坐标向量˜x;计算这组基的对偶基{ε<sup>1</sup>, ε<sup>2</sup>, ε<sup>3</sup>},以及f新的坐标向量˜y；并验算f(a)不变。
+求a在这组基下的坐标向量$\tilde{x}$;计算这组基的对偶基{$\varepsilon$<sup>1</sup>, $\varepsilon$<sup>2</sup>, $\varepsilon$<sup>3</sup>},以及f新的坐标向量$\tilde{y}$；并验算f(a)不变。
 
 解. 1. 因为自然基是标准正交基，其度量阵为I<sub>n</sub>,故对偶基与自然基相等，即为
 
@@ -419,7 +419,7 @@ $$
 f(a) = (a, b) = 20.
 $$
 
-2. 基{ε<sub>1</sub>, ε<sub>2</sub>, ε<sub>3</sub>}的过渡阵由它们的坐标向量组装而成
+2. 基{$\varepsilon$<sub>1</sub>, $\varepsilon$<sub>2</sub>, $\varepsilon$<sub>3</sub>}的过渡阵由它们的坐标向量组装而成
 
 $$
 T = \begin{pmatrix}
@@ -463,14 +463,14 @@ $$
  (\varepsilon _3, \varepsilon ^1) = (1, 1, 1)\varepsilon ^1 = 0,
 $$
 
-解出ε<sup>1</sup> = (1, −1, 0)$^\mathsf{T}$;类似地，从
+解出$\varepsilon$<sup>1</sup> = (1, -1, 0)$^\mathsf{T}$;类似地，从
 
 $$
 (1, 0, 0)\varepsilon ^2 = 0, (1, 1, 0)\varepsilon ^2 = 1, (1, 1, 1)\varepsilon ^2 = 0,
  (1, 0, 0)\varepsilon ^3 = 0, (1, 1, 0)\varepsilon ^3 = 0, (1, 1, 1)\varepsilon ^3 = 1
 $$
 
-分别解出ε<sup>2</sup> = (0, 1, −1)$^\mathsf{T}$, ε<sup>3</sup> = (0, 0, 1)$^\mathsf{T}$.
+分别解出$\varepsilon$<sup>2</sup> = (0, 1, -1)$^\mathsf{T}$, $\varepsilon$<sup>3</sup> = (0, 0, 1)$^\mathsf{T}$.
 
 其实，把它们排成矩阵就是
 
@@ -518,7 +518,7 @@ f(a) = (\xi, \eta)_{\mathbb{R}}
 = 20.
 $$
 
-在上面的计算中，也可以通过计算{ε<sub>1</sub>, ε<sub>2</sub>, ε<sub>3</sub>}的度量阵
+在上面的计算中，也可以通过计算{$\varepsilon$<sub>1</sub>, $\varepsilon$<sub>2</sub>, $\varepsilon$<sub>3</sub>}的度量阵
 
 $$
 G = \begin{pmatrix}
@@ -564,13 +564,13 @@ $$
 = [\varepsilon^1, \varepsilon^2, \varepsilon^3].
 $$
 
-此外，ξ也可由a分别与ε<sup>1</sup>, ε<sup>2</sup>, ε<sup>3</sup>作内积得到其各个分量；η也可由b分别与ε<sub>1</sub>, ε<sub>2</sub>, ε<sub>3</sub>作内积得到其各个分量。
+此外，$\xi$也可由a分别与$\varepsilon$<sup>1</sup>, $\varepsilon$<sup>2</sup>, $\varepsilon$<sup>3</sup>作内积得到其各个分量；$\eta$也可由b分别与$\varepsilon$<sub>1</sub>, $\varepsilon$<sub>2</sub>, $\varepsilon$<sub>3</sub>作内积得到其各个分量。
 
 最后，讨论一般（不假定有内积结构）的有限维空间V 上的线性泛函。
 
 断言dim $V^{*}$= dim V.基本的证明思路仍是取$V^{*}$的基，只是不能再用内积空间的语言。
 
-设V 有一组基{ε<sub>1</sub>, · · ·, ε<sub>n</sub>},构造以下一组线性泛函：
+设V 有一组基{$\varepsilon$<sub>1</sub>, · · ·, $\varepsilon$<sub>n</sub>},构造以下一组线性泛函：
 
 $\forall i = 1, \cdots, n, \forall a = x^{1}ε_{1} + \cdots + x^{n}ε_{n} \in V,$定义
 
@@ -584,7 +584,7 @@ $$
 \varepsilon ^i(\varepsilon _j) = \delta ^i_j,j = 1, \cdots, n.
 $$
 
-{ε<sup>1</sup>, · · ·, ε<sup>n</sup>}构成了$V^{*}$的一组基，证明如下。
+{$\varepsilon$<sup>1</sup>, · · ·, $\varepsilon$<sup>n</sup>}构成了$V^{*}$的一组基，证明如下。
 
 1. $\forall f \in V,$记y<sub>i</sub> = f(e<sub>i</sub>),则$\forall a = x^{1}ε_{1} + \cdots + x^{n}ε_{n} \in V$
 
@@ -601,9 +601,9 @@ $$
 f = y_1\varepsilon ^1 + \cdots + y_n\varepsilon ^n,
 $$
 
-即可以由{ε<sup>1</sup>, · · ·, ε<sup>n</sup>}线性表出。∑n
+即可以由{$\varepsilon$<sup>1</sup>, · · ·, $\varepsilon$<sup>n</sup>}线性表出。$\sum$n
 
-2. 设 λ<sub>i</sub>ε<sup>i</sup> = 0,则对j = 1, · · ·, n计算i=1
+2. 设 $\lambda$<sub>i</sub>$\varepsilon$<sup>i</sup> = 0,则对j = 1, · · ·, n计算i=1
 
 $$
 \sum_{i=1}^{n}
@@ -614,23 +614,23 @@ $$
 = \lambda _j.
 $$
 
-这表明{ε<sup>1</sup>, · · ·, ε<sup>n</sup>}线性无关。
+这表明{$\varepsilon$<sup>1</sup>, · · ·, $\varepsilon$<sup>n</sup>}线性无关。
 
-称{ε<sup>1</sup>, · · ·, ε<sup>n</sup>}为{ε<sub>1</sub>, · · ·, ε<sub>n</sub>}的一组对偶基(dual basis).
+称{$\varepsilon$<sup>1</sup>, · · ·, $\varepsilon$<sup>n</sup>}为{$\varepsilon$<sub>1</sub>, · · ·, $\varepsilon$<sub>n</sub>}的一组对偶基(dual basis).
 
-对偶基的性质ε<sup>i</sup>(ε<sub>j</sub>) = δ<sup>i</sup> <sub>j</sub>表明，用V 中的基可以探明$V^{*}$中的泛函：$\forall f \in V^{*}$,
+对偶基的性质$\varepsilon$<sup>i</sup>($\varepsilon$<sub>j</sub>) = $\delta$<sup>i</sup> <sub>j</sub>表明，用V 中的基可以探明$V^{*}$中的泛函：$\forall f \in V^{*}$,
 
 $$
 f = f(\varepsilon _1)\varepsilon ^1 + \cdots + f(\varepsilon _n)\varepsilon ^n;
 $$
 
-而用$V^{*}$中的基可以探明V 中的向量：∀a ∈V,
+而用$V^{*}$中的基可以探明V 中的向量：$\forall$a $\in$V,
 
 $$
 a = \varepsilon ^1(a)\varepsilon _1 + \cdots + \varepsilon ^n(a)\varepsilon _n.
 $$
 
-后者也称为广义傅里叶分解。而其基础在于：由上述表达式看出a = 0<sub>V</sub> 的充要条件是$\forall f \in V^{*}$成立f(a) = 0;而根据定义f = 0<sub>V ∗</sub>的充要条件是∀a ∈ V 成立f(a) = 0.
+后者也称为广义傅里叶分解。而其基础在于：由上述表达式看出a = 0<sub>V</sub> 的充要条件是$\forall f \in V^{*}$成立f(a) = 0;而根据定义f = 0<sub>V $\ast$</sub>的充要条件是$\forall$a $\in$ V 成立f(a) = 0.
 
 向量与线性泛函分别在基和对偶基下分解后，若记坐标向量为x = (x<sup>1</sup>, · · ·, x<sup>n</sup>)$^\mathsf{T}$, y = (y<sub>1</sub>, · · ·, y<sub>n</sub>)$^\mathsf{T}$,则取值为
 
@@ -676,7 +676,7 @@ I_n =
 [\varepsilon^1, \cdots, \varepsilon^n],
 $$
 
-这里矩阵的含义与内积空间中类似，即第(i, j)元为⟨ε<sub>i</sub>, ε<sup>j</sup>⟩.
+这里矩阵的含义与内积空间中类似，即第(i, j)元为$\langle$$\varepsilon$<sub>i</sub>, $\varepsilon$<sup>j</sup>$\rangle$.
 
 变换后仍应有
 
@@ -717,27 +717,27 @@ $$
 
 **例9.5.** 在多项式空间P<sub>n</sub>[x]上，分别求以下两种基的对偶基(以下i, $j \in {0$, · · ·, n})：
 
-1. {ε<sub>0</sub>, · · ·, ε<sub>n</sub>}为一组基，其中ε<sub>j</sub> = [x]<sup>j</sup>；
+1. {$\varepsilon$<sub>0</sub>, · · ·, $\varepsilon$<sub>n</sub>}为一组基，其中$\varepsilon$<sub>j</sub> = [x]<sup>j</sup>；
 
 2. 先取定n + 1个不同的点(x<sub>0</sub>, x<sub>1</sub>, · · ·, x<sub>n</sub>),定义<sup>8</sup>
 
-˜ε<sub>i</sub>([x]) = ([x] −x<sub>0</sub>) · · ·([x] −x<sub>i</sub>) · · · ([x] −x<sub>n</sub>)\
+$\tilde{varepsilon}$<sub>i</sub>([x]) = ([x] -x<sub>0</sub>) · · ·([x] -x<sub>i</sub>) · · · ([x] -x<sub>n</sub>)\
 
 $$
 ,
 $$
 
-(x<sub>i</sub> −x<sub>0</sub>) · · ·(x<sub>i</sub> −x<sub>i</sub>) · · · (x<sub>i</sub> −x<sub>n</sub>)\
+(x<sub>i</sub> -x<sub>0</sub>) · · ·(x<sub>i</sub> -x<sub>i</sub>) · · · (x<sub>i</sub> -x<sub>n</sub>)\
 
-以{˜ε<sub>0</sub>, · · ·, ˜ε<sub>n</sub>}为一组基。
+以{$\tilde{varepsilon}$<sub>0</sub>, · · ·, $\tilde{varepsilon}$<sub>n</sub>}为一组基。
 
-解. 1. 由对偶基的定义，ε<sup>i</sup>([x]<sup>j</sup>) = δ<sup>i</sup> <sub>j</sub>，于是对于任一个多项式
+解. 1. 由对偶基的定义，$\varepsilon$<sup>i</sup>([x]<sup>j</sup>) = $\delta$<sup>i</sup> <sub>j</sub>，于是对于任一个多项式
 
 $$
 p([x]) = a_0 + a_1[x] + \cdots + a_n[x]^n,
 $$
 
-ε<sup>i</sup>(p([x]))= ε<sup>i</sup>(a<sub>0</sub> + a<sub>1</sub>[x] + · · · + a<sub>n</sub>[x]<sup>n</sup>)
+$\varepsilon$<sup>i</sup>(p([x]))= $\varepsilon$<sup>i</sup>(a<sub>0</sub> + a<sub>1</sub>[x] + · · · + a<sub>n</sub>[x]<sup>n</sup>)
 
 $$
 = a_0\varepsilon ^i(1) + a_1\varepsilon ^i([x]) + \cdots + a_n\varepsilon ^i([x]^n)
@@ -746,7 +746,7 @@ $$
  d[x]_i p([0]).
 $$
 
-i!因此，对偶基(ε<sup>0</sup>, · · ·, ε<sup>n</sup>)可用算子形式表示为（因d<sup>i</sup> d[x]<sub>i</sub> 中的i表示幂次，不是指标，因而不关于i求和）
+i!因此，对偶基($\varepsilon$<sup>0</sup>, · · ·, $\varepsilon$<sup>n</sup>)可用算子形式表示为（因d<sup>i</sup> d[x]<sub>i</sub> 中的i表示幂次，不是指标，因而不关于i求和）
 
 $$
 \varepsilon i = 1d^i
@@ -769,7 +769,7 @@ $$
 p(x_i) = y_i.
 $$
 
-再看对偶基{˜ε<sup>0</sup>, · · ·, ˜ε<sup>n</sup>},应满足
+再看对偶基{$\tilde{varepsilon}$<sup>0</sup>, · · ·, $\tilde{varepsilon}$<sup>n</sup>},应满足
 
 $$
 \tilde \varepsilon ^i(\tilde \varepsilon _j([x])) = \delta ^i_j,
@@ -794,7 +794,7 @@ $$
 = ([x] -x_0) \cdots([x] -x_i) \cdots ([x] -x_n)\
 $$
 
-˜ε<sub>i</sub> (x<sub>i</sub> −x<sub>0</sub>) · · ·(x<sub>i</sub> −x<sub>i</sub>) · · · (x<sub>i</sub> −x<sub>n</sub>)\
+$\tilde{varepsilon}$<sub>i</sub> (x<sub>i</sub> -x<sub>0</sub>) · · ·(x<sub>i</sub> -x<sub>i</sub>) · · · (x<sub>i</sub> -x<sub>n</sub>)\
 
 $$
 \sum_{\\sum_{i=1}^{n}}^{(-x_s1) \cdots (-x_sℓ)}
@@ -802,7 +802,7 @@ $$
  =
 $$
 
-(x<sub>i</sub> −x<sub>0</sub>) · · ·(x<sub>i</sub> −x<sub>i</sub>) · · · (x<sub>i</sub> −x<sub>n</sub>)\
+(x<sub>i</sub> -x<sub>0</sub>) · · ·(x<sub>i</sub> -x<sub>i</sub>) · · · (x<sub>i</sub> -x<sub>n</sub>)\
 
 $$
 ℓ=0
@@ -815,7 +815,7 @@ $$
  \cdots
 $$
 
-(x<sub>0</sub> −x<sub>1</sub>) · · · (x<sub>0</sub> −x<sub>n</sub>) (x<sub>0</sub> −x<sub>1</sub>) · · · (x<sub>0</sub> −x<sub>n</sub>)
+(x<sub>0</sub> -x<sub>1</sub>) · · · (x<sub>0</sub> -x<sub>n</sub>) (x<sub>0</sub> -x<sub>1</sub>) · · · (x<sub>0</sub> -x<sub>n</sub>)
 
 $$
 \cdots \cdots
@@ -827,7 +827,7 @@ $$
 \cdots
 $$
 
-(x<sub>n</sub> −x<sub>0</sub>) · · · (x<sub>n</sub> −x<sub>n−1</sub>) (x<sub>n</sub> −x<sub>0</sub>) · · · (x<sub>n</sub> −x<sub>n−1</sub>)
+(x<sub>n</sub> -x<sub>0</sub>) · · · (x<sub>n</sub> -x<sub>n-1</sub>) (x<sub>n</sub> -x<sub>0</sub>) · · · (x<sub>n</sub> -x<sub>n-1</sub>)
 
 再看对偶基的变换：
 
@@ -863,13 +863,13 @@ $$
 \tau : V \to V^{*}∗,
 $$
 
-对于给定的a ∈V,a<sup>∗∗</sup>= τ<sub>a</sub> ∈V<sup>∗∗</sup>定义为:$\forall f \in V^{*}$,
+对于给定的a $\in$V,a<sup>$\ast$$\ast$</sup>= $\tau$<sub>a</sub> $\in$V<sup>$\ast$$\ast$</sup>定义为:$\forall f \in V^{*}$,
 
 $$
 a^{*}∗(f) = f(a).
 $$
 
-首先，τ是单射。这是因为$\forall a \neq  ˜a,即a −˜a \neq  0,那么\exists f \in V^{*}$, 使得
+首先，$\tau$是单射。这是因为$\forall a \neq  ˜a,即a −˜a \neq  0,那么\exists f \in V^{*}$, 使得
 
 $$
 f(a -\tilde a) \neq 0,
@@ -899,7 +899,7 @@ $$
 \tau _a \neq \tau _\tilde a.
 $$
 
-另一方面，τ是满射。事实上，$\forall a^{**} \in V^{**}.$记它在相应于V 中的基{ε<sub>1</sub>, · · ·, ε<sub>n</sub>}的对偶基{ε<sup>1</sup>, · · ·, ε<sup>n</sup>} 上的取值依次为
+另一方面，$\tau$是满射。事实上，$\forall a^{**} \in V^{**}.$记它在相应于V 中的基{$\varepsilon$<sub>1</sub>, · · ·, $\varepsilon$<sub>n</sub>}的对偶基{$\varepsilon$<sup>1</sup>, · · ·, $\varepsilon$<sup>n</sup>} 上的取值依次为
 
 $$
 x^1 = a^{*}∗(\varepsilon ^1), \cdots, x^n = a^{*}∗(\varepsilon ^n),
@@ -911,7 +911,7 @@ $$
 \varepsilon ^1(a) = x^1,\cdots, \varepsilon ^n(a) = x^n.
 $$
 
-> 注9：这并非V 到V ∗∗上唯一的同构，例如a∗∗(f) = f(3a)也定义了一个同构。但同构τ是最自然的。
+> 注9：这并非V 到V $\ast$$\ast$上唯一的同构，例如a$\ast$$\ast$(f) = f(3a)也定义了一个同构。但同构$\tau$是最自然的。
 
 定义
 
@@ -919,7 +919,7 @@ $$
 a = x^i\varepsilon _i,
 $$
 
-那么,∀f = y<sub>j</sub>ε<sup>j</sup>,
+那么,$\forall$f = y<sub>j</sub>$\varepsilon$<sup>j</sup>,
 
 $$
 \tau _a(f)= f(a)
@@ -930,7 +930,7 @@ $$
  = a^{*}∗(f).
 $$
 
-此外，τ保线性，从上面已经看到$\forall λ, µ \in \mathbb{R}$, a, ˜a ∈V, f $\in V^{*}$,
+此外，$\tau$保线性，从上面已经看到$\forall λ, µ \in \mathbb{R}$, a, $\tilde{a}$ $\in$V, f $\in V^{*}$,
 
 $$
 \tau _\lambda a+\mu \tilde a(f)= f(\lambda a + \mu \tilde a)
@@ -944,7 +944,7 @@ $$
 \tau _\lambda a+\mu \tilde a = \lambda \tau _a + \mu \tau _\tilde a.
 $$
 
-这就证明了V 和V ∗∗之间有自然同构。简单地说，对偶空间的对偶空间就是原空间。
+这就证明了V 和V $\ast$$\ast$之间有自然同构。简单地说，对偶空间的对偶空间就是原空间。
 
 ## 9.2 双线性型
 
@@ -965,13 +965,13 @@ $$
 
 **例9.8.** A为n阶方阵，$\forall a, b \in \mathbb{R}^n$,定义f(a, b) = a$^\mathsf{T}$Ab给出了一个双线性型。
 
-> 注10：这就是下一节中的 g ⊗ h.
+> 注10：这就是下一节中的 g $\otimes$ h.
 
 前面说过，矩阵的行列式不是线性泛函，但如果把二阶矩阵看成两个列向量，情况就不同了。
 
-**例9.9.** 对a, b ∈V = $\mathbb{R}^2$,定义f(a, b) = det (a|b),构成了一个双线性型。
+**例9.9.** 对a, b $\in$V = $\mathbb{R}^2$,定义f(a, b) = det (a|b),构成了一个双线性型。
 
-跟之前一样，考虑所有V 上的双线性型构成的集合L(V × V, R).在V 上取定一组基{e<sub>1</sub>, · · ·, e<sub>n</sub>}, 对于任一双线性型f,由于$\forall a, b \in V,$可用坐标表示为a = x<sup>1</sup>e<sub>1</sub> + · · · + x<sup>n</sup>e<sub>n</sub>,b = y<sup>1</sup>e<sub>1</sub> + · · · + y<sup>n</sup>e<sub>n</sub>.
+跟之前一样，考虑所有V 上的双线性型构成的集合L(V $\times$ V, R).在V 上取定一组基{e<sub>1</sub>, · · ·, e<sub>n</sub>}, 对于任一双线性型f,由于$\forall a, b \in V,$可用坐标表示为a = x<sup>1</sup>e<sub>1</sub> + · · · + x<sup>n</sup>e<sub>n</sub>,b = y<sup>1</sup>e<sub>1</sub> + · · · + y<sup>n</sup>e<sub>n</sub>.
 
 再记矩阵（按照行标在上、列标在下的记号）
 
@@ -1016,7 +1016,7 @@ $$
 f = a_pq\psi ^pq;
 $$
 
-另一方面，容易知道这些双线性型线性无关。于是，{ψ<sup>pq</sup>|p, q = 1, · · ·, n}构成L(V × V, R)的一组基。
+另一方面，容易知道这些双线性型线性无关。于是，{$\psi$<sup>pq</sup>|p, q = 1, · · ·, n}构成L(V $\times$ V, R)的一组基。
 
 此外，利用对偶基的概念，上面的定义就是
 
@@ -1063,7 +1063,7 @@ $$
 A = T^{\mathsf{T}}AT.\tilde
 $$
 
-因此基变换前后的度量阵相合。转置在这里表现为ℓ的求和中，在t<sup>ℓ</sup>    <sub>i</sub>, a<sup>ℓ</sup><sub>m</sub>中都是上标，而f(ε<sub>i</sub>, ε<sub>j</sub>)作为度量阵为˜a<sup>i</sup> <sub>j</sub>, 其中i为上标，与上述求和之后i落在下标，上下反了。若考虑(Θ) = T<sub></sub>$^\mathsf{T}$,其θ<sup>i</sup> <sub>ℓ</sub>= t<sup>ℓ</sup><sub>i</sub>,有
+因此基变换前后的度量阵相合。转置在这里表现为$\ell$的求和中，在t<sup>$\ell$</sup>    <sub>i</sub>, a<sup>$\ell$</sup><sub>m</sub>中都是上标，而f($\varepsilon$<sub>i</sub>, $\varepsilon$<sub>j</sub>)作为度量阵为$\tilde{a}$<sup>i</sup> <sub>j</sub>, 其中i为上标，与上述求和之后i落在下标，上下反了。若考虑($\Theta$) = T<sub></sub>$^\mathsf{T}$,其$\theta$<sup>i</sup> <sub>$\ell$</sub>= t<sup>$\ell$</sup><sub>i</sub>,有
 
 $$
 \tilde a^i_j = \theta ^i_ℓt^m_j a^ℓ_m,
@@ -1086,7 +1086,7 @@ $$
 于是
 
 
-⟨ e<sub>1</sub>    ⟩
+$\langle$ e<sub>1</sub>    $\rangle$
 
 $$
 \cdots, [e_1, \cdots, e_n]y
@@ -1096,7 +1096,7 @@ $$
 e<sub>n</sub>    f
 
 
-⟨ e<sub>1</sub>    ⟩
+$\langle$ e<sub>1</sub>    $\rangle$
 
 $$
 \cdots, [e_1, \cdots, e_n]
@@ -1121,15 +1121,15 @@ $$
 
 仍从双线性型的矩阵表示知道，双线性型对称当且仅当度量阵对称；双线性型反对称当且仅当度量阵反对称。
 
-**定理9.2.** 若f为线性空间V 上的对称双线性型，则∃p, m,可选一组基，f在这组基下的度量阵为形如diag(I<sub>p</sub>, −I<sub>m</sub>, O) 的对角阵。
+**定理9.2.** 若f为线性空间V 上的对称双线性型，则$\exists$p, m,可选一组基，f在这组基下的度量阵为形如diag(I<sub>p</sub>, -I<sub>m</sub>, O) 的对角阵。
 
-证明. （法一）设f在某组基{e<sub>1</sub>, · · ·, e<sub>n</sub>}下表示为实对称阵A,由惯性定理A相合于对角阵，即∃T 可逆，
+证明. （法一）设f在某组基{e<sub>1</sub>, · · ·, e<sub>n</sub>}下表示为实对称阵A,由惯性定理A相合于对角阵，即$\exists$T 可逆，
 
 $$
 T AT^{\mathsf{T}} = diag(I_p, -I_m, O).
 $$
 
-取V 的基(ε<sub>1</sub>, · · ·, ε<sub>n</sub>) = (e<sub>1</sub>, · · ·, e<sub>n</sub>)T<sub></sub>$^\mathsf{T}$,则在这组基下f的矩阵表示为
+取V 的基($\varepsilon$<sub>1</sub>, · · ·, $\varepsilon$<sub>n</sub>) = (e<sub>1</sub>, · · ·, e<sub>n</sub>)T<sub></sub>$^\mathsf{T}$,则在这组基下f的矩阵表示为
 
 $$
 A = (T^{\mathsf{T}})^TAT^{\mathsf{T}} = diag(I_p, -I_m, O).\tilde
@@ -1137,15 +1137,15 @@ $$
 
 （法二）用构造性的方法给出定理另一种证明。
 
-若dim V = 1,此时任选一组基e<sub>1</sub>，度量阵A = (a<sup>1</sup>    <sub>1</sub>)本身就是对角√形，若a<sup>1</sup><sub>1</sub> = 0,则定理结论成立；否则取ε<sub>1</sub> = e<sub>1</sub>/    |a<sup>1</sup><sub>1</sub>|,此时f的矩阵表示为(sign(a<sup>1</sup><sub>1</sub>)I<sub>1</sub>).
+若dim V = 1,此时任选一组基e<sub>1</sub>，度量阵A = (a<sup>1</sup>    <sub>1</sub>)本身就是对角$\sqrt$形，若a<sup>1</sup><sub>1</sub> = 0,则定理结论成立；否则取$\varepsilon$<sub>1</sub> = e<sub>1</sub>/    |a<sup>1</sup><sub>1</sub>|,此时f的矩阵表示为(sign(a<sup>1</sup><sub>1</sub>)I<sub>1</sub>).
 
-设dim V = n −1时定理结论成立。考虑dim V = n,∀f 为V 上的双线性型。
+设dim V = n -1时定理结论成立。考虑dim V = n,$\forall$f 为V 上的双线性型。
 
-1. 若$\forall a, b \in V$，成立f(a, b) = 0，则f ≡0,任取一组基，f的度量阵为O<sub>n</sub>.
+1. 若$\forall a, b \in V$，成立f(a, b) = 0，则f $\equiv$0,任取一组基，f的度量阵为O<sub>n</sub>.
 
-2. 若$\exists a, b, f(a, b) \neq  0，断言\exists e_{1} \in V,$成立f(e<sub>1</sub>, e<sub>1</sub>) ≠  0.否则,$\forall e \in V, f(e, e) = 0,$则由对称性和线性性
+2. 若$\exists a, b, f(a, b) \neq  0，断言\exists e_{1} \in V,$成立f(e<sub>1</sub>, e<sub>1</sub>) $\ne$  0.否则,$\forall e \in V, f(e, e) = 0,$则由对称性和线性性
 
-4f(a, b) = f(a + b, a + b) −f(a −b, a −b) = 0,
+4f(a, b) = f(a + b, a + b) -f(a -b, a -b) = 0,
 
 矛盾。取e<sub>1</sub>为V 的一个基向量，并扩充为一组基{e<sub>1</sub>, · · ·, e<sub>n</sub>},令
 
@@ -1155,13 +1155,13 @@ $$
  \varepsilon _i f(e_1, e_1)e1, i = 2, \cdots, n.
 $$
 
-那么，f(ε<sub>1</sub>, ε<sub>i</sub>) = 0, (i = 2, · · ·, n).再考察˜V = span(ε<sub>2</sub>, · · ·, ε<sub>n</sub>),容易验证
+那么，f($\varepsilon$<sub>1</sub>, $\varepsilon$<sub>i</sub>) = 0, (i = 2, · · ·, n).再考察$\tilde{V}$ = span($\varepsilon$<sub>2</sub>, · · ·, $\varepsilon$<sub>n</sub>),容易验证
 
 $$
 V = span(\varepsilon _1) ⊕\tilde V,
 $$
 
-而f(ε<sub>1</sub>, x) = 0, $\forall x \in ˜V.$由f的对称性，它在˜V 上也对称。对dim ˜V = n −1,由假设，∃{˜ε<sub>2</sub>, · · ·, ˜ε<sub>n</sub>} 为˜V 的一组基，f在˜V 上的度量阵
+而f($\varepsilon$<sub>1</sub>, x) = 0, $\forall x \in ˜V.$由f的对称性，它在$\tilde{V}$ 上也对称。对dim $\tilde{V}$ = n -1,由假设，$\exists${$\tilde{varepsilon}$<sub>2</sub>, · · ·, $\tilde{varepsilon}$<sub>n</sub>} 为$\tilde{V}$ 的一组基，f在$\tilde{V}$ 上的度量阵
 
 $$
 (f(\tilde \varepsilon _i, \tilde \varepsilon _j))_(n-1)\times (n-1) = diag(I_\tilde p, -I_ \tilde m, O).
@@ -1173,7 +1173,7 @@ $$
 1
 $$
 
-现在以 ˜ε<sub>1</sub> =√ e<sub>1</sub>, ˜ε<sub>2</sub>, · · ·, ˜ε<sub>n</sub>为V 的一组基，此时f 的
+现在以 $\tilde{varepsilon}$<sub>1</sub> =$\sqrt$ e<sub>1</sub>, $\tilde{varepsilon}$<sub>2</sub>, · · ·, $\tilde{varepsilon}$<sub>n</sub>为V 的一组基，此时f 的
 
 $$
 |f(e_1, e_1)|
@@ -1185,7 +1185,7 @@ $$
 (f(\tilde \varepsilon _i, \tilde \varepsilon _j))_n\times n = diag(sign(f(e_1, e_1)), I_\tilde p, -I_ \tilde m, O).
 $$
 
-经过基的排列顺序调整，即可使之变为形如diag(I<sub>p</sub>, −I<sub>m</sub>, O) 的对角阵。
+经过基的排列顺序调整，即可使之变为形如diag(I<sub>p</sub>, -I<sub>m</sub>, O) 的对角阵。
 
 归纳证毕。上面的操作其实就是通过线性替换求二次型的规范形。    ■
 
@@ -1201,21 +1201,21 @@ $$
 = 1
 $$
 
-f(a, b) 4[f(a + b, a + b) −f(a −b, a −b)]
+f(a, b) 4[f(a + b, a + b) -f(a -b, a -b)]
 
 $$
 = 1
 $$
 
-2[f(a + b, a + b) −f(a, a) −f(b, b)],
+2[f(a + b, a + b) -f(a, a) -f(b, b)],
 
 双线性型也唯一确定了一个对称双线性型。
 
 同样可给出反对称双线性型的一种标准形式。
 
-**定理9.3.** 若f为线性空间V 上的反对称双线性型，则∃r,可选一组基
+**定理9.3.** 若f为线性空间V 上的反对称双线性型，则$\exists$r,可选一组基
 
-{ε<sub>1</sub>, ε<sub>−1</sub>, · · ·, ε<sub>r</sub>, ε<sub>−r</sub>, η<sub>1</sub>, · · ·, η<sub>n−2r</sub>},
+{$\varepsilon$<sub>1</sub>, $\varepsilon$<sub>-1</sub>, · · ·, $\varepsilon$<sub>r</sub>, $\varepsilon$<sub>-r</sub>, $\eta$<sub>1</sub>, · · ·, $\eta$<sub>n-2r</sub>},
 
 f 在这组基下的度量阵为块对角阵
 
@@ -1224,33 +1224,33 @@ $$
  01 01
 $$
 
-diag   , · · ·,, O<sub>n−2r</sub>.
+diag   , · · ·,, O<sub>n-2r</sub>.
 
 $$
 -1 0 -1 0
 $$
 
-证明. 若dim V = 1,此时任选一组基η<sub>1</sub>，反对称度量阵A = (0)本身就是对角形.
+证明. 若dim V = 1,此时任选一组基$\eta$<sub>1</sub>，反对称度量阵A = (0)本身就是对角形.
 
-设dim V ≤n −1时定理结论成立。考虑dim V = n,∀f 为V 上的反对称双线性型。
+设dim V $\le$n -1时定理结论成立。考虑dim V = n,$\forall$f 为V 上的反对称双线性型。
 
-1. 若$\forall a, b \in V$，成立f(a, b) = 0，则f ≡0,任取一组基，f的度量阵为O<sub>n</sub>.
+1. 若$\forall a, b \in V$，成立f(a, b) = 0，则f $\equiv$0,任取一组基，f的度量阵为O<sub>n</sub>.
 
-2. 若∃a, b, f(a, b) ≠  0，断言a ≠  b.否则由反对称性
+2. 若$\exists$a, b, f(a, b) $\ne$  0，断言a $\ne$  b.否则由反对称性
 
 $$
 f(a, a) = -f(a, a) = 0,
 $$
 
-矛盾。b取ε<sub>1</sub> = a, ε<sub>−1</sub> =f(a, b),于是
+矛盾。b取$\varepsilon$<sub>1</sub> = a, $\varepsilon$<sub>-1</sub> =f(a, b),于是
 
 $$
 f(\varepsilon _1, \varepsilon _-1) = -f(\varepsilon _-1, \varepsilon _1) = 1.
 $$
 
-将{ε<sub>1</sub>, ε<sub>−1</sub>}扩张为V 的一组基{ε<sub>1</sub>, ε<sub>−1</sub>, e<sub>2</sub>, e<sub>3</sub>, · · ·, e<sub>n−1</sub>}. 再令
+将{$\varepsilon$<sub>1</sub>, $\varepsilon$<sub>-1</sub>}扩张为V 的一组基{$\varepsilon$<sub>1</sub>, $\varepsilon$<sub>-1</sub>, e<sub>2</sub>, e<sub>3</sub>, · · ·, e<sub>n-1</sub>}. 再令
 
-˜ε<sub>i</sub> = e<sub>i</sub> −f(e<sub>i</sub>, ε<sub>1</sub>)ε<sub>1</sub> + f(e<sub>i</sub>, ε<sub>−1</sub>)ε<sub>−1</sub>, i = 2, · · ·, n −1.
+$\tilde{varepsilon}$<sub>i</sub> = e<sub>i</sub> -f(e<sub>i</sub>, $\varepsilon$<sub>1</sub>)$\varepsilon$<sub>1</sub> + f(e<sub>i</sub>, $\varepsilon$<sub>-1</sub>)$\varepsilon$<sub>-1</sub>, i = 2, · · ·, n -1.
 
 则直接验算知
 
@@ -1258,26 +1258,26 @@ $$
 f(\tilde \varepsilon _i, \varepsilon _1) = f(\tilde \varepsilon _i, \varepsilon _-1) = 0.
 $$
 
-再考察˜V = span(e<sub>2</sub>, · · ·, e<sub>n−1</sub>),容易验证
+再考察$\tilde{V}$ = span(e<sub>2</sub>, · · ·, e<sub>n-1</sub>),容易验证
 
 $$
 V = span(\varepsilon _1, \varepsilon _-1) ⊕\tilde V,
 $$
 
-而f(ε<sub>1</sub>, x) = f(ε<sub>−1</sub>, x) = 0, $\forall x \in ˜V.$由f的反对称性，它在˜V 上也反对称，由dim ˜V = n −2及归纳假设，∃{ε<sub>2</sub>, ε<sub>−2</sub>, · · ·, ε<sub>r</sub>, ε<sub>−r</sub>, η<sub>1</sub>, · · ·, η<sub>n−2r</sub>} 为˜V 的一组基，f 在˜V 上的度量阵为形如
+而f($\varepsilon$<sub>1</sub>, x) = f($\varepsilon$<sub>-1</sub>, x) = 0, $\forall x \in ˜V.$由f的反对称性，它在$\tilde{V}$ 上也反对称，由dim $\tilde{V}$ = n -2及归纳假设，$\exists${$\varepsilon$<sub>2</sub>, $\varepsilon$<sub>-2</sub>, · · ·, $\varepsilon$<sub>r</sub>, $\varepsilon$<sub>-r</sub>, $\eta$<sub>1</sub>, · · ·, $\eta$<sub>n-2r</sub>} 为$\tilde{V}$ 的一组基，f 在$\tilde{V}$ 上的度量阵为形如
 
 $$
 ([ ] [ ])
  01 01
 $$
 
-diag   , · · ·,, O<sub>n−2r</sub>
+diag   , · · ·,, O<sub>n-2r</sub>
 
 $$
 -1 0 -1 0
 $$
 
-的块对角阵。现在以{ε<sub>1</sub>, ε<sub>−1</sub>, · · ·, ε<sub>r</sub>, ε<sub>−r</sub>, η<sub>1</sub>, · · ·, η<sub>n−2r</sub>} 为V 的一组基，此时f 的度量阵即如定理所述。
+的块对角阵。现在以{$\varepsilon$<sub>1</sub>, $\varepsilon$<sub>-1</sub>, · · ·, $\varepsilon$<sub>r</sub>, $\varepsilon$<sub>-r</sub>, $\eta$<sub>1</sub>, · · ·, $\eta$<sub>n-2r</sub>} 为V 的一组基，此时f 的度量阵即如定理所述。
 
 归纳证毕。    ■
 
@@ -1304,13 +1304,13 @@ $$
 
 对每一个变量v<sub>i</sub>都保线性，即
 
-f(v<sub>1</sub>, · · ·, v<sub>i−1</sub>, λv<sub>i</sub> + µ˜v<sub>i</sub>, v<sub>i+1</sub>, · · ·, v<sub>p</sub>)
+f(v<sub>1</sub>, · · ·, v<sub>i-1</sub>, λv<sub>i</sub> + µ$\tilde{v}$<sub>i</sub>, v<sub>i+1</sub>, · · ·, v<sub>p</sub>)
 
 $$
 =\lambda f(v_1, \cdots, v_i-1, v_i, v_i+1, \cdots, v_p)
 $$
 
-+µf(v<sub>1</sub>, · · ·, v<sub>i−1</sub>, ˜v<sub>i</sub>, v<sub>i+1</sub>, · · ·, v<sub>p</sub>),
++µf(v<sub>1</sub>, · · ·, v<sub>i-1</sub>, $\tilde{v}$<sub>i</sub>, v<sub>i+1</sub>, · · ·, v<sub>p</sub>),
 
 则称之为p阶张量(tensor).
 
@@ -1329,7 +1329,7 @@ $$
 
 **例9.10.** p = 1时，线性泛函是张量的特例；p = 2且V<sub>1</sub> = V<sub>2</sub>时，双线性型是张量的特例。
 
-**例9.11.** V<sub>1</sub>, · · ·, V<sub>p</sub>为实线性空间，f<sub></sub><sup>1</sup> $\in V^{*}$<sub>1</sub>, · · ·, f<sup>p</sup> $\in V^{*}$<sub>p</sub>,按以下方式定义张量积f = f<sub></sub><sup>1</sup> ⊗· · · ⊗f<sub></sub><sup>p</sup>:
+**例9.11.** V<sub>1</sub>, · · ·, V<sub>p</sub>为实线性空间，f<sub></sub><sup>1</sup> $\in V^{*}$<sub>1</sub>, · · ·, f<sup>p</sup> $\in V^{*}$<sub>p</sub>,按以下方式定义张量积f = f<sub></sub><sup>1</sup> $\otimes$· · · $\otimes$f<sub></sub><sup>p</sup>:
 
 f(v<sub>1</sub>, · · ·, v<sub>p</sub>) = f<sub></sub><sup>1</sup>(v<sub>1</sub>) · · · f<sub></sub><sup>p</sup>(v<sub>p</sub>),$\forall v_{1} \in V_{1}, \cdots, v_{p} \in V_{p}.$
 
@@ -1343,84 +1343,84 @@ $$
 dim(V^{*}_1 ⊗\cdots ⊗V^{*}_p) = dim V_1 \cdots dim V_p.
 $$
 
-事实上，若{e<sup>1</sup> <sub>k</sub>, · · ·, e<sup>n</sup>k<sub>k</sub> }为$V^{*}$<sub>k</sub> 的一组基(k = 1, · · ·, p)，<sup>11</sup>那么以下n<sub>1</sub> · · · n<sub>p</sub> ⃝ ⃝个张量（上一个例子中的特殊情况）
+事实上，若{e<sup>1</sup> <sub>k</sub>, · · ·, e<sup>n</sup>k<sub>k</sub> }为$V^{*}$<sub>k</sub> 的一组基(k = 1, · · ·, p)，<sup>11</sup>那么以下n<sub>1</sub> · · · n<sub>p</sub>  个张量（上一个例子中的特殊情况）
 
 $$
 e^j1_1 ⊗\cdots ⊗ejp_p, 1 ≤j_k ≤n_k, 1 ≤k ≤p,
 $$
 
-⃝ ⃝构成$V^{*}$<sub>1</sub> ⊗· · · $\otimes V^{*}$<sub>p</sub> 的一组基。
+ 构成$V^{*}$<sub>1</sub> $\otimes$· · · $\otimes V^{*}$<sub>p</sub> 的一组基。
 
-从表象上说，对于这里的每一个张量，如果给它的牌子是V<sub>1</sub>, · · ·, V<sub>p</sub>中依次各选一个基向量，共有n<sub>1</sub> · · · n<sub>p</sub> 种取法。当且仅当这套牌子恰好是e<sup>⃝</sup><sub>j1</sub>, · · ·, e<sup>⃝</sup>1 <sub>jp</sub>时取值为1，否则一定得0.由此可见，这些牌子是相互“独立”p的，也就是线性无关的。
+从表象上说，对于这里的每一个张量，如果给它的牌子是V<sub>1</sub>, · · ·, V<sub>p</sub>中依次各选一个基向量，共有n<sub>1</sub> · · · n<sub>p</sub> 种取法。当且仅当这套牌子恰好是e<sup></sup><sub>j1</sub>, · · ·, e<sup></sup>1 <sub>jp</sub>时取值为1，否则一定得0.由此可见，这些牌子是相互“独立”p的，也就是线性无关的。
 
 严格的证明如下。记
 
-f<sub>j1···jp</sub> = f(e<sup>⃝</sup><sub>j1</sub>, · · ·, e<sup>⃝</sup>1 <sub>jp</sub>), 1 ≤j<sub>k</sub> ≤n<sub>k</sub>, 1 ≤k ≤p,p
+f<sub>j1···jp</sub> = f(e<sup></sup><sub>j1</sub>, · · ·, e<sup></sup>1 <sub>jp</sub>), 1 $\le$j<sub>k</sub> $\le$n<sub>k</sub>, 1 $\le$k $\le$p,p
 
-那么，∀v<sub>1</sub> = v<sup>j</sup>1<sub>1</sub> e<sup>⃝</sup><sub>j1</sub>, · · ·, v<sub>p</sub> = v1 jp<sub>p</sub> e<sup>⃝</sup><sub>jp</sub>,根据多线性性p ⃝    ⃝ f(v<sub>1</sub>, · · ·, v<sub>p</sub>)= f(v<sup>j</sup>1<sub>1</sub> e<sup>⃝</sup><sub>j1</sub>, · · ·, v1 jp<sub>p</sub> e<sup>⃝</sup><sub>jp</sub>)p ⃝ ⃝
+那么，$\forall$v<sub>1</sub> = v<sup>j</sup>1<sub>1</sub> e<sup></sup><sub>j1</sub>, · · ·, v<sub>p</sub> = v1 jp<sub>p</sub> e<sup></sup><sub>jp</sub>,根据多线性性p      f(v<sub>1</sub>, · · ·, v<sub>p</sub>)= f(v<sup>j</sup>1<sub>1</sub> e<sup></sup><sub>j1</sub>, · · ·, v1 jp<sub>p</sub> e<sup></sup><sub>jp</sub>)p  
 
 $$
 = v^j1_1 \cdots vjp_p f(e^⃝_j1, \cdots, e^⃝1 _jp)p
 $$
 
-⃝ ⃝
+ 
 
 $$
 = f_j1\cdotsjpv^j1_1 \cdots vjp
 $$
 
-⃝ ⃝p
+ p
 
 $$
 = f_j1\cdotsjp(e^j1_1 ⊗\cdots ⊗ejp_p)(v_1,\cdots, v_p).
 $$
 
-⃝ ⃝于是，
+ 于是，
 
 $$
 f = f_j1\cdotsjp(e^j1_1 ⊗\cdots ⊗ejp_p),
 $$
 
-即必定可用e<sup>j</sup>1 <sub>1</sub> ⊗· · · ⊗e<sub>p</sub> (1 ≤j<sub>k</sub> ≤n<sub>k</sub>, 1 ≤k ≤p)线性表出。
+即必定可用e<sup>j</sup>1 <sub>1</sub> $\otimes$· · · $\otimes$e<sub>p</sub> (1 $\le$j<sub>k</sub> $\le$n<sub>k</sub>, 1 $\le$k $\le$p)线性表出。
 
-> 注11：是Vk的基{e⃝1, · · ·, e⃝k nk} 的对偶基，注意：1，两组基的上下标是翻过来的；2，这里的⃝k是Vk 的k序号，不是张量的指标，不参与求和之类的运算，视记号方便放在上下标位置均可。
+> 注11：是Vk的基{e1, · · ·, ek nk} 的对偶基，注意：1，两组基的上下标是翻过来的；2，这里的k是Vk 的k序号，不是张量的指标，不参与求和之类的运算，视记号方便放在上下标位置均可。
 
-这里的f<sub>j1···jp</sub> (1 ≤j<sub>k</sub> ≤n<sub>k</sub>, 1 ≤k ≤p)称为张量f在这组基下的分量，或者坐标。
+这里的f<sub>j1···jp</sub> (1 $\le$j<sub>k</sub> $\le$n<sub>k</sub>, 1 $\le$k $\le$p)称为张量f在这组基下的分量，或者坐标。
 
-最后，设若有一组系数λ<sub>j1···jp</sub> (1 ≤j<sub>k</sub> ≤n<sub>k</sub>, 1 ≤k ≤p),成立
+最后，设若有一组系数$\lambda$<sub>j1···jp</sub> (1 $\le$j<sub>k</sub> $\le$n<sub>k</sub>, 1 $\le$k $\le$p),成立
 
 $$
 \lambda _j1\cdotsjp(e^j1_1 ⊗\cdots ⊗ejp_p) = 0.
 $$
 
-⃝ ⃝
+ 
 
-那么，任取一组指标1 ≤j<sup>∗</sup> <sub>k</sub> ≤n<sub>k</sub>, 1 ≤k ≤p，计算
+那么，任取一组指标1 $\le$j<sup>$\ast$</sup> <sub>k</sub> $\le$n<sub>k</sub>, 1 $\le$k $\le$p，计算
 
 $$
 0= \lambda _j1\cdotsjp(e^j1_1 ⊗\cdots ⊗ejp_p)(e^⃝1_1, \cdots, e^⃝p_p)
 $$
 
-⃝ ⃝j∗ j∗
+ j$\ast$ j$\ast$
 
 $$
 = \lambda _j1\cdotsjpe^j1_1 (e^⃝1_1) \cdots ejp_p (e^⃝p_p)
 $$
 
-⃝j∗ ⃝j∗
+j$\ast$ j$\ast$
 
 $$
 = \lambda _j1\cdotsjp\delta ^j1_1 \cdots \delta jp
 $$
 
-j∗ p∗
+j$\ast$ p$\ast$
 
 $$
 = \lambda _j∗_p.
  1 \cdotsj∗
 $$
 
-由1 ≤j<sup>∗</sup><sub>k</sub> ≤n<sub>k</sub>, 1 ≤k ≤p的任意性，上述多线性泛函e<sup>j</sup>1    <sub>1</sub> ⊗· · · ⊗ejp<sub>p</sub> (1 ≤ j<sub>k</sub> ≤n<sub>k</sub>, 1 ≤k ≤p)线性无关。
+由1 $\le$j<sup>$\ast$</sup><sub>k</sub> $\le$n<sub>k</sub>, 1 $\le$k $\le$p的任意性，上述多线性泛函e<sup>j</sup>1    <sub>1</sub> $\otimes$· · · $\otimes$ejp<sub>p</sub> (1 $\le$ j<sub>k</sub> $\le$n<sub>k</sub>, 1 $\le$k $\le$p)线性无关。
 
 综上，证毕。
 
@@ -1469,7 +1469,7 @@ $$
  (e^2 ⊗\varepsilon ^3)(u, v)= e^2(u)\varepsilon ^3(v)= u^2v^3.
 $$
 
-U, V 上的双线性泛函f,首先由于关于u ∈U的线性性，必表示为
+U, V 上的双线性泛函f,首先由于关于u $\in$U的线性性，必表示为
 
 $$
 f(u, v) = \varphi (v)u^1 + \psi (v)u^2,
@@ -1481,7 +1481,7 @@ $$
 f(e_1, v) = \varphi (v)
 $$
 
-关于v ∈V 线性就必有
+关于v $\in$V 线性就必有
 
 $$
 \varphi (v) = f_11v^1 + f_12v^2 + f_13v^3.
@@ -1510,13 +1510,13 @@ $$
 
 v<sup>3</sup> = f<sub>11</sub>u<sup>1</sup>v<sup>1</sup> + f<sub>12</sub>u<sup>1</sup>v<sup>2</sup> + f<sub>13</sub>u<sup>1</sup>v<sup>3</sup> + f<sub>21</sub>u<sup>2</sup>v<sup>1</sup> + f<sub>22</sub>u<sup>2</sup>v<sup>2</sup> + f<sub>23</sub>u<sup>2</sup>v<sup>3</sup>.
 
-故f正是上面6个基向量e<sup>1</sup> ⊗ε<sup>1</sup>, e<sup>1</sup> ⊗ε<sup>2</sup>, e<sup>1</sup> ⊗ε<sup>3</sup>, e<sup>2</sup> ⊗ε<sup>1</sup>, e<sup>2</sup> ⊗ε<sup>2</sup>, e<sup>2</sup> ⊗ε<sup>3</sup> 的线性组合。
+故f正是上面6个基向量e<sup>1</sup> $\otimes$$\varepsilon$<sup>1</sup>, e<sup>1</sup> $\otimes$$\varepsilon$<sup>2</sup>, e<sup>1</sup> $\otimes$$\varepsilon$<sup>3</sup>, e<sup>2</sup> $\otimes$$\varepsilon$<sup>1</sup>, e<sup>2</sup> $\otimes$$\varepsilon$<sup>2</sup>, e<sup>2</sup> $\otimes$$\varepsilon$<sup>3</sup> 的线性组合。
 
 从这个例子容易看到，2阶张量可以用一个矩阵（矩阵的阶由两个空间U, V 的维数给出）来表示。这就是通常说“1阶张量为向量，2 阶张量为矩阵”的来历。
 
-对没有内积结构的U, V 可完全类似地解读，仅改变记号以示区别。不妨仍设dim U = 2, dim V = 3,若U的基为η<sub>1</sub>, η<sub>2</sub>,V 的基为ζ<sub>1</sub>, ζ<sub>2</sub>, ζ<sub>3</sub>，其中各一任意元素
+对没有内积结构的U, V 可完全类似地解读，仅改变记号以示区别。不妨仍设dim U = 2, dim V = 3,若U的基为$\eta$<sub>1</sub>, $\eta$<sub>2</sub>,V 的基为$\zeta$<sub>1</sub>, $\zeta$<sub>2</sub>, $\zeta$<sub>3</sub>，其中各一任意元素
 
-u = u<sup>1</sup>η<sub>1</sub> + u<sup>2</sup>η<sub>2</sub>,v = v<sup>1</sup>ζ<sub>1</sub> + v<sup>2</sup>ζ<sub>2</sub> + v<sup>3</sup>ζ<sub>3</sub>.
+u = u<sup>1</sup>$\eta$<sub>1</sub> + u<sup>2</sup>$\eta$<sub>2</sub>,v = v<sup>1</sup>$\zeta$<sub>1</sub> + v<sup>2</sup>$\zeta$<sub>2</sub> + v<sup>3</sup>$\zeta$<sub>3</sub>.
 
 任一张量f,由关于u线性知
 
@@ -1555,7 +1555,7 @@ $$
 
 v<sup>3</sup>
 
-通过前面奇异值分解知道，系数矩阵(f<sub>ij</sub>)<sub>2×3</sub>可以分解成至多两个秩1矩阵之和。按照张量基分解是一种更为“浪费”的方案：[    ]
+通过前面奇异值分解知道，系数矩阵(f<sub>ij</sub>)<sub>2$\times$3</sub>可以分解成至多两个秩1矩阵之和。按照张量基分解是一种更为“浪费”的方案：[    ]
 
 $$
 f_11f_12f_13
@@ -1595,7 +1595,7 @@ $$
 
 [u<sup>1</sup>, u<sup>2</sup>] [1, 0, 0]v<sup>2</sup> [u<sup>1</sup>, u<sup>2</sup>] [1, 0, 0]v<sup>2</sup>= u<sup>1</sup>v<sup>1</sup>, 0    0 v<sup>3</sup>    v<sup>3</sup>
 
-就恰好是两个线性泛函的张量积˜η<sub>1</sub> ⊗˜ζ<sub>1</sub>，各自给出
+就恰好是两个线性泛函的张量积$\tilde{eta}$<sub>1</sub> $\otimes$$\tilde{zeta}$<sub>1</sub>，各自给出
 
 $$
 \tilde \eta ^1(u) = u^1,\tilde \zeta ^1(v) = v^1.
@@ -1605,27 +1605,27 @@ $$
 
 回到一般的情形。如果给定一组线性空间V<sub>1</sub>, · · ·, V<sub>p</sub>,它们各自的对偶空间$V^{*}$<sub>1</sub>, · · ·, $V^{*}$<sub>p</sub> 也是线性空间，且不改变维数；那么从这些对偶空间出发，
 
-自然可以定义它们的张量积空间V<sup>∗∗</sup>    ⊗· · · ⊗V<sup>∗∗</sup><sub>p</sub>,并且如果采用自然同构，
+自然可以定义它们的张量积空间V<sup>$\ast$$\ast$</sup>    $\otimes$· · · $\otimes$V<sup>$\ast$$\ast$</sup><sub>p</sub>,并且如果采用自然同构，
 
 $$
 1
 $$
 
-就是V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>.同样有
+就是V<sub>1</sub> $\otimes$· · · $\otimes$V<sub>p</sub>.同样有
 
 $$
 dim(V_1 ⊗\cdots ⊗V_p) = dim V_1 \cdots dim V_p.
 $$
 
-并且，若(e<sup>⃝</sup> <sub>1</sub>, · · ·, e<sup>⃝</sup>k <sub>nk</sub>)为V<sub>k</sub>的一组基(k = 1, · · ·, p)，那么n<sub>1</sub> · · · n<sub>p</sub>个以下多k线性泛函
+并且，若(e<sup></sup> <sub>1</sub>, · · ·, e<sup></sup>k <sub>nk</sub>)为V<sub>k</sub>的一组基(k = 1, · · ·, p)，那么n<sub>1</sub> · · · n<sub>p</sub>个以下多k线性泛函
 
 $$
 e^⃝_j1 ⊗\cdots ⊗e^⃝1 _jp, 1 ≤j_k ≤n_k, 1 ≤k ≤p,p
 $$
 
-构成V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>的一组基。
+构成V<sub>1</sub> $\otimes$· · · $\otimes$V<sub>p</sub>的一组基。
 
-值得注意的是，从上面的定义和例子可以看出，V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>并不只包含形如v<sub>1</sub> ⊗· · · ⊗v<sub>p</sub> 的元素（容易验证v<sub>1</sub> ⊗· · · ⊗v<sub>p</sub> ∈V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>,即为($V^{*}$<sub>1</sub>, · · ·, $V^{*}$<sub>p</sub> )上的张量）。例如$\mathbb{R}^2 \otimes \mathbb{R}^2$ 包含所有二阶方阵，而v<sub>1</sub> ⊗v<sub>2</sub> 仅能表示秩1的二阶方阵和零方阵。
+值得注意的是，从上面的定义和例子可以看出，V<sub>1</sub> $\otimes$· · · $\otimes$V<sub>p</sub>并不只包含形如v<sub>1</sub> $\otimes$· · · $\otimes$v<sub>p</sub> 的元素（容易验证v<sub>1</sub> $\otimes$· · · $\otimes$v<sub>p</sub> $\in$V<sub>1</sub> $\otimes$· · · $\otimes$V<sub>p</sub>,即为($V^{*}$<sub>1</sub>, · · ·, $V^{*}$<sub>p</sub> )上的张量）。例如$\mathbb{R}^2 \otimes \mathbb{R}^2$ 包含所有二阶方阵，而v<sub>1</sub> $\otimes$v<sub>2</sub> 仅能表示秩1的二阶方阵和零方阵。
 
 然而下述二者却是可以等同的。以上面的二阶例子来说：dim U = 2, dim V = 3.这里
 
@@ -1660,11 +1660,11 @@ v<sup>3</sup>
 
 f<sub>11</sub>u<sup>1</sup>v<sup>1</sup> + f<sub>12</sub>u<sup>1</sup>v<sup>2</sup> + f<sub>13</sub>u<sup>1</sup>v<sup>3</sup> + f<sub>21</sub>u<sup>2</sup>v<sup>1</sup> + f<sub>22</sub>u<sup>2</sup>v<sup>2</sup> + f<sub>23</sub>u<sup>2</sup>v<sup>3</sup>, =
 
-于是f由这2 × 3的矩阵唯一确定。
+于是f由这2 $\times$ 3的矩阵唯一确定。
 
-而在上面取的基η<sub>i</sub> ⊗ζ<sub>j</sub>下，
+而在上面取的基$\eta$<sub>i</sub> $\otimes$$\zeta$<sub>j</sub>下，
 
-u ⊗v = u<sup>1</sup>v<sup>1</sup>η<sub>1</sub> ⊗ζ<sub>1</sub> + u<sup>1</sup>v<sup>2</sup>η<sub>1</sub> ⊗ζ<sub>2</sub> + u<sup>1</sup>v<sup>3</sup>η<sub>1</sub> ⊗ζ<sub>3</sub>
+u $\otimes$v = u<sup>1</sup>v<sup>1</sup>$\eta$<sub>1</sub> $\otimes$$\zeta$<sub>1</sub> + u<sup>1</sup>v<sup>2</sup>$\eta$<sub>1</sub> $\otimes$$\zeta$<sub>2</sub> + u<sup>1</sup>v<sup>3</sup>$\eta$<sub>1</sub> $\otimes$$\zeta$<sub>3</sub>
 
 $$
 +u^2v^1\eta _2 ⊗\zeta _1 + u^2v^2\eta _2 ⊗\zeta _2 + u^2v^3\eta _2 ⊗\zeta _3,
@@ -1672,7 +1672,7 @@ $$
 
 于是T 也就由六个系数
 
-T η<sub>1</sub> ⊗ζ<sub>1</sub>, T η<sub>1</sub> ⊗ζ<sub>2</sub>, T η<sub>1</sub> ⊗ζ<sub>3</sub>, T η<sub>2</sub> ⊗ζ<sub>1</sub>, T η<sub>2</sub> ⊗ζ<sub>2</sub>, T η<sub>2</sub> ⊗ζ<sub>3</sub>
+T $\eta$<sub>1</sub> $\otimes$$\zeta$<sub>1</sub>, T $\eta$<sub>1</sub> $\otimes$$\zeta$<sub>2</sub>, T $\eta$<sub>1</sub> $\otimes$$\zeta$<sub>3</sub>, T $\eta$<sub>2</sub> $\otimes$$\zeta$<sub>1</sub>, T $\eta$<sub>2</sub> $\otimes$$\zeta$<sub>2</sub>, T $\eta$<sub>2</sub> $\otimes$$\zeta$<sub>3</sub>
 
 唯一确定。
 
@@ -1688,37 +1688,37 @@ $$
 
 一般情形下的定理及证明如下。
 
-**定理9.4.** $\forall f \in V^{*}$<sub>1</sub> ⊗· · · $\otimes V^{*}$<sub>p</sub>, ∃唯一张量T ∈(V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>)<sup>∗</sup>,成立
+**定理9.4.** $\forall f \in V^{*}$<sub>1</sub> $\otimes$· · · $\otimes V^{*}$<sub>p</sub>, $\exists$唯一张量T $\in$(V<sub>1</sub> $\otimes$· · · $\otimes$V<sub>p</sub>)<sup>$\ast$</sup>,成立
 
 $$
 f(v_1, \cdots, v_p) = T (v_1 ⊗\cdots ⊗v_p), \forall v_i \in V_i, 1 ≤i ≤p.
 $$
 
-证明. 取(e<sup>⃝</sup><sub>j1</sub> ⊗· · · ⊗e<sup>⃝</sup>1 <sub>jp</sub>) (1 ≤j<sub>i</sub> ≤n<sub>i</sub>, 1 ≤i ≤p)为V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub> 的一组基。p定义
+证明. 取(e<sup></sup><sub>j1</sub> $\otimes$· · · $\otimes$e<sup></sup>1 <sub>jp</sub>) (1 $\le$j<sub>i</sub> $\le$n<sub>i</sub>, 1 $\le$i $\le$p)为V<sub>1</sub> $\otimes$· · · $\otimes$V<sub>p</sub> 的一组基。p定义
 
 $$
 T e^⃝_j1 ⊗\cdots ⊗e^⃝1 _jp = f(e^⃝p _j1, \cdots, e^⃝1 _jp) (1 ≤j_i ≤n_i, 1 ≤i ≤p),p
 $$
 
-这就唯一确定了V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>上的线性泛函T，即∀v<sub>1</sub> = v<sup>j</sup>1    <sub>1</sub> e<sup>⃝</sup><sub>j1</sub>, · · ·, v<sub>p</sub> =1 ⃝ vjp<sub>p</sub> e<sup>⃝</sup><sub>jp</sub>,p ⃝
+这就唯一确定了V<sub>1</sub> $\otimes$· · · $\otimes$V<sub>p</sub>上的线性泛函T，即$\forall$v<sub>1</sub> = v<sup>j</sup>1    <sub>1</sub> e<sup></sup><sub>j1</sub>, · · ·, v<sub>p</sub> =1  vjp<sub>p</sub> e<sup></sup><sub>jp</sub>,p 
 
 $$
 T (v_1 ⊗\cdots ⊗v_p)= T (v^j1_1 e^⃝_j1 ⊗\cdots ⊗v1 jp_p e^⃝_jp)p
 $$
 
-⃝ ⃝
+ 
 
 $$
 = v^⃝_j1 \cdots v^⃝1 _jpT (e^⃝p _j1 ⊗\cdots ⊗e^⃝1 _jp).p
 $$
 
-断言张量f也同样由这n<sub>1</sub> · · · n<sub>p</sub>个数f(e<sup>⃝</sup> <sub>j1</sub>, · · ·, e<sup>⃝</sup>1 <sub>jp</sub>) (1 ≤j<sub>i</sub> ≤n<sub>i</sub>, 1 ≤i ≤p p) 唯一确定。事实上，跟前面一样，由多线性性
+断言张量f也同样由这n<sub>1</sub> · · · n<sub>p</sub>个数f(e<sup></sup> <sub>j1</sub>, · · ·, e<sup></sup>1 <sub>jp</sub>) (1 $\le$j<sub>i</sub> $\le$n<sub>i</sub>, 1 $\le$i $\le$p p) 唯一确定。事实上，跟前面一样，由多线性性
 
 $$
 f(v_1, \cdots, v_p)= f(v^j1_1 e^⃝_j1, \cdots, v1 jp_p e^⃝_jp)p
 $$
 
-⃝ ⃝
+ 
 
 $$
 = v^⃝_j1 \cdots v^⃝1 _jpf(e^⃝p_j1, \cdots, e^⃝1 _jp).p
@@ -1732,7 +1732,7 @@ $$
 T e^⃝_j1 ⊗\cdots ⊗e^⃝1 p
 $$
 
-jp称为它在前述基（或者说{e<sup>⃝</sup> <sub>1</sub>, · · ·, e<sup>⃝</sup>1 <sub>n1</sub>; · · · ; e<sup>⃝</sup>1 <sub>1</sub>, · · ·, e<sup>⃝</sup>p <sub>np</sub>}）下的坐标。p
+jp称为它在前述基（或者说{e<sup></sup> <sub>1</sub>, · · ·, e<sup></sup>1 <sub>n1</sub>; · · · ; e<sup></sup>1 <sub>1</sub>, · · ·, e<sup></sup>p <sub>np</sub>}）下的坐标。p
 
 定理的证明过程给出了同构(容易验证保持线性)
 
@@ -1740,7 +1740,7 @@ $$
 V^{*}_1 ⊗\cdots ⊗V^{*}_p \cong (V_1 ⊗\cdots ⊗V_p)^{*}.
 $$
 
-而利用V<sup>∗∗</sup>∼= V 知道映射
+而利用V<sup>$\ast$$\ast$</sup>$\sim$= V 知道映射
 
 $$
 (v_1, \cdots, v_p) \mapstov_1 ⊗\cdots ⊗v_p
@@ -1748,9 +1748,9 @@ $$
 
 是线性的。
 
-更一般地，可考虑张量f的变量分别在V<sub>1</sub>, · · ·, V<sub>r</sub>, $V^{*}$ <sub>r+1</sub>, · · ·, $V^{*}$<sub>p</sub> 中，即p张牌子中前r个是向量，后p −r 个是泛函。
+更一般地，可考虑张量f的变量分别在V<sub>1</sub>, · · ·, V<sub>r</sub>, $V^{*}$ <sub>r+1</sub>, · · ·, $V^{*}$<sub>p</sub> 中，即p张牌子中前r个是向量，后p -r 个是泛函。
 
-**定义9.6.** f $\in V^{*}$<sub>1</sub> ⊗· · $\cdot V^{*}$<sub>r</sub> ⊗V<sub>r+1</sub> ⊗· · · ⊗V<sub>p</sub>称为关于V<sub>1</sub>, · · ·, V<sub>r</sub>协变、关于V<sub>r+1</sub>, · · ·, V<sub>p</sub> 逆变的(r, p−r)型张量。特别的，f $\in V^{*}$ <sub>1</sub> ⊗· · ·$\otimes V^{*}$<sub>p</sub> 为p 阶协变（covariant）张量；f ∈V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>为p阶逆变（contravariant）张量。
+**定义9.6.** f $\in V^{*}$<sub>1</sub> $\otimes$· · $\cdot V^{*}$<sub>r</sub> $\otimes$V<sub>r+1</sub> $\otimes$· · · $\otimes$V<sub>p</sub>称为关于V<sub>1</sub>, · · ·, V<sub>r</sub>协变、关于V<sub>r+1</sub>, · · ·, V<sub>p</sub> 逆变的(r, p-r)型张量。特别的，f $\in V^{*}$ <sub>1</sub> $\otimes$· · ·$\otimes V^{*}$<sub>p</sub> 为p 阶协变（covariant）张量；f $\in$V<sub>1</sub> $\otimes$· · · $\otimes$V<sub>p</sub>为p阶逆变（contravariant）张量。
 
 逆变和协变的叫法可以通过坐标如何跟着基变化来解释。以一阶张量为例，如果取V 的基{e<sub>1</sub>, · · ·, e<sub>n</sub>}时f(在对偶基{e<sup>1</sup>, · · ·, e<sup>n</sup>} 下)的坐标表示为
 
@@ -1789,13 +1789,13 @@ $$
 
 即坐标反而缩短（逆变）。
 
-当然，从代数的角度看，协变、逆变只是看哪一个线性空间为观察的出发点。但在物理或力学应用中，常常考虑部分V<sub>i</sub>同构于（或者就是）R3，其它同构于其对偶空间，这时选定R3的一组基后，就有些是协变、另一些逆变了。
+当然，从代数的角度看，协变、逆变只是看哪一个线性空间为观察的出发点。但在物理或力学应用中，常常考虑部分V<sub>i</sub>同构于（或者就是）$\mathbb{R}^{3}$，其它同构于其对偶空间，这时选定$\mathbb{R}^{3}$的一组基后，就有些是协变、另一些逆变了。
 
 选读内容:
 
 在数学上，协变、逆变也有直接的应用。
 
-**定理9.5.** $U^{*} \otimes$V ∼= L(U, V ).
+**定理9.5.** $U^{*} \otimes$V $\sim$= L(U, V ).
 
 仍以前面的dim U = 2, dim V = 3为例解释。若f $\in U^{*} \otimes$V 为关于(U, V )的(1,1)张量。$\forall u = u^{1}η_{1}+u^{2}η_{2} \in U, g = g_{1}ζ^{1}+g_{2}ζ^{2}+g_{3}ζ^{3} \in V^{*}$,由于f为线性泛函，一定可表示为
 
@@ -1837,15 +1837,15 @@ $$
 
 g(T u)
 
-(g<sub>1</sub>ζ<sup>1</sup> + g<sub>2</sub>ζ<sup>2</sup> + g<sub>3</sub>ζ<sup>3</sup>)[(t<sup>1</sup><sub>1</sub>u<sup>1</sup> + t<sup>1</sup><sub>2</sub>u<sup>2</sup>)ζ<sub>1</sub> + (t<sup>2</sup><sub>1</sub>u<sup>1</sup> + t<sup>2</sup><sub>2</sub>u<sup>2</sup>)ζ<sub>2</sub> + (t<sup>3</sup><sub>1</sub>u<sup>1</sup> + t<sup>3</sup><sub>2</sub>u<sup>2</sup>)ζ<sub>3</sub>] =
+(g<sub>1</sub>$\zeta$<sup>1</sup> + g<sub>2</sub>$\zeta$<sup>2</sup> + g<sub>3</sub>$\zeta$<sup>3</sup>)[(t<sup>1</sup><sub>1</sub>u<sup>1</sup> + t<sup>1</sup><sub>2</sub>u<sup>2</sup>)$\zeta$<sub>1</sub> + (t<sup>2</sup><sub>1</sub>u<sup>1</sup> + t<sup>2</sup><sub>2</sub>u<sup>2</sup>)$\zeta$<sub>2</sub> + (t<sup>3</sup><sub>1</sub>u<sup>1</sup> + t<sup>3</sup><sub>2</sub>u<sup>2</sup>)$\zeta$<sub>3</sub>] =
 
 g<sub>1</sub>(t<sup>1</sup><sub>1</sub>u<sup>1</sup> + t<sup>1</sup><sub>2</sub>u<sup>2</sup>) + g<sub>2</sub>(t<sup>2</sup><sub>1</sub>u<sup>1</sup> + t<sup>2</sup><sub>2</sub>u<sup>2</sup>) + g<sub>3</sub>(t<sup>3</sup><sub>1</sub>u<sup>1</sup> + t<sup>3</sup><sub>2</sub>u<sup>2</sup>) = =f(u, g).
 
 T 和f均由6个系数t<sup>1</sup> <sub>1</sub>, t<sup>2</sup><sub>1</sub>, t<sup>3</sup><sub>1</sub>, t<sup>1</sup><sub>2</sub>, t<sup>2</sup><sub>2</sub>, t<sup>3</sup><sub>2</sub>唯一确定，于是相互之间可以构造1- 1映射；该映射保持线性，故为同构。
 
-上述结论可以进一步推广为：(p, 1)阶张量f $\in V^{*}$    <sub>1</sub> ⊗· · · $\otimes V^{*}$<sub>p</sub> ⊗V 唯一决定一个V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub> $\to$ V 的线性映射。
+上述结论可以进一步推广为：(p, 1)阶张量f $\in V^{*}$    <sub>1</sub> $\otimes$· · · $\otimes V^{*}$<sub>p</sub> $\otimes$V 唯一决定一个V<sub>1</sub> $\otimes$· · · $\otimes$V<sub>p</sub> $\to$ V 的线性映射。
 
-**定理9.6.** $V^{*}$<sub>1</sub> ⊗· · · $\otimes V^{*}$<sub>p</sub> ⊗V ∼= L(V<sub>1</sub> ⊗· · · ⊗V<sub>p</sub>, V ).
+**定理9.6.** $V^{*}$<sub>1</sub> $\otimes$· · · $\otimes V^{*}$<sub>p</sub> $\otimes$V $\sim$= L(V<sub>1</sub> $\otimes$· · · $\otimes$V<sub>p</sub>, V ).
 
 这里的线性映射不再表示为一个矩阵，而是用下标的方式记为(t<sup>j</sup>    <sub>j1···jp</sub>),而
 
@@ -1853,7 +1853,7 @@ $$
 v^j = T (v_1, \cdots, v_p)^j = t^j_j1\cdotsjpv^j1jp
 $$
 
-<sub>1</sub> · · · v<sub>p</sub>, ⃝ ⃝这里j = 1, · · ·, dim V.
+<sub>1</sub> · · · v<sub>p</sub>,  这里j = 1, · · ·, dim V.
 
 记号对于代数表达和计算是基本工具，总结一下前面用到的爱因斯坦记号(Einstein convention).包括两部分：
 
@@ -1861,7 +1861,7 @@ $$
 
 2. 关于在表达式中上下标各出现一次的指标求和，其余指标不改变上下位置。
 
-依照这样的规则，线性变换T ∈L(U, V )的矩阵表示记为(t<sup>i</sup>    <sub>j</sub>)是合适的，这时有向量的映射
+依照这样的规则，线性变换T $\in$L(U, V )的矩阵表示记为(t<sup>i</sup>    <sub>j</sub>)是合适的，这时有向量的映射
 
 $$
 v^i = t^i_ju^j.
@@ -1875,24 +1875,24 @@ $$
 (\tilde e_1, \tilde e_2, \tilde e_3) = (e_1, e_2, e_3)T,
 $$
 
-这里T = (t<sup>i</sup><sub>j</sub>)<sub>3×3</sub>,如前所述，上标i为行标，下标j为列标。基变换按分量记为
+这里T = (t<sup>i</sup><sub>j</sub>)<sub>3$\times$3</sub>,如前所述，上标i为行标，下标j为列标。基变换按分量记为
 
 $$
 \tilde e_ℓ= t^i_ℓe_i.
 $$
 
-注意一下上下相同表示求和。求和的哑标i在e<sub>i</sub>中是下标，在t<sup>i</sup>    <sub>ℓ</sub>中是上标。再比较上面的基变换可见，“右上左下”，矩阵表示时，这里矩阵在右。
+注意一下上下相同表示求和。求和的哑标i在e<sub>i</sub>中是下标，在t<sup>i</sup>    <sub>$\ell$</sub>中是上标。再比较上面的基变换可见，“右上左下”，矩阵表示时，这里矩阵在右。
 
 记任一向量v的坐标分别为
 
 
-x<sup>1</sup> ˜x<sup>1</sup>
+x<sup>1</sup> $\tilde{x}$<sup>1</sup>
 
 $$
 及.
 $$
 
-T<sup>−1</sup>x<sup>2</sup> ˜x<sup>2</sup> x<sup>3</sup> ˜x<sup>3</sup>
+T<sup>-1</sup>x<sup>2</sup> $\tilde{x}$<sup>2</sup> x<sup>3</sup> $\tilde{x}$<sup>3</sup>
 
 以下写出张量分量的记号，右栏给出相应的矩阵向量表达式（“上行下列，右上左下”分别给出行列和乘法的序）。
 
@@ -1903,24 +1903,24 @@ T^{-1} = T = (\tau ^{\mathsf{T}}i
  _j)_3\times 3.
 $$
 
-这就是说，τ<sub></sub><sup>i</sup><sub>ℓ</sub>t<sup>ℓ</sup><sub>j</sub> = t<sup>i</sup><sub>ℓ</sub>τ<sup>ℓ</sup><sub>j</sub> = δ<sup>i</sup><sub>j</sub>, TT = T T = I.
+这就是说，$\tau$<sub></sub><sup>i</sup><sub>$\ell$</sub>t<sup>$\ell$</sup><sub>j</sub> = t<sup>i</sup><sub>$\ell$</sub>$\tau$<sup>$\ell$</sup><sub>j</sub> = $\delta$<sup>i</sup><sub>j</sub>, TT = T T = I.
 
-根据向量不变，       ˜x<sup>1</sup>    x<sup>1</sup>       
+根据向量不变，       $\tilde{x}$<sup>1</sup>    x<sup>1</sup>       
 
-˜x<sup>i</sup>˜e<sub>i</sub> = x<sup>j</sup>e<sub>j</sub>, (˜e<sub>1</sub>, ˜e<sub>2</sub>, ˜e<sub>3</sub>)˜x<sup>2</sup>= (e<sub>1</sub>, e<sub>2</sub>, e<sub>3</sub>)x<sup>2</sup>.      ˜x<sup>3</sup>    x<sup>3</sup>
+$\tilde{x}$<sup>i</sup>$\tilde{e}$<sub>i</sub> = x<sup>j</sup>e<sub>j</sub>, ($\tilde{e}$<sub>1</sub>, $\tilde{e}$<sub>2</sub>, $\tilde{e}$<sub>3</sub>)$\tilde{x}$<sup>2</sup>= (e<sub>1</sub>, e<sub>2</sub>, e<sub>3</sub>)x<sup>2</sup>.      $\tilde{x}$<sup>3</sup>    x<sup>3</sup>
 
 > 注12：下面分量的记号中并不涉及维数，可见这种记号的一般性。m mi
 
-代入基变换得       ˜x<sup>1</sup>    x<sup>1</sup>        ˜x<sup>i</sup>t<sup>ℓ</sup><sub>i</sub>e<sub>ℓ</sub>= x<sup>j</sup>e<sub>j</sub>, (e<sub>1</sub>, e<sub>2</sub>, e<sub>3</sub>)T˜x<sup>2</sup>= (e<sub>1</sub>, e<sub>2</sub>, e<sub>3</sub>)x<sup>2</sup>.      ˜x<sup>3</sup>    x<sup>3</sup>
+代入基变换得       $\tilde{x}$<sup>1</sup>    x<sup>1</sup>        $\tilde{x}$<sup>i</sup>t<sup>$\ell$</sup><sub>i</sub>e<sub>$\ell$</sub>= x<sup>j</sup>e<sub>j</sub>, (e<sub>1</sub>, e<sub>2</sub>, e<sub>3</sub>)T$\tilde{x}$<sup>2</sup>= (e<sub>1</sub>, e<sub>2</sub>, e<sub>3</sub>)x<sup>2</sup>.      $\tilde{x}$<sup>3</sup>    x<sup>3</sup>
 
-作用对偶基ek得左右两式分别为e<sup>k</sup>˜x<sup>i</sup>t<sup>ℓ</sup>= ˜x<sup>i</sup>t<sup>ℓ</sup><sub>i</sub>δ<sup>k</sup>      <sub>i</sub>e<sub>ℓ</sub> ℓ    ˜x<sup>1</sup>
+作用对偶基ek得左右两式分别为e<sup>k</sup>$\tilde{x}$<sup>i</sup>t<sup>$\ell$</sup>= $\tilde{x}$<sup>i</sup>t<sup>$\ell$</sup><sub>i</sub>$\delta$<sup>k</sup>      <sub>i</sub>e<sub>$\ell$</sub> $\ell$    $\tilde{x}$<sup>1</sup>
 
 $$
 = \tilde x^it^k_i, 
  取第k个坐标(t^k _1, t^k_2, t^k_3)\tilde x^2= x^k.
 $$
 
- e<sup>k</sup>x<sup>j</sup>e<sub>j</sub> = x<sup>j</sup>δ<sup>k</sup> j    ˜x<sup>3</sup>
+ e<sup>k</sup>x<sup>j</sup>e<sub>j</sub> = x<sup>j</sup>$\delta$<sup>k</sup> j    $\tilde{x}$<sup>3</sup>
 
 $$
 = x^k,
@@ -1932,7 +1932,7 @@ $$
 \tilde x^it^k_i = x^k, 列式即T \tilde x = x.
 $$
 
-两边作用τ<sub></sub><sup>s</sup><sub>k</sub>得13
+两边作用$\tau$<sub></sub><sup>s</sup><sub>k</sub>得13
 
 $$
 \tilde x^k = x^k\tau ^{\mathsf{T}}s
@@ -1959,7 +1959,7 @@ $$
 1 = \tilde e^it^ℓ_ie_ℓ
 $$
 
-作用e<sup>m</sup>得（在矩阵向量表示中，由于e<sup>m</sup>, ˜e<sup>k</sup>以上标表示，它们本身类似于行向量，放在一起就要按照行堆叠起来）    
+作用e<sup>m</sup>得（在矩阵向量表示中，由于e<sup>m</sup>, $\tilde{e}$<sup>k</sup>以上标表示，它们本身类似于行向量，放在一起就要按照行堆叠起来）    
 
 $$
 e^m = \tilde e^it^ℓ_ie_ℓe^m e^1 \tilde e^1
@@ -1967,13 +1967,13 @@ e^m = \tilde e^it^ℓ_ie_ℓe^m e^1 \tilde e^1
 = \tilde e^it^ℓ_i\delta ^m e^2= T \tilde e^2.
 $$
 
-ℓ     
+$\ell$     
 
 $$
 = \tilde e^it^m_i, e^3 \tilde e^3
 $$
 
-再作用τ<sub></sub><sup>k</sup><sub>m</sub>得   
+再作用$\tau$<sub></sub><sup>k</sup><sub>m</sub>得   
 
 $$
 e^m\tau ^{\mathsf{T}}k= \tilde e^it^m_i \tau ^ k \tilde e^1 e^1
@@ -1985,9 +1985,9 @@ $$
 
 > 注13：因为与式子中上标k相同，实际上是对每一个k作用，之后关于k求和。
 
-矩阵向量表示如果写成行，就是(e<sup>1</sup>, e<sup>2</sup>, e<sup>3</sup>) = (˜e<sup>1</sup>, ˜e<sup>2</sup>, ˜e<sup>3</sup>)T<sub></sub>$^\mathsf{T}$,(˜e<sup>1</sup>, ˜e<sup>2</sup>, ˜e<sup>3</sup>) = (e<sup>1</sup>, e<sup>2</sup>, e<sup>3</sup>)T<sup>−T</sup>.
+矩阵向量表示如果写成行，就是(e<sup>1</sup>, e<sup>2</sup>, e<sup>3</sup>) = ($\tilde{e}$<sup>1</sup>, $\tilde{e}$<sup>2</sup>, $\tilde{e}$<sup>3</sup>)T<sub></sub>$^\mathsf{T}$,($\tilde{e}$<sup>1</sup>, $\tilde{e}$<sup>2</sup>, $\tilde{e}$<sup>3</sup>) = (e<sup>1</sup>, e<sup>2</sup>, e<sup>3</sup>)T<sup>-T</sup>.
 
-有意思的是，在爱因斯坦约定下，只要知道了用的是逆矩阵T,上下标只能这么写才能正确地去留。利用这一点，由于泛函f 在对偶基下的变换跟对偶基的变换又差一个求逆，于是泛函的坐标变换表达式要通过T 的分量联系坐标˜y<sub>i</sub>与y<sub>j</sub>, 按照这样的规则只能是
+有意思的是，在爱因斯坦约定下，只要知道了用的是逆矩阵T,上下标只能这么写才能正确地去留。利用这一点，由于泛函f 在对偶基下的变换跟对偶基的变换又差一个求逆，于是泛函的坐标变换表达式要通过T 的分量联系坐标$\tilde{y}$<sub>i</sub>与y<sub>j</sub>, 按照这样的规则只能是
 
 $$
 \tilde y_i = t^j_iy_j,
@@ -2011,15 +2011,15 @@ $$
 
 考虑一个(2, 1)型张量f $\in U^{*}$$\otimes V^{*} \otimes$W,若U, V, W基依次取为
 
-{ξ<sub>1</sub>, · · ·, ξ<sub>p</sub>}; {η<sub>1</sub>, · · ·, η<sub>q</sub>}; {ζ<sub>1</sub>, · · ·, ζ<sub>r</sub>},
+{$\xi$<sub>1</sub>, · · ·, $\xi$<sub>p</sub>}; {$\eta$<sub>1</sub>, · · ·, $\eta$<sub>q</sub>}; {$\zeta$<sub>1</sub>, · · ·, $\zeta$<sub>r</sub>},
 
-那么，f(u, v, g)取值为(u = x<sup>i</sup>ξ<sub>i</sub>, v = y<sup>j</sup>η<sub>j</sub>, g = z<sub>k</sub>ζ<sup>k</sup>)
+那么，f(u, v, g)取值为(u = x<sup>i</sup>$\xi$<sub>i</sub>, v = y<sup>j</sup>$\eta$<sub>j</sub>, g = z<sub>k</sub>$\zeta$<sup>k</sup>)
 
 $$
 f(u, v, g) = f^{\mathsf{T}}k_ijx^iy^jz_k,
 $$
 
-也就是说，张量在形为ξ<sup>i</sup> ⊗η<sup>j</sup> ⊗ζ<sub>k</sub>的张量组成的基下可表示为
+也就是说，张量在形为$\xi$<sup>i</sup> $\otimes$$\eta$<sup>j</sup> $\otimes$$\zeta$<sub>k</sub>的张量组成的基下可表示为
 
 $$
 f = f^{\mathsf{T}}k_ij\xi ^i ⊗\eta ^j ⊗\zeta _k.
@@ -2039,7 +2039,7 @@ $$
 \tilde \xi _i = a^ℓ_i\xi _ℓ,\tilde \eta _j = b^m_j \eta _m,\tilde \zeta _k = c^n_k\zeta _n,
 $$
 
-又逆矩阵分别以分量形式记为α<sup>i</sup>    <sub>ℓ</sub>, β<sup>j</sup><sub>m</sub>, γ<sup>k</sup><sub>n</sub>,新的基由以下张量组成(i = 1, · · ·, p; j = 1, · · ·, q; k = 1, · · ·, r)
+又逆矩阵分别以分量形式记为$\alpha$<sup>i</sup>    <sub>$\ell$</sub>, $\beta$<sup>j</sup><sub>m</sub>, $\gamma$<sup>k</sup><sub>n</sub>,新的基由以下张量组成(i = 1, · · ·, p; j = 1, · · ·, q; k = 1, · · ·, r)
 
 $$
 \tilde \xi ^i ⊗\tilde \eta ^j ⊗\tilde \zeta _k = \xi ^ℓ⊗\eta ^m ⊗\zeta _n\alpha ^i_ℓ\beta ^j_mc^n
@@ -2047,7 +2047,7 @@ $$
 
 <sub>k</sub>,
 
-而张量坐标为˜f<sub></sub>k<sub>˜i˜j</sub>a<sup>˜i</sup>˜k˜j<sub>j</sub>γ<sup>k</sup>
+而张量坐标为$\tilde{f}$<sub></sub>k<sub>$\tilde{i}$$\tilde{j}$</sub>a<sup>$\tilde{i}$</sup>$\tilde{k}$$\tilde{j}$<sub>j</sub>$\gamma$<sup>k</sup>
 
 $$
 _ij = f_ib_\tilde k,
@@ -2068,7 +2068,7 @@ _\tilde i\tilde j\xi ^ℓ⊗\eta ^m ⊗\zeta _n\delta ^\tilde i\tilde k _ℓ\del
  =f
 $$
 
-˜k
+$\tilde{k}$
 
 $$
 f^{\mathsf{T}}n_ℓm\xi ^ℓ⊗\eta ^m ⊗\zeta _n,
@@ -2077,7 +2077,7 @@ $$
 
 即张量f本身是不变的。
 
-特别地，从一个公共的线性空间V 出发，V 的一组基取为{e<sub>1</sub>, · · ·, e<sub>n</sub>},对偶基{e<sup>1</sup>, · · ·, e<sup>n</sup>}.考虑(2, 1)-型张量f $\in V^{*}$$\otimes V^{*} \otimes$V. 对于u = x<sup>i</sup>e<sub>i</sub>, v = y<sup>j</sup>e<sub>j</sub> ∈V, g = z<sub>k</sub>e<sup>k</sup> $\in V^{*}$,有
+特别地，从一个公共的线性空间V 出发，V 的一组基取为{e<sub>1</sub>, · · ·, e<sub>n</sub>},对偶基{e<sup>1</sup>, · · ·, e<sup>n</sup>}.考虑(2, 1)-型张量f $\in V^{*}$$\otimes V^{*} \otimes$V. 对于u = x<sup>i</sup>e<sub>i</sub>, v = y<sup>j</sup>e<sub>j</sub> $\in$V, g = z<sub>k</sub>e<sup>k</sup> $\in V^{*}$,有
 
 $$
 f(u, v, g) = f^{\mathsf{T}}k_ijx^iy^jz_k,
@@ -2101,7 +2101,7 @@ $$
 \tilde e_i = e_ℓt^ℓ
 $$
 
-i引起u, v的坐标变换(t<sup>ℓ</sup> <sub>i</sub>τ<sup>j</sup><sub>ℓ</sub>= δ<sup>j</sup><sub>i</sub> )
+i引起u, v的坐标变换(t<sup>$\ell$</sup> <sub>i</sub>$\tau$<sup>j</sup><sub>$\ell$</sub>= $\delta$<sup>j</sup><sub>i</sub> )
 
 $$
 \tilde x^i = x^ℓ\tau ^{\mathsf{T}}i\tilde y^j = y^m\tau ^{\mathsf{T}}j
@@ -2126,7 +2126,7 @@ $$
 \tilde e^i ⊗\tilde e^j ⊗\tilde e_k = e^\tilde i ⊗e^\tilde j ⊗e_\tilde k\tau ^ i_\tilde i \tau ^ j\tilde k
 $$
 
-<sub>˜j</sub> t<sub>k</sub>,
+<sub>$\tilde{j}$</sub> t<sub>k</sub>,
 
 而f的坐标也变为
 
@@ -2134,7 +2134,7 @@ $$
 \tilde f_ k_ij = f^ n_ℓmt^ℓ_it^m_j \tau ^ k_n.
 $$
 
-在上述变换下，向量与泛函u, v, g不变，张量f不变，取值f(u, v, g)于是也不变。而所有与上标相关的量（泛函坐标、向量的基）用正向的变换(t)，而与下标相关的量（向量坐标、对偶基）用反向的变换(τ).
+在上述变换下，向量与泛函u, v, g不变，张量f不变，取值f(u, v, g)于是也不变。而所有与上标相关的量（泛函坐标、向量的基）用正向的变换(t)，而与下标相关的量（向量坐标、对偶基）用反向的变换($\tau$).
 
 ## 9.4 张量运算
 
@@ -2218,7 +2218,7 @@ $$
 a^i = g^ija_j,
 $$
 
-称为升指标。而且这里G, ˜G是一对逆矩阵，
+称为升指标。而且这里G, $\tilde{G}$是一对逆矩阵，
 
 $$
 \tilde G = G^{-1},
@@ -2236,7 +2236,7 @@ $$
 G(a, b) = g_ija^ib^j,
 $$
 
-从而G $\in V^{*}$$\otimes V^{*}$.类似地，G<sup>−1</sup> = (g<sup>ij</sup>) ∈V ⊗V.因此，也称度量阵为度量张量。
+从而G $\in V^{*}$$\otimes V^{*}$.类似地，G<sup>-1</sup> = (g<sup>ij</sup>) $\in$V $\otimes$V.因此，也称度量阵为度量张量。
 
 张量的加法和数乘前面已定义，而且，如$V^{*}$$\otimes V^{*} \otimes$V 在这样的加法和数乘下本身构成了一个线性空间。
 
@@ -2258,15 +2258,15 @@ $$
 (f ⊗g)(u, v, w; x, y, z) = f(u, v; x)g(w; y, z),
 $$
 
-> 注15：以下变量之间用分号隔开V 中向量和V ∗中的泛函。
+> 注15：以下变量之间用分号隔开V 中向量和V $\ast$中的泛函。
 
 其中$\forall u, v, w \in V, x, y, z \in V^{*}$.
 
-容易看出，f ⊗g 仍然保持多线性性质，这使它成为张量，而且是在张量空间$V^{*}$$\otimes V^{*}$$\otimes V^{*} \otimes$V ⊗V ⊗V 中。<sup>16</sup>
+容易看出，f $\otimes$g 仍然保持多线性性质，这使它成为张量，而且是在张量空间$V^{*}$$\otimes V^{*}$$\otimes V^{*} \otimes$V $\otimes$V $\otimes$V 中。<sup>16</sup>
 
 进一步有
 
-f ⊗g = f<sub></sub><sup>k</sup><sub>ij</sub>g<sup>qr</sup><sub>p</sub> e<sup>i</sup> ⊗e<sup>j</sup> ⊗e<sup>p</sup> ⊗e<sub>k</sub> ⊗e<sub>q</sub> ⊗e<sub>r</sub>,
+f $\otimes$g = f<sub></sub><sup>k</sup><sub>ij</sub>g<sup>qr</sup><sub>p</sub> e<sup>i</sup> $\otimes$e<sup>j</sup> $\otimes$e<sup>p</sup> $\otimes$e<sub>k</sub> $\otimes$e<sub>q</sub> $\otimes$e<sub>r</sub>,
 
 这就给出了张量积的坐标
 
@@ -2274,7 +2274,7 @@ $$
 (f ⊗g)^kqr_ijp = f^ k_ijg^qr_p.
 $$
 
-对于f $\in V^{*}$$\otimes V^{*}$$\otimes V^{*} \otimes$V ⊗V,选定两个数字如2和1,在f的自变量中，固定其中相应序号为2的向量为e<sub>j</sub>,以及序号为1的泛函为ej 并求和，得到的张量称为f 按逆变2-指标和协变1-指标的卷积，记为
+对于f $\in V^{*}$$\otimes V^{*}$$\otimes V^{*} \otimes$V $\otimes$V,选定两个数字如2和1,在f的自变量中，固定其中相应序号为2的向量为e<sub>j</sub>,以及序号为1的泛函为ej 并求和，得到的张量称为f 按逆变2-指标和协变1-指标的卷积，记为
 
 $$
 tr^1_2(f) \in V^{*}⊗V^{*}⊗V,
@@ -2304,7 +2304,7 @@ $$
 tr^1_1A = A^ℓ_ℓ.
 $$
 
-张量如f $\in V^{*}$$\otimes V^{*} \otimes$V, g $\in V^{*} \otimes$V ⊗V 的点积定义为
+张量如f $\in V^{*}$$\otimes V^{*} \otimes$V, g $\in V^{*} \otimes$V $\otimes$V 的点积定义为
 
 $$
 f \cdot g=tr^1_3(f ⊗g)
@@ -2322,7 +2322,7 @@ $$
 
 类似地还可以定义张量的双点积、三点积等。
 
-> 注16：这个张量空间包含所有形如f ⊗g这样的张量，以及它们的线性组合。
+> 注16：这个张量空间包含所有形如f $\otimes$g这样的张量，以及它们的线性组合。
 
 以下讨论3阶协变张量f $\in V^{*}$$\otimes V^{*}$$\otimes V^{*}$.如上所述，f的定义为
 
@@ -2342,13 +2342,13 @@ $$
 \pi = (\pi _1, \pi _2, \pi _3),
 $$
 
-按照这个排列改变(u, v, w)的顺序，例如π = (3, 1, 2)时，
+按照这个排列改变(u, v, w)的顺序，例如$\pi$ = (3, 1, 2)时，
 
 $$
 \pi (u, v, w) = (w, u, v).
 $$
 
-利用这样的π改变f如下：
+利用这样的$\pi$改变f如下：
 
 $$
 (f ◦\pi)(u, v, w) = f(\pi (u, v, w)).
@@ -2364,9 +2364,9 @@ $$
 \end{aligned}
 $$
 
-在行列式引入时，排列π的逆序数定义为τ<sub>π</sub> = τ(π<sub>1</sub>, π<sub>2</sub>, π<sub>3</sub>).
+在行列式引入时，排列$\pi$的逆序数定义为$\tau$<sub>$\pi$</sub> = $\tau$($\pi$<sub>1</sub>, $\pi$<sub>2</sub>, $\pi$<sub>3</sub>).
 
-称f反对称，若∀π,
+称f反对称，若$\forall$$\pi$,
 
 $$
 f ◦\pi = \tau _\pi f,
@@ -2378,19 +2378,19 @@ $$
 f(\pi (u, v, w)) = \tau _\pi f(u, v, w).
 $$
 
-按照τ<sub>π</sub> = ±1可把所有排列分成两个子集，它们之间相差一个对换。
+按照$\tau$<sub>$\pi$</sub> = $\pm$1可把所有排列分成两个子集，它们之间相差一个对换。
 
-称Asym(f) ≡ (1/3!) ∑ τ<sub>π</sub> f ◦ π 为f $\in V^{*}$$\otimes V^{*}$$\otimes V^{*}$ 的交错化张量，其中π取遍所有排列。
+称Asym(f) $\equiv$ (1/3!) $\sum$ $\tau$<sub>$\pi$</sub> f ◦ $\pi$ 为f $\in V^{*}$$\otimes V^{*}$$\otimes V^{*}$ 的交错化张量，其中$\pi$取遍所有排列。
 
 容易验证，交错化张量反对称。
 
-**定义9.7.** 若p阶协变张量f反对称，称为V 上的一个p次外形式。所有V 上的p次外形式构成的集合记为Λ<sup>p</sup>($V^{*}$).
+**定义9.7.** 若p阶协变张量f反对称，称为V 上的一个p次外形式。所有V 上的p次外形式构成的集合记为$\Lambda$<sup>p</sup>($V^{*}$).
 
-外形式对于加法和数乘封闭，因此Λ<sup>p</sup>($V^{*}$)是p阶协变张量空间的一个子空间。
+外形式对于加法和数乘封闭，因此$\Lambda$<sup>p</sup>($V^{*}$)是p阶协变张量空间的一个子空间。
 
-同理，若q阶逆变张量反对称，称为V 上的一个q向量，所有的q向量构成的集合记为Λ<sup>q</sup>(V )，是q阶逆变张量空间的一个子空间。
+同理，若q阶逆变张量反对称，称为V 上的一个q向量，所有的q向量构成的集合记为$\Lambda$<sup>q</sup>(V )，是q阶逆变张量空间的一个子空间。
 
-**定义9.8.** v<sub>1</sub>, · · ·, v<sub>q</sub> ∈V ，定义它们的外积
+**定义9.8.** v<sub>1</sub>, · · ·, v<sub>q</sub> $\in$V ，定义它们的外积
 
 $$
 v_1 ∧\cdots ∧v_q = Asym(v_1 ⊗\cdots ⊗v_q).
@@ -2402,11 +2402,11 @@ $$
 e_i1 ∧\cdots ∧e_iq,1 ≤i_1 < \cdots < i_q ≤n,
 $$
 
-可以线性表出Λ<sup>q</sup>(V )中所有张量。还可以证明，这些外积得到的向量线性无关，从而构成子空间Λ<sup>q</sup>(V )的一组基。特别地，所有q > n的Λ<sup>q</sup>(V ) = {0}为平凡子空间。
+可以线性表出$\Lambda$<sup>q</sup>(V )中所有张量。还可以证明，这些外积得到的向量线性无关，从而构成子空间$\Lambda$<sup>q</sup>(V )的一组基。特别地，所有q > n的$\Lambda$<sup>q</sup>(V ) = {0}为平凡子空间。
 
-**定理9.7.** v<sub>1</sub>, · · ·, v<sub>q</sub> ∈V 线性无关的充要条件是v<sub>1</sub> ∧· · · ∧v<sub>q</sub> ≠  0.
+**定理9.7.** v<sub>1</sub>, · · ·, v<sub>q</sub> $\in$V 线性无关的充要条件是v<sub>1</sub> $\wedge$· · · $\wedge$v<sub>q</sub> $\ne$  0.
 
-证明. 若v<sub>1</sub>, · · ·, v<sub>q</sub> ∈V 线性相关，其中至少一个向量可表示为前面向量的线性组合。不妨
+证明. 若v<sub>1</sub>, · · ·, v<sub>q</sub> $\in$V 线性相关，其中至少一个向量可表示为前面向量的线性组合。不妨
 
 $$
 v_q = \sum_{i=1}^{q-1} \lambda_i v_i,
@@ -2424,7 +2424,7 @@ $$
 v_1 ∧\cdots ∧v_q = 0.
 $$
 
-另一方面，如果v<sub>1</sub>, · · ·, v<sub>q</sub> ∈V 线性无关，那么它们可以扩张成V 的一组（n个向量构成的）基，从而v<sub>1</sub> ∧· · · ∧v<sub>q</sub> 是Λ<sup>q</sup>(V ) 的一个基向量，当然非0.    ■
+另一方面，如果v<sub>1</sub>, · · ·, v<sub>q</sub> $\in$V 线性无关，那么它们可以扩张成V 的一组（n个向量构成的）基，从而v<sub>1</sub> $\wedge$· · · $\wedge$v<sub>q</sub> 是$\Lambda$<sup>q</sup>(V ) 的一个基向量，当然非0.    ■
 
 现在，设任一组向量v<sub>1</sub>, · · ·, v<sub>n</sub>的坐标表示为
 
@@ -2432,19 +2432,19 @@ $$
 v_j = a^i_je_i,
 $$
 
-那么v<sub>1</sub> ∧· · · ∧v<sub>n</sub>可在Λ<sup>n</sup>(V )的基上展开，然而Λ<sup>n</sup>(V )中只有一个基向量e<sub>1</sub> ∧ · · · ∧e<sub>n</sub>,于是
+那么v<sub>1</sub> $\wedge$· · · $\wedge$v<sub>n</sub>可在$\Lambda$<sup>n</sup>(V )的基上展开，然而$\Lambda$<sup>n</sup>(V )中只有一个基向量e<sub>1</sub> $\wedge$ · · · $\wedge$e<sub>n</sub>,于是
 
 $$
 v_1 ∧\cdots ∧v_n = \Delta e_1 ∧\cdots ∧e_n.
 $$
 
-这里的∆$\in \mathbb{R}$可以证明关于v<sub>i</sub>具有多线性性,对换后变号，且当v<sub>i</sub> = e<sub>i</sub>即
+这里的$\triangle$$\in \mathbb{R}$可以证明关于v<sub>i</sub>具有多线性性,对换后变号，且当v<sub>i</sub> = e<sub>i</sub>即
 
 $$
 a^i_j = \delta ^i
 $$
 
-j时∆= 1.因此，
+j时$\triangle$= 1.因此，
 
 $$
 \Delta = det(a^i_j).
@@ -2456,31 +2456,31 @@ $$
 
 1. 函数sin x, cos x都在某线性空间V 中。
 
-(a) 若定义 f(φ(x)) = √2·φ(3π/4)，试验证它确是线性泛函，且满足 f(sin x) = 1, f(cos x) = −1；并求 f(sin(x + π/6));
+(a) 若定义 f($\phi$(x)) = $\sqrt$2$\cdot$$\phi$(3$\pi$/4)，试验证它确是线性泛函，且满足 f(sin x) = 1, f(cos x) = -1；并求 f(sin(x + $\pi$/6));
 
-(b) 若定义 g(φ(x)) = ∫_{π/2}^{π} φ(x)dx，试验证它亦是线性泛函，且满足 g(sin x) = 1, g(cos x) = −1；并求 g(sin(x + π/6));
+(b) 若定义 g($\phi$(x)) = $\int$_{$\pi$/2}^{$\pi$} $\phi$(x)dx，试验证它亦是线性泛函，且满足 g(sin x) = 1, g(cos x) = -1；并求 g(sin(x + $\pi$/6));
 
 (c) 上述二者是否相等？若是，f(tan x)与g(tan x)是否相等？为何如此？
 
 2. f是n维内积空间V 上的线性泛函，求证：
 
-(a) 必存在V 的一组标准正交基{ε<sub>1</sub>, · · ·, ε<sub>n</sub>},成立：$\forall v \in V, f(v) = v_{1},$这里v<sub>1</sub> 是v在标准正交基下的第一个坐标;
+(a) 必存在V 的一组标准正交基{$\varepsilon$<sub>1</sub>, · · ·, $\varepsilon$<sub>n</sub>},成立：$\forall v \in V, f(v) = v_{1},$这里v<sub>1</sub> 是v在标准正交基下的第一个坐标;
 
 (b) f在V 上点点连续；
 
-(c) 若 f 不恒取零值，定义 \|f\| = sup_{v≠0} |f(v)|/\|v\|, d = inf{\|v\| | f(v) = 1}，则 \|f\|d = 1.
+(c) 若 f 不恒取零值，定义 \|f\| = sup_{v$\ne$0} |f(v)|/\|v\|, d = inf{\|v\| | f(v) = 1}，则 \|f\|d = 1.
 
 3. f<sub>1</sub>, · · ·, f<sub>r</sub>是n维线性空间V 上的线性泛函。求证：
 
-(a) W = {v ∈V |f<sub>1</sub>(v) = · · · = f<sub>r</sub>(v) = 0}是V 的子空间；
+(a) W = {v $\in$V |f<sub>1</sub>(v) = · · · = f<sub>r</sub>(v) = 0}是V 的子空间；
 
-(b) 若W为V 的一个子空间，则必存在若干个线性泛函f<sub>1</sub>, · · ·, f<sub>r</sub> (r ≤
+(b) 若W为V 的一个子空间，则必存在若干个线性泛函f<sub>1</sub>, · · ·, f<sub>r</sub> (r $\le$
 
 $$
 n),使得W = {v \in V |f_1(v) = \cdots = f_r(v) = 0}.
 $$
 
-4. 在空间$\mathbb{R}^3$中取一组基ε<sub>1</sub> = (1, 1, 1), ε<sub>2</sub> = (1, 1, −1), ε<sub>3</sub> = (1, −1, −1),而{ε<sup>1</sup>, ε<sup>2</sup>, ε<sup>3</sup>}是其对偶基，试对x = (1, 0, 0)求：ε<sup>1</sup>(x), ε<sup>2</sup>(x), ε<sup>3</sup>(x).
+4. 在空间$\mathbb{R}^3$中取一组基$\varepsilon$<sub>1</sub> = (1, 1, 1), $\varepsilon$<sub>2</sub> = (1, 1, -1), $\varepsilon$<sub>3</sub> = (1, -1, -1),而{$\varepsilon$<sup>1</sup>, $\varepsilon$<sup>2</sup>, $\varepsilon$<sup>3</sup>}是其对偶基，试对x = (1, 0, 0)求：$\varepsilon$<sup>1</sup>(x), $\varepsilon$<sup>2</sup>(x), $\varepsilon$<sup>3</sup>(x).
 
 5. 考虑$\mathbb{R}^3$中的基
 
@@ -2494,13 +2494,13 @@ $$
 \tilde \varepsilon _1 = (0, 0, 1)^T, \tilde \varepsilon _2 = (0, 1, 1)^T, \tilde \varepsilon _3 = (1, 0, 1)^T,
 $$
 
-求a在这组基下的坐标向量˜x和对偶基{˜ε<sup>1</sup>, ˜ε<sup>2</sup>, ˜ε<sup>3</sup>},以及f新的坐标向量；并计算f(a).
+求a在这组基下的坐标向量$\tilde{x}$和对偶基{$\tilde{varepsilon}$<sup>1</sup>, $\tilde{varepsilon}$<sup>2</sup>, $\tilde{varepsilon}$<sup>3</sup>},以及f新的坐标向量；并计算f(a).
 
 6. 在多项式空间P<sub>2</sub>[x]上，分别求以下两种基的对偶基：
 
-(a) {ε<sub>0</sub>, ε<sub>1</sub>, ε<sub>2</sub>}为一组基，其中ε<sub>j</sub> = [x]<sup>j</sup>；
+(a) {$\varepsilon$<sub>0</sub>, $\varepsilon$<sub>1</sub>, $\varepsilon$<sub>2</sub>}为一组基，其中$\varepsilon$<sub>j</sub> = [x]<sup>j</sup>；
 
-(b) 先取定3个不同的实数x<sub>0</sub> = −1, x<sub>1</sub> = 0, x<sub>2</sub> = 1,写出拉格朗日插值多项式例子中的基{˜ε<sub>0</sub>, ˜ε<sub>1</sub>, ˜ε<sub>2</sub>}.
+(b) 先取定3个不同的实数x<sub>0</sub> = -1, x<sub>1</sub> = 0, x<sub>2</sub> = 1,写出拉格朗日插值多项式例子中的基{$\tilde{varepsilon}$<sub>0</sub>, $\tilde{varepsilon}$<sub>1</sub>, $\tilde{varepsilon}$<sub>2</sub>}.
 
 若给定函数
 
@@ -2524,4 +2524,4 @@ f([1, 0, 0]$^\mathsf{T}$, [1, 1, 1]$^\mathsf{T}$) = 3;f([1, 0, 0]$^\mathsf{T}$, 
 
 8. 在n维内积空间V 上，求证：双线性型f(a, b)为对称的，当且仅当V 有一组标准正交基，使f(a, b)的度量阵为对角阵。
 
-9. 求证n维内积空间V 上有同构L(V × V, R) = $\mathbb{R}^{n \times n}$.
+9. 求证n维内积空间V 上有同构L(V $\times$ V, R) = $\mathbb{R}^{n \times n}$.
