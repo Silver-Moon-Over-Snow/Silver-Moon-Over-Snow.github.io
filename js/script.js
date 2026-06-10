@@ -1,26 +1,28 @@
-// Navigation scroll effect
 const nav = document.querySelector('.nav');
 const backToTop = document.querySelector('.back-to-top');
+const themeToggle = document.querySelector('.theme-toggle');
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const storedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-window.addEventListener('scroll', () => {
+document.documentElement.dataset.theme = storedTheme || (prefersDark ? 'dark' : 'light');
+
+const updateScrollState = () => {
   const y = window.scrollY;
 
-  // Nav shadow
   if (y > 60) {
-    nav.classList.add('scrolled');
+    nav?.classList.add('scrolled');
   } else {
-    nav.classList.remove('scrolled');
+    nav?.classList.remove('scrolled');
   }
 
-  // Back to top button
   if (y > 400) {
-    backToTop.classList.add('visible');
+    backToTop?.classList.add('visible');
   } else {
-    backToTop.classList.remove('visible');
+    backToTop?.classList.remove('visible');
   }
 
-  // Active nav link
-  const sections = document.querySelectorAll('section[id]');
   let current = '';
   sections.forEach((section) => {
     const top = section.offsetTop - 120;
@@ -28,20 +30,28 @@ window.addEventListener('scroll', () => {
       current = section.getAttribute('id');
     }
   });
-  document.querySelectorAll('.nav-links a').forEach((link) => {
+
+  navLinks.forEach((link) => {
     link.classList.remove('active');
     if (link.getAttribute('href') === '#' + current) {
       link.classList.add('active');
     }
   });
-});
+};
 
-// Back to top click
-backToTop.addEventListener('click', () => {
+window.addEventListener('scroll', updateScrollState, { passive: true });
+updateScrollState();
+
+backToTop?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Fade-in on scroll
+themeToggle?.addEventListener('click', () => {
+  const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = nextTheme;
+  localStorage.setItem('theme', nextTheme);
+});
+
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -53,7 +63,7 @@ const observer = new IntersectionObserver(
   { threshold: 0.15 }
 );
 
-document.querySelectorAll('.skill-card, .project-card, .about-content, .contact-card, .timeline-card').forEach((el) => {
+document.querySelectorAll('.skill-card, .project-card, .about-content, .contact-card, .timeline-card, .now-card, .link-card, .note-list').forEach((el) => {
   el.classList.add('fade-in');
   observer.observe(el);
 });
