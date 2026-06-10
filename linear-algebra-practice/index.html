@@ -943,44 +943,6 @@
       font-size: 20px;
     }
 
-    .frac {
-      display: inline-grid;
-      grid-template-rows: auto auto;
-      align-items: center;
-      justify-items: center;
-      vertical-align: middle;
-      margin: 0 2px;
-      line-height: 1.05;
-    }
-
-    .frac .num {
-      padding: 0 4px 2px;
-      border-bottom: 1px solid currentColor;
-    }
-
-    .frac .den {
-      padding: 2px 4px 0;
-      font-size: .92em;
-    }
-
-    .sqrt {
-      display: inline-flex;
-      align-items: flex-start;
-      gap: 1px;
-      vertical-align: middle;
-    }
-
-    .sqrt::before {
-      content: "√";
-      font-size: 1.12em;
-      line-height: 1.1;
-    }
-
-    .sqrt .radicand {
-      padding: 1px 4px 0;
-      border-top: 1px solid currentColor;
-    }
-
     .md-block {
       line-height: 1.75;
     }
@@ -1827,97 +1789,12 @@ $$
         .replace(/'/g, "&#39;");
     }
 
-    function readGroup(text, start) {
-      if (text[start] !== "{") return null;
-      let depth = 0;
-      for (let i = start; i < text.length; i++) {
-        if (text[i] === "{") depth++;
-        if (text[i] === "}") depth--;
-        if (depth === 0) {
-          return { value: text.slice(start + 1, i), end: i + 1 };
-        }
-      }
-      return null;
-    }
-
-    function renderTeX(tex) {
-      let s = String(tex || "");
-
-      const replaceCommandWithGroups = (source, command, count, build) => {
-        let out = "";
-        let i = 0;
-        const needle = "\\" + command;
-        while (i < source.length) {
-          const pos = source.indexOf(needle, i);
-          if (pos < 0) {
-            out += source.slice(i);
-            break;
-          }
-          out += source.slice(i, pos);
-          let cursor = pos + needle.length;
-          const groups = [];
-          let ok = true;
-          for (let g = 0; g < count; g++) {
-            while (/\s/.test(source[cursor] || "")) cursor++;
-            const group = readGroup(source, cursor);
-            if (!group) {
-              ok = false;
-              break;
-            }
-            groups.push(group.value);
-            cursor = group.end;
-          }
-          if (!ok) {
-            out += source.slice(pos, cursor);
-            i = cursor;
-          } else {
-            out += build(...groups.map(renderTeX));
-            i = cursor;
-          }
-        }
-        return out;
-      };
-
-      s = replaceCommandWithGroups(s, "frac", 2, (a, b) => `<span class="frac"><span class="num">${a}</span><span class="den">${b}</span></span>`);
-      s = replaceCommandWithGroups(s, "sqrt", 1, a => `<span class="sqrt"><span class="radicand">${a}</span></span>`);
-      s = s.replace(/\\operatorname\{([^{}]+)\}/g, "$1");
-      s = s.replace(/\\mathbb\{R\}/g, "ℝ")
-        .replace(/\\mathbb\{C\}/g, "ℂ")
-        .replace(/\\mathbb\{Q\}/g, "ℚ")
-        .replace(/\\mathbb\{Z\}/g, "ℤ");
-
-      const commands = {
-        "\\lambda": "λ", "\\mu": "μ", "\\alpha": "α", "\\beta": "β", "\\gamma": "γ", "\\delta": "δ",
-        "\\epsilon": "ε", "\\theta": "θ", "\\sigma": "σ", "\\tau": "τ", "\\phi": "φ", "\\psi": "ψ",
-        "\\omega": "ω", "\\Lambda": "Λ", "\\Delta": "Δ", "\\Sigma": "Σ", "\\Omega": "Ω",
-        "\\dim": "dim", "\\ker": "Ker", "\\Ker": "Ker", "\\rank": "rank", "\\tr": "tr", "\\det": "det",
-        "\\span": "span", "\\Hom": "Hom", "\\End": "End", "\\operatorname": "", "\\mathrm": "",
-        "\\otimes": "⊗", "\\oplus": "⊕", "\\perp": "⊥", "\\le": "≤", "\\ge": "≥", "\\neq": "≠",
-        "\\ne": "≠", "\\in": "∈", "\\notin": "∉", "\\subset": "⊂", "\\subseteq": "⊆",
-        "\\to": "→", "\\mapsto": "↦", "\\Rightarrow": "⇒", "\\Leftarrow": "⇐", "\\Leftrightarrow": "⇔",
-        "\\cdot": "·", "\\times": "×", "\\sum": "∑", "\\prod": "∏", "\\forall": "∀", "\\exists": "∃",
-        "\\langle": "⟨", "\\rangle": "⟩", "\\|": "‖"
-      };
-      Object.entries(commands)
-        .sort((a, b) => b[0].length - a[0].length)
-        .forEach(([cmd, val]) => {
-          s = s.split(cmd).join(val);
-        });
-
-      s = s.replace(/([A-Za-z0-9λμθφψω\)\]\}])\^\{([^{}]+)\}/g, "$1<sup>$2</sup>");
-      s = s.replace(/([A-Za-z0-9λμθφψω\)\]\}])_\{([^{}]+)\}/g, "$1<sub>$2</sub>");
-      s = s.replace(/([A-Za-z0-9λμθφψω\)\]\}])\^([A-Za-z0-9+\-]+)/g, "$1<sup>$2</sup>");
-      s = s.replace(/([A-Za-z0-9λμθφψω\)\]\}])_([A-Za-z0-9+\-]+)/g, "$1<sub>$2</sub>");
-      s = s.replace(/\\([A-Za-z]+)/g, "$1");
-      return s;
-    }
-
     function renderMathSegments(escaped) {
       let text = escaped;
-      text = text.replace(/\$\$([\s\S]+?)\$\$/g, (_, tex) => `<span class="math-display">${renderTeX(tex)}</span>`);
-      text = text.replace(/\\\[([\s\S]+?)\\\]/g, (_, tex) => `<span class="math-display">${renderTeX(tex)}</span>`);
-      text = text.replace(/\$([^$\n]+?)\$/g, (_, tex) => `<span class="math-inline">${renderTeX(tex)}</span>`);
-      text = text.replace(/\\\((.+?)\\\)/g, (_, tex) => `<span class="math-inline">${renderTeX(tex)}</span>`);
+      text = text.replace(/\$\$([\s\S]+?)\$\$/g, (_, tex) => `<span class="math-display">${tex}</span>`);
+      text = text.replace(/\\\[([\s\S]+?)\\\]/g, (_, tex) => `<span class="math-display">${tex}</span>`);
+      text = text.replace(/\$([^$\n]+?)\$/g, (_, tex) => `<span class="math-inline">${tex}</span>`);
+      text = text.replace(/\\\((.+?)\\\)/g, (_, tex) => `<span class="math-inline">${tex}</span>`);
       return text;
     }
 
