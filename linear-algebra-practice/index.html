@@ -1043,6 +1043,108 @@
       line-height: 1.65;
     }
 
+    /* ── Paragraph annotation ── */
+    .chapter-sec p,
+    .chapter-sec li {
+      position: relative;
+      transition: all .2s ease;
+      border-radius: 6px;
+      padding: 6px 8px;
+      margin: 2px 0;
+      cursor: default;
+    }
+    .chapter-sec p:hover,
+    .chapter-sec li:hover {
+      background: var(--soft);
+    }
+    .chapter-sec p.para-active,
+    .chapter-sec li.para-active {
+      background: var(--panel);
+      box-shadow: 0 4px 20px rgba(0,0,0,.1);
+      transform: translateY(-1px);
+      z-index: 2;
+      border: 1px solid var(--brand);
+    }
+    .para-edit-btn {
+      display: none;
+      position: absolute;
+      top: -2px;
+      right: 6px;
+      width: 26px;
+      height: 26px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: all .15s;
+      z-index: 3;
+      line-height: 1;
+    }
+    .para-active .para-edit-btn {
+      display: flex;
+    }
+    .para-edit-btn:hover {
+      background: var(--brand);
+      color: #fff;
+      border-color: var(--brand);
+    }
+    .para-annotation {
+      display: none;
+      margin: 4px 0 10px 12px;
+      padding: 10px 14px;
+      border-left: 3px solid var(--brand);
+      font-size: .92em;
+      line-height: 1.7;
+      border-radius: 0 6px 6px 0;
+      background: var(--soft);
+    }
+    .para-annotation.visible {
+      display: block;
+    }
+    .para-annotation-editor {
+      display: none;
+      margin: 6px 0 10px 12px;
+    }
+    .para-annotation-editor.visible {
+      display: block;
+    }
+    .para-annotation-editor textarea {
+      width: 100%;
+      min-height: 60px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: .9em;
+      resize: vertical;
+      background: var(--panel);
+      color: var(--ink);
+    }
+    .para-annotation-editor .toolbar {
+      margin-top: 6px;
+      display: flex;
+      gap: 6px;
+    }
+    .mini-btn {
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      cursor: pointer;
+      font-size: .85em;
+    }
+    .mini-btn.primary {
+      background: var(--brand);
+      color: #fff;
+      border-color: var(--brand);
+    }
+    .mini-btn:hover { opacity: .85; }
+
     @media (max-width: 880px) {
       .app { grid-template-columns: 1fr; }
       aside { position: static; height: auto; }
@@ -1667,6 +1769,7 @@ $$
       wrong: JSON.parse(localStorage.getItem("alg_wrong") || "{}"),
       fav: JSON.parse(localStorage.getItem("alg_fav") || "{}"),
       notes: JSON.parse(localStorage.getItem("alg_notes") || "{}"),
+      paraAnnotations: JSON.parse(localStorage.getItem("alg_para_annotations") || "{}"),
       dark: localStorage.getItem("alg_dark") === "true",
       accent: localStorage.getItem("alg_accent") || "green",
       focusId: null,
@@ -1710,6 +1813,7 @@ $$
       localStorage.setItem("alg_wrong", JSON.stringify(state.wrong));
       localStorage.setItem("alg_fav", JSON.stringify(state.fav));
       localStorage.setItem("alg_notes", JSON.stringify(state.notes));
+      localStorage.setItem("alg_para_annotations", JSON.stringify(state.paraAnnotations || {}));
       localStorage.setItem("alg_dark", state.dark ? "true" : "false");
       localStorage.setItem("alg_accent", state.accent);
     }
@@ -2413,9 +2517,11 @@ $$
         render();
       };
 
-      // Setup clickable footnotes in chapter sections
+      // Setup clickable footnotes in chapter sections + reposition to reference paragraph
       setTimeout(() => {
         document.querySelectorAll('.chapter-sec').forEach(sec => {
+          // First pass: convert blockquotes to <details> elements
+          const fnMap = new Map(); // n -> details element
           sec.querySelectorAll('blockquote').forEach(bq => {
             const text = bq.textContent.trim();
             const m = text.match(/^注(\d+)[：:]/);
@@ -2427,10 +2533,163 @@ $$
               const body = text.replace(/^注\d+[：:]\s*/, '');
               details.innerHTML = '<summary>📝 注' + n + '</summary><div class="fn-content">' + body + '</div>';
               bq.replaceWith(details);
+              fnMap.set(n, details);
+            }
+          });
+          // Second pass: move footnotes next to their <sup>N</sup> references
+          fnMap.forEach((details, n) => {
+            const sups = sec.querySelectorAll('sup');
+            for (const sup of sups) {
+              if (sup.textContent.trim() === n) {
+                const parentP = sup.closest('p, li, h3, h4, .md-block');
+                if (parentP) {
+                  parentP.after(details);
+                }
+                return;
+              }
+            }
+            // Fallback: also check for plain-text references like "。N" or "，N"
+            // by scanning text nodes (limited to simple cases)
+            const walker = document.createTreeWalker(sec, NodeFilter.SHOW_TEXT);
+            let node;
+            while ((node = walker.nextNode())) {
+              const txt = node.textContent;
+              const match = txt.match(new RegExp('[。，,.]\\s*' + n + '(?=[\\s，。,;若设其则即但而所因故])'));
+              if (match && node.parentElement) {
+                const parentP = node.parentElement.closest('p, li, h3, h4');
+                if (parentP) {
+                  parentP.after(details);
+                  return;
+                }
+              }
             }
           });
         });
       }, 120);
+
+      // Setup paragraph annotation feature
+      setTimeout(() => {
+        document.querySelectorAll('.chapter-sec').forEach(sec => {
+          const secId = sec.id || 'ch9';
+          const paras = sec.querySelectorAll('p, li');
+          paras.forEach((p, pi) => {
+            const key = secId + '-p' + pi;
+            // Create edit button
+            const btn = document.createElement('button');
+            btn.className = 'para-edit-btn';
+            btn.innerHTML = '✏️';
+            btn.title = '添加注释';
+            p.appendChild(btn);
+
+            // Show existing annotation if any
+            const saved = state.paraAnnotations && state.paraAnnotations[key];
+            if (saved) {
+              const disp = document.createElement('div');
+              disp.className = 'para-annotation visible';
+              disp.dataset.key = key;
+              disp.innerHTML = markdown(saved);
+              p.after(disp);
+            }
+
+            // Click paragraph → float + show edit button
+            p.addEventListener('click', (e) => {
+              if (e.target === btn || btn.contains(e.target)) return;
+              const wasActive = p.classList.contains('para-active');
+              // Deactivate all other paragraphs
+              sec.querySelectorAll('.para-active').forEach(el => el.classList.remove('para-active'));
+              if (!wasActive) {
+                p.classList.add('para-active');
+              }
+            });
+
+            // Click edit button → open/close annotation editor
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              // Close any other open editors
+              sec.querySelectorAll('.para-annotation-editor.visible').forEach(ed => ed.remove());
+              const existingEditor = p.nextElementSibling;
+              if (existingEditor && existingEditor.classList.contains('para-annotation-editor')) {
+                existingEditor.classList.toggle('visible');
+                return;
+              }
+              // Create editor
+              const editor = document.createElement('div');
+              editor.className = 'para-annotation-editor visible';
+              const existingAnnotation = (state.paraAnnotations && state.paraAnnotations[key]) || '';
+              editor.innerHTML = `
+                <textarea placeholder="添加注释（支持 Markdown 和 TeX）...">${escapeHTML(existingAnnotation)}</textarea>
+                <div class="toolbar">
+                  <button class="mini-btn primary save-anno">保存</button>
+                  <button class="mini-btn cancel-anno">取消</button>
+                  ${existingAnnotation ? '<button class="mini-btn del-anno" style="color:var(--wrong)">删除</button>' : ''}
+                </div>
+              `;
+              p.after(editor);
+
+              // Save button
+              editor.querySelector('.save-anno').onclick = () => {
+                const val = editor.querySelector('textarea').value.trim();
+                if (!state.paraAnnotations) state.paraAnnotations = {};
+                if (val) {
+                  state.paraAnnotations[key] = val;
+                } else {
+                  delete state.paraAnnotations[key];
+                }
+                save();
+                editor.remove();
+                // Update or remove annotation display
+                const existingDisp = p.nextElementSibling;
+                if (existingDisp && existingDisp.classList.contains('para-annotation')) {
+                  existingDisp.remove();
+                }
+                if (val) {
+                  const disp = document.createElement('div');
+                  disp.className = 'para-annotation visible';
+                  disp.dataset.key = key;
+                  disp.innerHTML = markdown(val);
+                  p.after(disp);
+                }
+                // Re-typeset math in new annotation
+                typesetMath();
+              };
+
+              // Cancel button
+              editor.querySelector('.cancel-anno').onclick = () => {
+                editor.remove();
+              };
+
+              // Delete button
+              const delBtn = editor.querySelector('.del-anno');
+              if (delBtn) {
+                delBtn.onclick = () => {
+                  if (state.paraAnnotations) delete state.paraAnnotations[key];
+                  save();
+                  editor.remove();
+                  const existingDisp = p.nextElementSibling;
+                  if (existingDisp && existingDisp.classList.contains('para-annotation')) {
+                    existingDisp.remove();
+                  }
+                };
+              }
+            });
+          });
+        });
+
+        // Click outside → deactivate floating paragraphs (add once)
+        if (!window._paraClickInit) {
+          window._paraClickInit = true;
+          document.addEventListener('click', (e) => {
+            if (!e.target.closest('.chapter-sec p') && !e.target.closest('.chapter-sec li')) {
+              document.querySelectorAll('.para-active').forEach(el => el.classList.remove('para-active'));
+            }
+          });
+        }
+
+        // Re-typeset math for loaded annotations
+        if (document.querySelector('.para-annotation.visible')) {
+          typesetMath();
+        }
+      }, 200);
     }
 
     function render() {
