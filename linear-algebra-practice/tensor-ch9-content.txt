@@ -39,7 +39,7 @@ tags: [高等代数, 张量, 线性泛函, 双线性型, Obsidian]
 
 线性代数考虑的自变量不局限在数集中，可以是一般的线性空间，这时，如果映射是线性的，就得到一个线性泛函。
 
-**定义9.1.** $(V ; F)$为线性空间，称$f : V \to \mathbb{F}$为线性泛函(linear functional)，1若
+**定义9.1.** $(V ; \mathbb{F})$为线性空间，称$f : V \to \mathbb{F}$为线性泛函(linear functional)，1若
 
 $$
 f(\lambda a + \mu b) = \lambda f(a) + \mu f(b),\forall a, b \in V, \lambda, \mu \in F.
