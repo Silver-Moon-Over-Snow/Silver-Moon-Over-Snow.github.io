@@ -840,6 +840,64 @@
       margin: 6px 0;
     }
 
+    .chapter-wrap {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .chapter-toc {
+      padding: 18px 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .chapter-toc h3 {
+      margin: 0 0 10px;
+      color: var(--brand);
+      font-family: 'Noto Serif SC', serif;
+      font-size: 15px;
+    }
+
+    .chapter-toc ol {
+      list-style: none;
+      counter-reset: ct;
+      padding: 0;
+      margin: 0;
+    }
+
+    .chapter-toc li {
+      counter-increment: ct;
+      margin-bottom: 4px;
+    }
+
+    .chapter-toc a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      transition: 0.2s;
+    }
+
+    .chapter-toc a::before {
+      content: counter(ct) ".";
+      color: var(--muted);
+      font-size: 12px;
+      min-width: 1.6em;
+    }
+
+    .chapter-toc a:hover {
+      color: var(--brand);
+      background: var(--soft);
+    }
+
     .note-area {
       grid-column: 1 / -1;
     }
@@ -2233,12 +2291,24 @@ $$
       let chapterHTML = '';
       if (isTensor) {
         if (sectionsLoaded) {
-          chapterHTML = state.chapter9Sections.map(s => `
-            <div class="study-card chapter-sec">
+          const tocItems = state.chapter9Sections.map((s, i) =>
+            `<li><a href="#ch9-s${i}">${escapeHTML(s.heading)}</a></li>`
+          ).join('');
+          const secCards = state.chapter9Sections.map((s, i) => `
+            <div class="study-card chapter-sec" id="ch9-s${i}">
               <h3>${escapeHTML(s.heading)}</h3>
               <div class="md-block">${markdown(s.content)}</div>
             </div>
           `).join('');
+          chapterHTML = `
+            <div class="chapter-wrap">
+              <div class="chapter-toc">
+                <h3>📑 本章目录</h3>
+                <ol>${tocItems}</ol>
+              </div>
+              ${secCards}
+            </div>
+          `;
         } else {
           chapterHTML = `
             <div class="study-card note-area" style="text-align:center;padding:28px">
