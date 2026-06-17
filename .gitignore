@@ -1,0 +1,19 @@
+node_modules/
+
+# Astro build/cache output
+.astro/
+dist/
+
+# Local tooling state
+.claude/
+.codegraph/
+**/.codegraph/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Local environment files
+.env
+.env.*
