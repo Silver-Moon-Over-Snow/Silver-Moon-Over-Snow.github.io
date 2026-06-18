@@ -5,7 +5,6 @@ const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 const scrollSignature = document.querySelector('.scroll-signature');
 const signatureLines = document.querySelectorAll('.signature-line');
-let signatureDrawn = false;
 const storedTheme = localStorage.getItem('theme');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -23,7 +22,6 @@ signatureLines.forEach((line) => {
 
 const updateScrollState = () => {
   const y = window.scrollY;
-  const distanceToBottom = document.documentElement.scrollHeight - window.innerHeight - y;
 
   if (y > 60) {
     nav?.classList.add('scrolled');
@@ -51,16 +49,6 @@ const updateScrollState = () => {
       link.classList.add('active');
     }
   });
-
-  if (!signatureDrawn && distanceToBottom < 180) {
-    signatureDrawn = true;
-    scrollSignature?.classList.add('visible', 'drawn');
-  }
-
-  if (signatureDrawn && distanceToBottom > 360) {
-    signatureDrawn = false;
-    scrollSignature?.classList.remove('visible', 'drawn');
-  }
 };
 
 window.addEventListener('scroll', updateScrollState, { passive: true });
@@ -86,6 +74,21 @@ const observer = new IntersectionObserver(
   },
   { threshold: 0.15 }
 );
+
+if (scrollSignature) {
+  const signatureObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          scrollSignature.classList.add('visible', 'drawn');
+          signatureObserver.disconnect();
+        }
+      });
+    },
+    { threshold: 0.35 }
+  );
+  signatureObserver.observe(scrollSignature);
+}
 
 document.querySelectorAll('.skill-card, .project-card, .about-content, .contact-card, .timeline-card, .now-card, .link-card, .note-list').forEach((el) => {
   el.classList.add('fade-in');
