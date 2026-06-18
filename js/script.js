@@ -3,13 +3,27 @@ const backToTop = document.querySelector('.back-to-top');
 const themeToggle = document.querySelector('.theme-toggle');
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
+const scrollSignature = document.querySelector('.scroll-signature');
+const signatureLines = document.querySelectorAll('.signature-line');
+let signatureDrawn = false;
 const storedTheme = localStorage.getItem('theme');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 document.documentElement.dataset.theme = storedTheme || (prefersDark ? 'dark' : 'light');
 
+const getSignatureLength = (line) => {
+  if (typeof line.getTotalLength === 'function') return line.getTotalLength();
+  if (typeof line.getComputedTextLength === 'function') return line.getComputedTextLength();
+  return 1;
+};
+
+signatureLines.forEach((line) => {
+  line.style.setProperty('--signature-length', getSignatureLength(line));
+});
+
 const updateScrollState = () => {
   const y = window.scrollY;
+  const distanceToBottom = document.documentElement.scrollHeight - window.innerHeight - y;
 
   if (y > 60) {
     nav?.classList.add('scrolled');
@@ -37,6 +51,16 @@ const updateScrollState = () => {
       link.classList.add('active');
     }
   });
+
+  if (!signatureDrawn && distanceToBottom < 180) {
+    signatureDrawn = true;
+    scrollSignature?.classList.add('visible', 'drawn');
+  }
+
+  if (signatureDrawn && distanceToBottom > 360) {
+    signatureDrawn = false;
+    scrollSignature?.classList.remove('visible', 'drawn');
+  }
 };
 
 window.addEventListener('scroll', updateScrollState, { passive: true });
