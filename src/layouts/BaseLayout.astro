@@ -1,0 +1,158 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Cheerly - Silver-Moon-Over-Snow',
+  description = 'Cheerly 的个人主页，展示教育经历、技能、项目与笔记。'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png?v=3" />
+    <script is:inline>
+      (() => {
+        const storedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = storedTheme || (prefersDark ? 'dark' : 'light');
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <slot />
+    <script>
+      const themeToggle = document.querySelector('.theme-toggle');
+      themeToggle?.addEventListener('click', () => {
+        const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = nextTheme;
+        localStorage.setItem('theme', nextTheme);
+      });
+
+      const nav = document.querySelector('.nav');
+      const backToTop = document.querySelector('.back-to-top');
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a');
+
+      const updateScrollState = () => {
+        const y = window.scrollY;
+        nav?.classList.toggle('scrolled', y > 60);
+        backToTop?.classList.toggle('visible', y > 400);
+
+        let current = '';
+        sections.forEach((section) => {
+          const top = section.offsetTop - 120;
+          if (y >= top) current = section.getAttribute('id') || '';
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+        });
+      };
+
+      window.addEventListener('scroll', updateScrollState, { passive: true });
+      updateScrollState();
+
+      backToTop?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.skill-card, .project-card, .about-content, .contact-card, .timeline-card, .now-card, .link-list, .note-list').forEach((el) => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+      });
+
+      const scrollSignature = document.querySelector('.scroll-signature');
+      const signatureLines = document.querySelectorAll('.signature-line');
+      const getSignatureLength = (line) => {
+        if (typeof line.getTotalLength === 'function') return line.getTotalLength();
+        if (typeof line.getComputedTextLength === 'function') return line.getComputedTextLength();
+        return 1;
+      };
+
+      signatureLines.forEach((line) => {
+        line.style.setProperty('--signature-length', getSignatureLength(line));
+      });
+
+      if (scrollSignature) {
+        const signatureObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              scrollSignature.classList.add('visible', 'drawn');
+              signatureObserver.disconnect();
+            }
+          });
+        }, { threshold: 0.35 });
+        signatureObserver.observe(scrollSignature);
+      }
+
+      const article = document.querySelector('#note-article');
+      const toc = document.querySelector('#note-toc');
+      if (article && toc) {
+        const headings = [...article.querySelectorAll('h2, h3')];
+        let tocLinks = [...toc.querySelectorAll('a')];
+
+        if (tocLinks.length === 0) {
+          const slugCounts = new Map();
+          const toSlug = (value) => {
+            const base = value
+              .trim()
+              .toLowerCase()
+              .replace(/[^\p{L}\p{N}]+/gu, '-')
+              .replace(/^-+|-+$/g, '') || 'section';
+            const count = slugCounts.get(base) || 0;
+            slugCounts.set(base, count + 1);
+            return count === 0 ? base : `${base}-${count + 1}`;
+          };
+
+          headings.forEach((heading) => {
+            if (!heading.id) heading.id = toSlug(heading.textContent || '');
+          });
+
+          toc.innerHTML = headings.map((heading) => (
+            `<a href="#${heading.id}" data-id="${heading.id}" data-level="${heading.tagName === 'H3' ? '3' : '2'}">${heading.textContent}</a>`
+          )).join('');
+          tocLinks = [...toc.querySelectorAll('a')];
+        }
+
+        const setActive = (id) => {
+          tocLinks.forEach((link) => {
+            link.classList.toggle('active', link.dataset.id === id);
+          });
+        };
+
+        const headingObserver = new IntersectionObserver((entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+          if (visible?.target?.id) setActive(visible.target.id);
+        }, {
+          rootMargin: '-96px 0px -70% 0px',
+          threshold: 0
+        });
+
+        headings.forEach((heading) => headingObserver.observe(heading));
+        if (headings[0]) setActive(headings[0].id);
+      }
+    </script>
+  </body>
+</html>

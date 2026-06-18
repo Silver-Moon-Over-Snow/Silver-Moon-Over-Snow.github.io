@@ -447,14 +447,8 @@ html[data-theme="dark"] .nav {
   filter: saturate(0.88) contrast(1.04);
 }
 
-.timeline-emblem-changjun {
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.timeline-emblem-img-changjun {
-  object-fit: cover;
-  transform: scale(1.08);
+html[data-theme="dark"] .timeline-emblem-img[src*="changjun-emblem"] {
+  filter: brightness(1.7) saturate(1.45) contrast(1.12);
 }
 
 .timeline-badge {
@@ -1913,11 +1907,6 @@ html[data-theme="dark"] .nav {
   filter: saturate(0.9) contrast(1.06);
 }
 
-.timeline-card .timeline-emblem-changjun {
-  right: 40px;
-  opacity: 0.16;
-}
-
 .timeline-badge,
 .skill-tags span,
 .project-tag {
@@ -1992,7 +1981,43 @@ html[data-theme="dark"] .nav {
 
 .footer {
   border-top: 4px solid var(--pku-red);
-  background: var(--pku-red-dark);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 128px;
+  display: grid;
+  align-items: center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 44%),
+    linear-gradient(135deg, var(--pku-red-dark), #74171c 58%, #4f1014);
+}
+
+.footer::before,
+.footer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("../images/footer-pattern.png");
+  background-repeat: repeat;
+  background-size: 74px 110px;
+}
+
+.footer::before {
+  opacity: 0.34;
+  background-position: center top;
+}
+
+.footer::after {
+  opacity: 0.18;
+  transform: translate(37px, 55px);
+  filter: brightness(0.72) saturate(0.7);
+}
+
+.footer .container {
+  position: relative;
+  z-index: 1;
 }
 
 .footer-text,
@@ -2005,21 +2030,28 @@ html[data-theme="dark"] .nav {
   bottom: 112px;
 }
 
+.signature-band {
+  padding: 14px 0 4px;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--surface-soft), transparent 54%));
+}
+
+.signature-band-inner {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .scroll-signature {
-  position: fixed;
-  right: max(22px, calc((100vw - 1120px) / 2 + 22px));
-  bottom: 34px;
-  z-index: 90;
-  width: auto;
+  position: relative;
+  width: fit-content;
   min-width: 0;
-  color: rgba(255, 255, 255, 0.92);
+  color: color-mix(in srgb, var(--pku-red-dark), var(--text-primary) 18%);
   opacity: 0;
   pointer-events: none;
   transform: translateY(8px);
   transition: opacity 0.28s ease, transform 0.28s ease, filter 0.28s ease;
   filter:
-    drop-shadow(0 1px 0 rgba(101, 19, 24, 0.46))
-    drop-shadow(0 8px 18px rgba(46, 26, 18, 0.16));
+    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.48))
+    drop-shadow(0 8px 18px rgba(46, 26, 18, 0.12));
 }
 
 .scroll-signature.visible {
@@ -2029,7 +2061,7 @@ html[data-theme="dark"] .nav {
 
 .signature-svg {
   display: block;
-  width: clamp(112px, 13vw, 152px);
+  width: clamp(126px, 14vw, 166px);
   height: auto;
   overflow: visible;
   transform: rotate(-3deg);
@@ -2154,13 +2186,16 @@ html[data-theme="dark"] .nav {
     min-height: 560px;
   }
 
-  .scroll-signature {
-    right: 24px;
-    bottom: 24px;
+  .signature-band {
+    padding-top: 10px;
+  }
+
+  .signature-band-inner {
+    justify-content: center;
   }
 
   .signature-svg {
-    width: 118px;
+    width: 128px;
   }
 
   .timeline-card .timeline-emblem {
@@ -2183,3 +2218,4 @@ html[data-theme="dark"] .nav {
     stroke-dashoffset: 0;
   }
 }
+
