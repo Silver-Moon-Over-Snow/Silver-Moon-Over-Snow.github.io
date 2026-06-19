@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="nav" aria-label="主导航">
@@ -400,9 +400,17 @@
   <section class="signature-band" aria-hidden="true">
     <div class="container signature-band-inner">
       <aside class="scroll-signature">
-        <svg class="signature-svg" viewBox="0 0 240 82" role="img">
-          <text class="signature-line signature-text" x="8" y="49">Cheerly</text>
-          <path class="signature-line signature-tail" d="M16 65 C56 74, 118 74, 166 66 C190 62, 214 62, 231 67" />
+        <svg class="signature-svg" viewBox="0 0 1015 449" role="img" aria-label="Cheerly signature">
+          <defs>
+            <mask id="signature-mask-root" maskUnits="userSpaceOnUse">
+              <rect width="1015" height="449" fill="black" />
+              <path class="signature-mask-path" d="M420 58 C282 36 66 176 24 319 C-4 416 114 426 239 343 C347 271 428 176 416 82 C405 35 315 70 180 192" />
+              <path class="signature-mask-path" d="M294 397 C329 316 418 208 463 135 C484 101 499 113 476 150 C434 215 374 279 352 304 C390 244 434 205 444 228 C458 259 427 294 472 281 C520 268 551 211 511 205 C463 199 460 286 526 278 C583 271 614 214 579 205 C535 192 521 278 591 276 C645 274 671 227 667 190 C660 238 676 271 724 247 C780 219 823 176 839 107 C849 61 813 59 785 118 C749 193 721 293 704 366 C692 419 750 415 790 342 C824 280 846 228 863 189 C855 260 889 291 943 255 C970 238 988 238 1003 250" />
+              <path class="signature-mask-path" d="M206 423 C288 336 454 298 676 264" />
+              <path class="signature-mask-path" d="M637 117 C658 112 678 119 694 137" />
+            </mask>
+          </defs>
+          <image class="signature-img" href="images/signature-transparent.png" width="1015" height="449" mask="url(#signature-mask-root)" />
         </svg>
       </aside>
     </div>

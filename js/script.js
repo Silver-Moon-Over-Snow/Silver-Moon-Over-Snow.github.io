@@ -4,20 +4,15 @@ const themeToggle = document.querySelector('.theme-toggle');
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 const scrollSignature = document.querySelector('.scroll-signature');
-const signatureLines = document.querySelectorAll('.signature-line');
+const signatureMaskPaths = document.querySelectorAll('.signature-mask-path');
 const storedTheme = localStorage.getItem('theme');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 document.documentElement.dataset.theme = storedTheme || (prefersDark ? 'dark' : 'light');
 
-const getSignatureLength = (line) => {
-  if (typeof line.getTotalLength === 'function') return line.getTotalLength();
-  if (typeof line.getComputedTextLength === 'function') return line.getComputedTextLength();
-  return 1;
-};
-
-signatureLines.forEach((line) => {
-  line.style.setProperty('--signature-length', getSignatureLength(line));
+signatureMaskPaths.forEach((path) => {
+  const length = typeof path.getTotalLength === 'function' ? path.getTotalLength() : 1;
+  path.style.setProperty('--signature-path-length', length);
 });
 
 const updateScrollState = () => {
