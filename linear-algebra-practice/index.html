@@ -1188,7 +1188,9 @@
       { id: "实内积空间", label: "实内积空间", kind: "module", module: "实内积空间" },
       { id: "张量", label: "张量", kind: "module", module: "张量" },
       { id: "唐少强21年期末", label: "唐少强21年期末", kind: "paper", paper: "LA212" },
-      { id: "唐少强23年期末", label: "唐少强23年期末", kind: "paper", paper: "LA232" }
+      { id: "唐少强23年期末", label: "唐少强23年期末", kind: "paper", paper: "LA232" },
+      { id: "唐少强25年期中", label: "唐少强25年期中", kind: "paper", paper: "LA25M" },
+      { id: "唐少强26年期末", label: "唐少强26年期末", kind: "paper", paper: "LA26F" }
     ];
     const modules = filterDefs.map(item => item.id);
 
@@ -1360,6 +1362,116 @@ II(f,g)=f_0g_0+f_1g_1+f_2g_2.
 $$
 
 证明它为对称双线性型；求它在单位正交基下的系数方阵，并求相合标准形。`, answer:String.raw`参考答案要点：
+
+先不代入具体积分，也可以完全用矩阵方法做。把内积抽象记成 Gram 矩阵
+
+$$
+G=\big((e_i,e_j)\big)_{i,j=1}^3.
+$$
+
+这就是基 $(e_1,e_2,e_3)$ 下的度量矩阵，后面各问都可以围绕 $G$ 来处理。
+
+抽象做法如下：
+
+a) 证明内积时检查线性性、对称性、正定性：
+
+$$
+(af+bg,h)=a(f,h)+b(g,h),\qquad (f,g)=(g,f),
+$$
+
+以及
+
+$$
+(f,f)\ge 0,\qquad (f,f)=0\Rightarrow f=0.
+$$
+
+b) 度量矩阵逐项计算：
+
+$$
+G_{ij}=(e_i,e_j),\qquad
+G=
+\begin{pmatrix}
+(e_1,e_1)&(e_1,e_2)&(e_1,e_3)\\
+(e_2,e_1)&(e_2,e_2)&(e_2,e_3)\\
+(e_3,e_1)&(e_3,e_2)&(e_3,e_3)
+\end{pmatrix}.
+$$
+
+c) Gram-Schmidt 可写成
+
+$$
+u_1=e_1,
+$$
+
+$$
+u_2=e_2-\frac{(e_2,u_1)}{(u_1,u_1)}u_1,
+$$
+
+$$
+u_3=e_3-\frac{(e_3,u_1)}{(u_1,u_1)}u_1
+-\frac{(e_3,u_2)}{(u_2,u_2)}u_2.
+$$
+
+再单位化
+
+$$
+q_i=\frac{u_i}{\sqrt{(u_i,u_i)}}.
+$$
+
+于是 $(q_1,q_2,q_3)$ 是单位正交基，该基下度量矩阵为 $I_3$。
+
+d) 设
+
+$$
+f=f_0e_1+f_1e_2+f_2e_3,\qquad
+\lambda=\begin{pmatrix}1\\1\\1\end{pmatrix}.
+$$
+
+则 $I(f)=f_0+f_1+f_2=\lambda^T[f]$。若 $h=h_0e_1+h_1e_2+h_2e_3$，则
+
+$$
+(f,h)=[f]^TG[h].
+$$
+
+由 $I(f)=(f,h)$ 对任意 $f$ 成立，得
+
+$$
+G[h]=\lambda,\qquad [h]=G^{-1}\lambda.
+$$
+
+内积意义下的对偶基 $(e^1,e^2,e^3)$ 满足 $(e_i,e^j)=\delta_i^j$。若把 $e^j$ 的坐标列成矩阵 $A$，则
+
+$$
+GA=I,\qquad A=G^{-1}.
+$$
+
+所以 $G^{-1}$ 的第 $j$ 列就是 $e^j$ 在原基下的坐标。
+
+e) 先求 $\mathcal A f=f'(x)$ 在基 $(e_1,e_2,e_3)$ 下的矩阵 $M$。非标准内积下伴随矩阵不是普通转置，而是
+
+$$
+[A^*]=M^*=G^{-1}M^TG.
+$$
+
+f) $II(f,g)=f_0g_0+f_1g_1+f_2g_2$ 是坐标点积，显然是对称双线性型。它在原基下的矩阵为 $B=I_3$。若单位正交基与原基关系为
+
+$$
+[q_1\ q_2\ q_3]=[e_1\ e_2\ e_3]P,
+$$
+
+则单位正交基下双线性型矩阵为
+
+$$
+B_q=P^TBP.
+$$
+
+由于 $B=I_3$，所以 $B_q=P^TP$。又 $II(f,f)=f_0^2+f_1^2+f_2^2$ 正定，故相合标准形为
+
+$$
+\operatorname{diag}(1,1,1).
+$$
+
+下面代入本题积分作具体计算：
 
 a) 双线性和对称性由积分直接得到。正定性中，若 $\int_0^1 f^2(x)\,dx=0$，由于 $f^2(x)\ge0$ 且连续，推出 $f\equiv0$。
 
@@ -1674,7 +1786,734 @@ $$
 f(a,b)=\sum_i x_iy_ig_i=\sum_i y_ix_ig_i=f(b,a).
 $$
 
-因此 $f$ 对称。`, explain:"这题就是“对称双线性型 ↔ 实对称矩阵 ↔ 正交对角化”的语言互译。", freq:"真题", diff:"中等"}
+因此 $f$ 对称。`, explain:"这题就是“对称双线性型 ↔ 实对称矩阵 ↔ 正交对角化”的语言互译。", freq:"真题", diff:"中等"},
+
+      {id:"LA25M-Q1", title:"准素分解、循环子空间分解与 Smith 标准形", module:"若当标准型", source:"期中真题", type:"write", longStem:true, paper:"LA25M", examNo:"1", examTag:"25年期中第1题", origin:"LA25midterm_obsidian_refined.md", stem:String.raw`给定方阵
+
+$$
+A=\begin{pmatrix}
+4&10&-19&4\\
+1&6&-8&3\\
+1&4&-6&2\\
+0&-1&1&0
+\end{pmatrix}.
+$$
+
+1）对空间 $\mathbb R^4$ 关于 $A$ 作准素分解、循环子空间分解；写出其若当标准形和过渡阵；
+
+2）求特征矩阵 $\lambda I-A$ 的 Smith 标准形；写出 $A$ 的最小多项式、行列式因子、初等因子、不变因子。`, answer:String.raw`参考答案要点：
+
+令 $N=A-I$，则
+
+$$
+N=
+\begin{pmatrix}
+3&10&-19&4\\
+1&5&-8&3\\
+1&4&-7&2\\
+0&-1&1&-1
+\end{pmatrix},\qquad
+N^2=0,\quad \operatorname{rank}N=2.
+$$
+
+所以 $A$ 的唯一特征值为 $1$，最大若当块大小为 $2$，且
+
+$$
+\dim\ker(A-I)=4-\operatorname{rank}(A-I)=2.
+$$
+
+因此有两个 $2$ 阶若当块：
+
+$$
+J=J_2(1)\oplus J_2(1)=
+\begin{pmatrix}
+1&1&0&0\\
+0&1&0&0\\
+0&0&1&1\\
+0&0&0&1
+\end{pmatrix}.
+$$
+
+准素分解为
+
+$$
+\mathbb R^4=\ker(A-I)^2.
+$$
+
+取
+
+$$
+u_1=(A-I)e_1=(3,1,1,0)^T,\qquad
+u_2=(A-I)e_2=(10,5,4,-1)^T.
+$$
+
+则 $u_1,e_1$ 与 $u_2,e_2$ 是两条长度为 $2$ 的若当链，循环子空间分解可写为
+
+$$
+\mathbb R^4=\langle u_1,e_1\rangle\oplus \langle u_2,e_2\rangle.
+$$
+
+取若当基 $\mathcal B=(u_1,e_1,u_2,e_2)$，过渡矩阵为
+
+$$
+P=
+\begin{pmatrix}
+3&1&10&0\\
+1&0&5&1\\
+1&0&4&0\\
+0&0&-1&0
+\end{pmatrix},\qquad
+\det P=1,
+$$
+
+并有 $P^{-1}AP=J$。反向过渡矩阵可取
+
+$$
+P^{-1}=
+\begin{pmatrix}
+0&0&1&4\\
+1&0&-3&-2\\
+0&0&0&-1\\
+0&1&-1&1
+\end{pmatrix}.
+$$
+
+由于 $\lambda I-A$ 与 $\lambda I-J$ 等价，而每个 $2$ 阶若当块对应 Smith 标准形 $\operatorname{diag}(1,(\lambda-1)^2)$，故
+
+$$
+\lambda I-A\sim
+\operatorname{diag}\left(1,1,(\lambda-1)^2,(\lambda-1)^2\right).
+$$
+
+不变因子为
+
+$$
+1,\quad 1,\quad (\lambda-1)^2,\quad (\lambda-1)^2.
+$$
+
+非平凡不变因子为 $(\lambda-1)^2,(\lambda-1)^2$；行列式因子为
+
+$$
+D_1=1,\quad D_2=1,\quad D_3=(\lambda-1)^2,\quad D_4=(\lambda-1)^4.
+$$
+
+初等因子为 $(\lambda-1)^2,(\lambda-1)^2$，最小多项式为
+
+$$
+m_A(\lambda)=(\lambda-1)^2,
+$$
+
+特征多项式为 $f_A(\lambda)=(\lambda-1)^4$。`, explain:"这题核心是先算出 $(A-I)^2=0$ 与 $\\operatorname{rank}(A-I)=2$，立刻读出两个二阶若当块，再把 Smith 标准形、不变因子、初等因子统一起来。", freq:"真题", diff:"困难"},
+
+      {id:"LA25M-Q2", title:"Cayley-Hamilton、复数域若当形与矩阵指数", module:"若当标准型", source:"期中真题", type:"write", longStem:true, paper:"LA25M", examNo:"2", examTag:"25年期中第2题", origin:"LA25midterm_obsidian_refined.md", stem:String.raw`对于方阵
+
+$$
+A=\begin{pmatrix}
+0&1\\
+-1&0
+\end{pmatrix},
+$$
+
+验证 Hamilton-Cayley 定理；在复数域上求若当标准形和过渡阵，并计算 $e^A$。`, answer:String.raw`参考答案要点：
+
+特征矩阵为
+
+$$
+\lambda I-A=
+\begin{pmatrix}
+\lambda&-1\\
+1&\lambda
+\end{pmatrix},
+$$
+
+故特征多项式为
+
+$$
+f_A(\lambda)=\lambda^2+1.
+$$
+
+另一方面
+
+$$
+A^2=
+\begin{pmatrix}
+0&1\\
+-1&0
+\end{pmatrix}^2
+=-I,
+$$
+
+所以
+
+$$
+f_A(A)=A^2+I=0,
+$$
+
+验证了 Cayley-Hamilton 定理。
+
+在 $\mathbb C$ 上，特征值为 $i,-i$。可取特征向量
+
+$$
+\xi_1=\begin{pmatrix}1\\ i\end{pmatrix},\qquad
+\xi_2=\begin{pmatrix}1\\ -i\end{pmatrix}.
+$$
+
+令
+
+$$
+P=(\xi_1,\xi_2)=
+\begin{pmatrix}
+1&1\\
+i&-i
+\end{pmatrix},
+$$
+
+则
+
+$$
+P^{-1}AP=
+\begin{pmatrix}
+i&0\\
+0&-i
+\end{pmatrix}.
+$$
+
+由于 $A^2=-I$，有
+
+$$
+A^{2k}=(-1)^kI,\qquad A^{2k+1}=(-1)^kA.
+$$
+
+因此
+
+$$
+e^A=\cos 1\cdot I+\sin 1\cdot A
+=
+\begin{pmatrix}
+\cos 1&\sin 1\\
+-\sin 1&\cos 1
+\end{pmatrix}.
+$$`, explain:"矩阵 $A$ 是平面旋转的生成元，$A^2=-I$ 后 Cayley-Hamilton 和矩阵指数都很直接。", freq:"真题", diff:"中等"},
+
+      {id:"LA25M-Q3", title:"转置相似与可交换矩阵的公共实特征向量", module:"若当标准型", source:"期中真题", type:"write", longStem:true, paper:"LA25M", examNo:"3", examTag:"25年期中第3题", origin:"LA25midterm_obsidian_refined.md", stem:String.raw`$n$ 阶方阵 $A,B$ 的特征根均为实数，且乘法可交换。证明：
+
+1）$A$ 与 $A^T$ 相似；
+
+2）$A,B$ 至少有一个公共的实特征向量。`, answer:String.raw`参考答案要点：
+
+（1）因为 $A$ 的特征根均为实数，$A$ 在实数域上可化为若当标准形。设
+
+$$
+P^{-1}AP=J.
+$$
+
+则 $A^T\sim J^T$。对每个若当块 $J_k(\lambda)$，取反序单位矩阵 $R_k$，可得
+
+$$
+R_k^{-1}J_k(\lambda)^TR_k=J_k(\lambda).
+$$
+
+因此每个若当块都与其转置相似，从而 $J^T\sim J$，所以
+
+$$
+A^T\sim J^T\sim J\sim A.
+$$
+
+（2）取 $A$ 的一个实特征值 $\lambda$，设对应特征子空间为
+
+$$
+V_\lambda=\ker(A-\lambda I).
+$$
+
+由 $AB=BA$，若 $x\in V_\lambda$，则
+
+$$
+A(Bx)=B(Ax)=B(\lambda x)=\lambda Bx,
+$$
+
+所以 $Bx\in V_\lambda$，即 $V_\lambda$ 是 $B$-不变子空间。
+
+因此 $B$ 可限制为 $V_\lambda$ 上的线性变换
+
+$$
+B|_{V_\lambda}:V_\lambda\to V_\lambda.
+$$
+
+由于 $B$ 的特征根均为实数，且 $V_\lambda$ 是 $B$ 的不变子空间，$B|_{V_\lambda}$ 的特征根也是 $B$ 的特征根中的一部分，因而仍为实数。于是存在非零实向量 $v\in V_\lambda$ 与实数 $\mu$，使
+
+$$
+Bv=\mu v.
+$$
+
+又因 $v\in V_\lambda$，有
+
+$$
+Av=\lambda v.
+$$
+
+故同一个非零实向量 $v$ 同时是 $A$ 与 $B$ 的特征向量。`, explain:"第一问用若当块反序相似，第二问用可交换推出特征子空间不变，再在限制映射里找特征向量。", freq:"真题", diff:"较难"},
+
+      {id:"LA25M-Q4", title:"只与自身相似的实矩阵必为纯量阵", module:"若当标准型", source:"期中真题", type:"write", longStem:true, paper:"LA25M", examNo:"4", examTag:"25年期中第4题", origin:"LA25midterm_obsidian_refined.md", stem:String.raw`$n$ 阶实矩阵 $A$ 只与自身相似，求证：$A$ 必为纯量阵，即常数乘以单位阵。`, answer:String.raw`参考答案要点：
+
+题设表示：若 $C\sim A$，则 $C=A$。对任意可逆矩阵 $P$，矩阵 $P^{-1}AP$ 与 $A$ 相似，因此
+
+$$
+P^{-1}AP=A.
+$$
+
+两边左乘 $P$，得
+
+$$
+AP=PA.
+$$
+
+所以 $A$ 与任意可逆矩阵都可交换。
+
+取
+
+$$
+D=\operatorname{diag}(1,2,\ldots,n).
+$$
+
+由 $AD=DA$，设 $A=(a_{ij})$，比较第 $(i,j)$ 元得
+
+$$
+ja_{ij}=ia_{ij},
+$$
+
+即
+
+$$
+(j-i)a_{ij}=0.
+$$
+
+当 $i\ne j$ 时，$a_{ij}=0$，故 $A$ 为对角矩阵：
+
+$$
+A=\operatorname{diag}(a_1,a_2,\ldots,a_n).
+$$
+
+再取交换第 $i$ 与第 $j$ 个基向量的置换矩阵 $S_{ij}$。由 $AS_{ij}=S_{ij}A$ 可知 $a_i=a_j$。由于 $i,j$ 任意，
+
+$$
+a_1=a_2=\cdots=a_n.
+$$
+
+故存在常数 $c$，使
+
+$$
+A=cI.
+$$`, explain:"关键是题设对所有相似矩阵都生效，所以 $A$ 与任意可逆矩阵可交换；再用特殊的对角矩阵和置换矩阵逼出纯量阵。", freq:"真题", diff:"中等"},
+
+      {id:"LA26F-Q1", title:"带权积分内积、度量矩阵与对偶基", module:"实内积空间", source:"期末真题", type:"write", longStem:true, paper:"LA26F", examNo:"1", examTag:"唐少强26年期末第1题", origin:"LA26final_obsidian_refined.md", stem:String.raw`在线性空间 $V=P_2[x]$ 上定义
+
+$$
+(f,g)=60\int_0^1 x f(x)g(x)\,dx.
+$$
+
+1）证明这是 $V$ 上的一个内积；
+
+2）取
+
+$$
+e_1=1,\qquad e_2=x,\qquad e_3=x^2,
+$$
+
+求基 $(e_1,e_2,e_3)$ 下的度量矩阵；
+
+3）求 $(e_1,e_2,e_3)$ 的对偶基。`, answer:String.raw`参考答案要点：
+
+1）对任意 $f,g,h\in P_2[x]$ 和实数 $a,b$，由积分线性性得
+
+$$
+(af+bg,h)=a(f,h)+b(g,h).
+$$
+
+又因为 $x f(x)g(x)=x g(x)f(x)$，所以
+
+$$
+(f,g)=(g,f).
+$$
+
+最后
+
+$$
+(f,f)=60\int_0^1 x f^2(x)\,dx\ge0.
+$$
+
+若 $(f,f)=0$，则 $x f^2(x)$ 在 $[0,1]$ 上连续且非负，积分为 $0$，所以 $x f^2(x)\equiv0$。在 $(0,1]$ 上有 $x>0$，故 $f(x)=0$。由于 $f$ 是多项式，推出 $f\equiv0$。因此这是内积。
+
+2）因为 $e_i=x^{i-1}$，所以
+
+$$
+G_{ij}=(e_i,e_j)=60\int_0^1 x\cdot x^{i-1}x^{j-1}\,dx
+=60\int_0^1 x^{i+j-1}\,dx
+=\frac{60}{i+j}.
+$$
+
+于是度量矩阵为
+
+$$
+G=
+\begin{pmatrix}
+30&20&15\\
+20&15&12\\
+15&12&10
+\end{pmatrix}.
+$$
+
+3）内积意义下的对偶基 $(e^1,e^2,e^3)$ 满足
+
+$$
+(e_i,e^j)=\delta_i^j.
+$$
+
+设 $e^j$ 在原基下的坐标作为第 $j$ 列组成矩阵 $A$，则
+
+$$
+GA=I,\qquad A=G^{-1}.
+$$
+
+计算得
+
+$$
+G^{-1}=
+\begin{pmatrix}
+\frac65&-4&3\\
+-4&15&-12\\
+3&-12&10
+\end{pmatrix}.
+$$
+
+所以
+
+$$
+\begin{aligned}
+e^1&=\frac65-4x+3x^2,\\
+e^2&=-4+15x-12x^2,\\
+e^3&=3-12x+10x^2.
+\end{aligned}
+$$`, explain:"带权积分内积先看权函数 $x\ge0$ 且在 $(0,1]$ 为正；对偶基直接由度量矩阵逆矩阵的列给出。", freq:"真题", diff:"中等"},
+
+      {id:"LA26F-Q2", title:"求双线性型在给定基下的矩阵", module:"实内积空间", source:"期末真题", type:"write", longStem:true, paper:"LA26F", examNo:"2", examTag:"唐少强26年期末第2题", origin:"LA26final_obsidian_refined.md", stem:String.raw`题干待补：求某个双线性型在给定基下的矩阵。
+
+考点：双线性型矩阵的行、列下标分别对应哪个变量。`, answer:String.raw`参考答案要点：
+
+设双线性型为 $B(\cdot,\cdot)$，给定基为
+
+$$
+\mathcal B=(e_1,e_2,\ldots,e_n).
+$$
+
+它在基 $\mathcal B$ 下的矩阵记为
+
+$$
+M=(m_{ij}).
+$$
+
+约定是
+
+$$
+m_{ij}=B(e_i,e_j).
+$$
+
+也就是说：
+
+$$
+\boxed{\text{第 }i\text{ 行对应第一个变量的基向量 }e_i,\quad
+\text{第 }j\text{ 列对应第二个变量的基向量 }e_j.}
+$$
+
+若
+
+$$
+x=\sum_i x_i e_i,\qquad y=\sum_j y_j e_j,
+$$
+
+则
+
+$$
+B(x,y)=\sum_{i,j}x_i m_{ij}y_j=[x]_{\mathcal B}^T M [y]_{\mathcal B}.
+$$
+
+所以实际计算时，把第一个变量依次代入 $e_1,e_2,\ldots,e_n$ 来轮换行，把第二个变量依次代入 $e_1,e_2,\ldots,e_n$ 来轮换列。`, explain:"记住 $m_{ij}=B(e_i,e_j)$：行轮换第一个变量，列轮换第二个变量。", freq:"真题", diff:"中等"},
+
+      {id:"LA26F-Q3", title:"求矩阵的正交相似标准型与过渡矩阵", module:"实内积空间", source:"期末真题", type:"write", longStem:true, paper:"LA26F", examNo:"3", examTag:"唐少强26年期末第3题", origin:"LA26final_obsidian_refined.md", stem:String.raw`题干待补：求某个矩阵的正交相似标准型，并求其过渡矩阵。`, answer:String.raw`参考答案要点：
+
+这类题通常针对实对称矩阵 $A$。由实谱定理，存在正交矩阵 $P$，使
+
+$$
+P^TAP=\operatorname{diag}(\lambda_1,\lambda_2,\ldots,\lambda_n).
+$$
+
+求解步骤：
+
+1. 求特征多项式
+
+$$
+\det(\lambda I-A).
+$$
+
+2. 求各特征值 $\lambda_i$ 的特征子空间
+
+$$
+\ker(A-\lambda_i I).
+$$
+
+3. 对每个特征子空间取标准正交基。若同一个特征值对应的特征子空间维数大于 $1$，就在该子空间内做 Gram-Schmidt 正交化。
+
+4. 把所有标准正交特征向量按列排成矩阵
+
+$$
+P=(q_1,q_2,\ldots,q_n).
+$$
+
+则 $P$ 为正交矩阵，并且
+
+$$
+P^TAP=
+\operatorname{diag}(\lambda_1,\lambda_2,\ldots,\lambda_n).
+$$
+
+这里的对角阵就是正交相似标准型，$P$ 就是过渡矩阵。若题目使用 $P^{-1}AP$ 的写法，由于 $P$ 正交，有 $P^{-1}=P^T$。`, explain:"正交相似标准型的核心是实谱定理：标准正交特征向量作列得到过渡矩阵。", freq:"真题", diff:"中等"},
+
+      {id:"LA26F-QORTH", title:"由首坐标条件构造两组三维标准正交向量", module:"实内积空间", source:"期末真题", type:"write", longStem:true, paper:"LA26F", examNo:"回忆题", examTag:"唐少强26年期末回忆题", origin:"LA26final_obsidian_refined.md", stem:String.raw`设
+
+$$
+u=(a,b,c),\qquad v=(d,e,f)
+$$
+
+为 $\mathbb R^3$ 中两个单位正交向量。
+
+1）证明
+
+$$
+a^2+d^2\le 1.
+$$
+
+2）反过来，若实数 $a,d$ 满足
+
+$$
+a^2+d^2\le 1,
+$$
+
+证明可以构造 $\mathbb R^3$ 中两个单位正交向量
+
+$$
+u=(a,b,c),\qquad v=(d,e,f).
+$$`, answer:String.raw`参考答案要点：
+
+1）因为 $u,v$ 为单位正交向量，所以 $\operatorname{span}(u,v)$ 是一个二维子空间，且 $u,v$ 是该子空间的一组标准正交基。令 $e_1=(1,0,0)$，则 $e_1$ 在 $\operatorname{span}(u,v)$ 上的正交投影为
+
+$$
+\operatorname{proj}_{\operatorname{span}(u,v)}e_1
+=\langle e_1,u\rangle u+\langle e_1,v\rangle v
+=au+dv.
+$$
+
+由投影长度不超过原向量长度，
+
+$$
+\|au+dv\|^2\le \|e_1\|^2=1.
+$$
+
+又 $u,v$ 单位正交，所以
+
+$$
+\|au+dv\|^2=a^2+d^2.
+$$
+
+因此
+
+$$
+a^2+d^2\le 1.
+$$
+
+2）若 $a^2<1$，可显式构造
+
+$$
+b=\sqrt{1-a^2},\qquad c=0,
+$$
+
+$$
+e=-\frac{ad}{\sqrt{1-a^2}},\qquad
+f=\frac{\sqrt{1-a^2-d^2}}{\sqrt{1-a^2}}.
+$$
+
+令
+
+$$
+u=(a,b,c),\qquad v=(d,e,f).
+$$
+
+则
+
+$$
+\|u\|^2=a^2+(1-a^2)=1.
+$$
+
+并且
+
+$$
+\langle u,v\rangle=ad+be+cf
+=ad+\sqrt{1-a^2}\left(-\frac{ad}{\sqrt{1-a^2}}\right)+0=0.
+$$
+
+再计算
+
+$$
+\|v\|^2=d^2+\frac{a^2d^2}{1-a^2}+\frac{1-a^2-d^2}{1-a^2}
+=1.
+$$
+
+所以 $u,v$ 是单位正交向量。
+
+若 $a^2=1$，由 $a^2+d^2\le1$ 得 $d=0$，可取
+
+$$
+u=(a,0,0),\qquad v=(0,1,0).
+$$
+
+同样得到一组单位正交向量。`, explain:"正向用投影长度；反向用显式构造，把剩下两个坐标放在二维平面里配出长度和内积条件。", freq:"真题", diff:"中等"},
+
+      {id:"LA26F-QPEN", title:"由 SVD 证明极分解并讨论唯一性", module:"实内积空间", source:"期末真题", type:"write", longStem:true, paper:"LA26F", examNo:"倒数第二题", examTag:"唐少强26年期末倒数第二题", origin:"LA26final_obsidian_refined.md", stem:String.raw`设 $A$ 为实方阵。
+
+1）由奇异值分解证明极分解定理：存在对称半正定矩阵 $S$ 和正交矩阵 $U$，使得
+
+$$
+A=SU.
+$$
+
+2）判断这样的分解 $A=SU$ 是否唯一，并说明理由。`, answer:String.raw`参考答案要点：
+
+1）设 $A$ 的奇异值分解为
+
+$$
+A=V\Sigma W^T,
+$$
+
+其中 $V,W$ 为正交矩阵，$\Sigma=\operatorname{diag}(\sigma_1,\ldots,\sigma_n)$，且 $\sigma_i\ge0$。
+
+令
+
+$$
+S=V\Sigma V^T,\qquad U=VW^T.
+$$
+
+则 $S$ 对称，因为
+
+$$
+S^T=(V\Sigma V^T)^T=V\Sigma V^T=S.
+$$
+
+并且对任意 $x$，
+
+$$
+x^TSx=x^TV\Sigma V^Tx=(V^Tx)^T\Sigma(V^Tx)\ge0,
+$$
+
+所以 $S$ 半正定。又
+
+$$
+U^TU=(VW^T)^T(VW^T)=WV^TVW^T=I,
+$$
+
+故 $U$ 正交。最后
+
+$$
+SU=(V\Sigma V^T)(VW^T)=V\Sigma W^T=A.
+$$
+
+这就由 SVD 得到了极分解 $A=SU$。
+
+2）$S$ 是唯一的。事实上由 $A=SU$ 且 $U$ 正交可得
+
+$$
+AA^T=SUU^TS=S^2.
+$$
+
+由于 $S$ 对称半正定，它必须是 $AA^T$ 的唯一半正定平方根：
+
+$$
+S=(AA^T)^{1/2}.
+$$
+
+但 $U$ 不一定唯一。若 $A$ 可逆，则 $S$ 正定可逆，此时
+
+$$
+U=S^{-1}A
+$$
+
+唯一，所以极分解唯一。
+
+若 $A$ 不可逆，则 $S$ 不可逆，$U$ 在 $\ker S$ 上仍有选择余地，因而一般不唯一。例如 $A=0$ 时，$S=0$，任意正交矩阵 $U$ 都满足 $A=SU$。`, explain:"极分解里左因子 $S=(AA^T)^{1/2}$ 唯一；正交因子 $U$ 只有在 $A$ 可逆时唯一，奇异时通常不唯一。", freq:"真题", diff:"较难"},
+
+      {id:"LA26F-QFINAL", title:"正定矩阵的 Hadamard 积仍为正定矩阵", module:"实内积空间", source:"期末真题", type:"write", longStem:true, paper:"LA26F", examNo:"最后一题", examTag:"唐少强26年期末最后一题", origin:"LA26final_obsidian_refined.md", stem:String.raw`设
+
+$$
+A=(a_{ij}),\qquad B=(b_{ij})
+$$
+
+为 $n$ 阶实对称正定矩阵。证明 Hadamard 积
+
+$$
+C=(c_{ij}),\qquad c_{ij}=a_{ij}b_{ij},
+$$
+
+也是正定矩阵。`, answer:String.raw`参考答案要点：
+
+因为 $A,B$ 为实对称正定矩阵，所以它们都可以看成某组基向量的 Gram 矩阵。也就是说，存在两组线性无关向量
+
+$$
+x_1,\ldots,x_n,\qquad y_1,\ldots,y_n
+$$
+
+使得
+
+$$
+a_{ij}=\langle x_i,x_j\rangle,\qquad
+b_{ij}=\langle y_i,y_j\rangle.
+$$
+
+考虑张量积空间中的向量
+
+$$
+z_i=x_i\otimes y_i.
+$$
+
+则
+
+$$
+\langle z_i,z_j\rangle
+=\langle x_i\otimes y_i,\ x_j\otimes y_j\rangle
+=\langle x_i,x_j\rangle\langle y_i,y_j\rangle
+=a_{ij}b_{ij}
+=c_{ij}.
+$$
+
+因此 $C$ 是向量组 $z_1,\ldots,z_n$ 的 Gram 矩阵。
+
+下面说明 $z_1,\ldots,z_n$ 线性无关。因为 $A$ 正定，$x_1,\ldots,x_n$ 线性无关；取其对偶泛函 $\varphi_1,\ldots,\varphi_n$，满足
+
+$$
+\varphi_i(x_j)=\delta_{ij}.
+$$
+
+若
+
+$$
+\sum_{i=1}^n \alpha_i(x_i\otimes y_i)=0,
+$$
+
+对两边作用 $\varphi_k\otimes I$，得
+
+$$
+\alpha_k y_k=0.
+$$
+
+由于 $B$ 正定，$y_k\ne0$，所以 $\alpha_k=0$。$k$ 任意，故所有 $\alpha_k=0$，从而 $z_1,\ldots,z_n$ 线性无关。
+
+线性无关向量组的 Gram 矩阵正定。因此 $C$ 正定。`, explain:"这就是 Schur 乘积定理在正定情形下的证明：把 $a_{ij}b_{ij}$ 写成张量积向量的内积。", freq:"真题", diff:"较难"}
     ];
 
     const knowledge = {
