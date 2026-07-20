@@ -3,6 +3,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const publications = [
   {
+    title: 'Solving Functional Equations via the Injection-Commutation Method',
+    titleZh: '利用单射-交换元方法解函数方程',
+    venue: 'Middle School Mathematics, 2023(5)',
+    venueZh: '《中等数学》2023 年第 5 期',
+    year: '2023',
+    href: 'https://kns.cnki.net/kcms2/article/abstract?v=hUjjRxyvaVPiKal2P0n5fx1nDbgRjvLFzFuqts95bbTjK6XXcp4zxsw_rfCHisqdYaqKvtTkpsiHWnHZ6lsVv_7MokaKWDaziajIIFecZZAxnypaRuanj5as2Gm8VyDUsP8gdXEPPHaBuwEG8bPU9YfXXUbVOe2H_GhcQsr4H3bR3sf47-4thw==&uniplatform=NZKPT&language=CHS',
+    pdf: 'https://kns.cnki.net/reader/flowpdf?invoice=RedtrUVS51uRwpBUfB2W4JYjPpRe24AvVKidEXjfVsUYCmeZVUHxlAf3gSiF9%2Fp1seYUkF2kdXyeSx7qUb%2BHnpPmvcN7HgE%2FMZhdtyvMr0aABZiLKmROn%2FN5bXVY029L%2B8Kc%2FgArX1NyPL%2FwUHIi%2BH18nS8AmrrCbNsbbah44Rc%3D&platform=NZKPT&sourcetype=nxgp&product=CJFN&filename=ZDSX202305002&tablename=cjfdlasn2024&type=JOURNAL&scope=trial&cflag=overlay&dflag=pdf&pages=&language=CHS&trial=&nonce=070B8735BD2D47EDB28A68C03CC5602A',
+    description: 'A CNKI-indexed article published in Middle School Mathematics.',
+    descriptionZh: '发表于《中等数学》，并由 CNKI 收录。'
+  },
+  {
     title: 'Mathematical Structures and Computational Practice',
     titleZh: '数学结构与计算实践',
     venue: 'Working notes',
@@ -394,7 +405,15 @@ const projects = [
         <div class="entry-list">
           {publications.map((item) => (
             <article class="entry">
-              <h3><span class="lang-en">{item.title}</span><span class="lang-zh">{item.titleZh}</span></h3>
+              <h3>
+                <span class="lang-en">{item.title}</span><span class="lang-zh">{item.titleZh}</span>
+                {(item.href || item.pdf) && (
+                  <span class="entry-inline-meta">
+                    {item.href && <a href={item.href} target="_blank" rel="noopener">[Link]</a>}
+                    {item.pdf && <a href={item.pdf} target="_blank" rel="noopener">[PDF]</a>}
+                  </span>
+                )}
+              </h3>
               <p class="entry-meta">
                 <span class="lang-en">{item.venue}</span><span class="lang-zh">{item.venueZh}</span> · {item.year}
               </p>
