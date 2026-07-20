@@ -839,6 +839,11 @@ html[data-theme="dark"] .seeking-note {
     margin: 0 auto 16px;
   }
 
+  .profile-location {
+    justify-content: center;
+    text-align: center;
+  }
+
   .profile-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     text-align: center;
