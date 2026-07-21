@@ -12,24 +12,6 @@ const publications = [
     pdf: 'https://kns.cnki.net/reader/flowpdf?invoice=RedtrUVS51uRwpBUfB2W4JYjPpRe24AvVKidEXjfVsUYCmeZVUHxlAf3gSiF9%2Fp1seYUkF2kdXyeSx7qUb%2BHnpPmvcN7HgE%2FMZhdtyvMr0aABZiLKmROn%2FN5bXVY029L%2B8Kc%2FgArX1NyPL%2FwUHIi%2BH18nS8AmrrCbNsbbah44Rc%3D&platform=NZKPT&sourcetype=nxgp&product=CJFN&filename=ZDSX202305002&tablename=cjfdlasn2024&type=JOURNAL&scope=trial&cflag=overlay&dflag=pdf&pages=&language=CHS&trial=&nonce=070B8735BD2D47EDB28A68C03CC5602A',
     description: 'A CNKI-indexed article published in Middle School Mathematics.',
     descriptionZh: '发表于《中等数学》，并由 CNKI 收录。'
-  },
-  {
-    title: 'Mathematical Structures and Computational Practice',
-    titleZh: '数学结构与计算实践',
-    venue: 'Working notes',
-    venueZh: '学习笔记',
-    year: '2026',
-    description: 'A growing collection of notes connecting linear algebra, algorithms, and implementation.',
-    descriptionZh: '一组持续整理的笔记，连接线性代数、算法与程序实现。'
-  },
-  {
-    title: 'Parallel Programming Study Materials',
-    titleZh: '并行程序设计学习资料',
-    venue: 'Course review archive',
-    venueZh: '课程复习资料',
-    year: '2026',
-    description: 'MPI, OpenMP, GPU, and CUDA review materials organized for repeated practice.',
-    descriptionZh: '围绕 MPI、OpenMP、GPU 与 CUDA 整理的复习材料，便于反复练习。'
   }
 ];
 
@@ -132,27 +114,6 @@ const projects = [
     titleZh: '乐云 SparkEdu',
     description: 'A technical project experience from DAMO Developer Matrix, Alibaba DAMO Academy, involving VLA model training workflows and hands-on programming practice.',
     descriptionZh: 'DAMO 开发者矩阵、阿里巴巴达摩院相关技术项目经历，接触 VLA 模型训练流程与项目实践。'
-  },
-  {
-    title: 'Linear Algebra Practice',
-    titleZh: '线性代数练习',
-    href: '/linear-algebra-practice/',
-    description: 'A course-oriented practice page with refined source materials and problem review.',
-    descriptionZh: '面向课程复习的练习页面，整理了精校资料与题目回顾。'
-  },
-  {
-    title: 'Parallel Practice',
-    titleZh: '并行程序设计练习',
-    href: '/parallel-practice/',
-    description: 'Parallel programming review materials, cheat sheets, and final exam preparation notes.',
-    descriptionZh: '并行程序设计复习材料、速查手册与期末备考笔记。'
-  },
-  {
-    title: 'Personal Academic Site',
-    titleZh: '个人学术主页',
-    href: 'https://github.com/Silver-Moon-Over-Snow/silver-moon-over-snow.github.io',
-    description: 'An Astro-powered GitHub Pages site for academic profile, notes, and study materials.',
-    descriptionZh: '基于 Astro 和 GitHub Pages 的个人学术主页，用于展示简介、笔记与学习资料。'
   }
 ];
 ---
@@ -169,6 +130,7 @@ const projects = [
         <li><a href="#service"><span class="lang-en">Service</span><span class="lang-zh">学生工作</span></a></li>
         <li><a href="#publications"><span class="lang-en">Publications</span><span class="lang-zh">写作</span></a></li>
         <li><a href="#projects"><span class="lang-en">Projects</span><span class="lang-zh">项目</span></a></li>
+        <li><a href="/blog/"><span class="lang-en">Blog</span><span class="lang-zh">动态</span></a></li>
         <li><a href="#contact"><span class="lang-en">Contact</span><span class="lang-zh">联系</span></a></li>
       </ul>
       <button class="lang-toggle" type="button" aria-label="Switch language">
@@ -227,6 +189,12 @@ const projects = [
               <path d="M6 2.8h8.5L20 8.3V21a1 1 0 0 1-1 1H6a2 2 0 0 1-2-2V4.8a2 2 0 0 1 2-2Zm8 1.9V9h4.3L14 4.7ZM7 12h10v2H7v-2Zm0 4h10v2H7v-2Z" />
             </svg>
             <span>CV (中)</span>
+          </a>
+          <a href="/blog/">
+            <svg class="profile-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 4h14a2 2 0 0 1 2 2v9.5a2 2 0 0 1-2 2H9.8L5 21v-3.5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm1 4v1.7h12V8H6Zm0 4v1.7h8.5V12H6Z" />
+            </svg>
+            <span><span class="lang-en">Blog</span><span class="lang-zh">动态</span></span>
           </a>
           <a href="https://github.com/Silver-Moon-Over-Snow" target="_blank" rel="noopener">
             <svg class="profile-icon" viewBox="0 0 24 24" aria-hidden="true">
